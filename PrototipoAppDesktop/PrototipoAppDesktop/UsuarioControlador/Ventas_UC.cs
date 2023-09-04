@@ -16,5 +16,10 @@ namespace PrototipoAppDesktop.UsuarioControlador
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
