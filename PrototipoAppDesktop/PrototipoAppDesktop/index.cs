@@ -21,15 +21,21 @@ namespace PrototipoAppDesktop
         private void button1_Click(object sender, EventArgs e)
         {
             ABM_UC abm_uc = new ABM_UC();
-            abm_uc.Dock = DockStyle.Fill;
-            panel1.Controls.Clear();
-            panel1.Controls.Add(abm_uc);
-            abm_uc.BringToFront();
+            agregarControlDeUsuario(abm_uc);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Ventas_UC ventas_uc = new Ventas_UC();
+            agregarControlDeUsuario(ventas_uc);
+        }
 
+        private void agregarControlDeUsuario(UserControl uc) {
+            uc.Dock = DockStyle.Fill;
+            panel1.Controls.Clear();
+            panel1.Controls.Add(uc);
+            uc.BringToFront();
         }
     }
+
 }
