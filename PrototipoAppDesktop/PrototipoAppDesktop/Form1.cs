@@ -29,9 +29,8 @@ namespace PrototipoAppDesktop
 
         }
 
-        private void bnt_ingresar_Click(object sender, EventArgs e)
-        {
-            validarUsuario(txt_usuario.Text, txt_contraseña.Text)
+        private void bnt_ingresar_Click(object sender, EventArgs e){
+            validarUsuario(txt_usuario.Text, txt_contraseña.Text);
 
 
             //index index = new index();

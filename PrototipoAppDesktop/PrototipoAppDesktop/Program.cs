@@ -18,7 +18,6 @@ namespace PrototipoAppDesktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
 
             var builder = SqlConnectionStringBuilder();
             builder.DataSource = "DESKTOP-CGPE47L\\MSSQLSERVER01";// NOMBRE DEL SERVIDOR;

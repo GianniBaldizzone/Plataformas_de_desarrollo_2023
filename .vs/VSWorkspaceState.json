@@ -2,10 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\PrototipoAppDesktop",
-    "\\PrototipoAppDesktop\\PrototipoAppDesktop\\bin",
-    "\\PrototipoAppDesktop\\PrototipoAppDesktop\\obj",
-    "\\PrototipoAppDesktop\\PrototipoAppDesktop\\Properties"
+    "\\PrototipoAppDesktop\\PrototipoAppDesktop",
+    "\\PrototipoAppDesktop\\PrototipoAppDesktop\\Modelos"
   ],
-  "SelectedNode": "\\PrototipoAppDesktop\\PrototipoAppDesktop.sln",
+  "SelectedNode": "\\PrototipoAppDesktop\\PrototipoAppDesktop\\index.cs",
   "PreviewInSolutionExplorer": false
 }
