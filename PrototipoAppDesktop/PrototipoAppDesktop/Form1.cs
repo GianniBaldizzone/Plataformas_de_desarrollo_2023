@@ -16,6 +16,7 @@ namespace PrototipoAppDesktop
         public Form1()
         {
             InitializeComponent();
+            lbl_error.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,14 +34,29 @@ namespace PrototipoAppDesktop
             validarUsuario(txt_usuario.Text, txt_contraseña.Text)
 
 
-            index index = new index();
-            index.Show();
-            this.Hide();
+            //index index = new index();
+            //index.Show();
+            //this.Hide();
         }
 
         private void validarUsuario(String usuario, String contraseña){
 
             Trace.WriteLine(usuario + "" + contraseña);
+
+            if (string.IsNullOrEmpty(txt_usuario.Text))
+            {
+                lbl_error = "Debes ingresar un usuario";
+                lbl_error.Visible=true
+            }
+           
+            //Validar que ambos textos no esten vacios
+            //Validar que exista en la base de datos un usuario
+            //obtener el id de ese usuario
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,11 +33,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.bnt_ingresar = new System.Windows.Forms.Button();
+            this.lbl_error = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_usuario
             // 
-            this.txt_usuario.Location = new System.Drawing.Point(547, 226);
+            this.txt_usuario.Location = new System.Drawing.Point(547, 222);
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(271, 22);
             this.txt_usuario.TabIndex = 0;
@@ -79,12 +80,24 @@
             this.bnt_ingresar.UseVisualStyleBackColor = true;
             this.bnt_ingresar.Click += new System.EventHandler(this.bnt_ingresar_Click);
             // 
+            // lbl_error
+            // 
+            this.lbl_error.AutoSize = true;
+            this.lbl_error.ForeColor = System.Drawing.Color.Red;
+            this.lbl_error.Location = new System.Drawing.Point(912, 228);
+            this.lbl_error.Name = "lbl_error";
+            this.lbl_error.Size = new System.Drawing.Size(36, 16);
+            this.lbl_error.TabIndex = 5;
+            this.lbl_error.Text = "Error";
+            this.lbl_error.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1389, 755);
+            this.Controls.Add(this.lbl_error);
             this.Controls.Add(this.bnt_ingresar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -104,6 +117,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bnt_ingresar;
+        private System.Windows.Forms.Label lbl_error;
     }
 }
 
