@@ -38,7 +38,7 @@ namespace PrototipoAppDesktop
             //this.Hide();
         }
 
-        private void validarUsuario(String usuario, String contraseña){
+        private void validarUsuario(string usuario, string contraseña){
 
             Trace.WriteLine(usuario + "" + contraseña);
 
