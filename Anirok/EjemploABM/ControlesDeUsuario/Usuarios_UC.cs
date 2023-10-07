@@ -38,18 +38,10 @@ namespace EjemploABM.ControlesDeUsuario
                 dataGridView1.Rows[rowIndex].Cells[4].Value = usr.Telefono.ToString();
                 dataGridView1.Rows[rowIndex].Cells[5].Value = usr.Direccion.ToString();
                 dataGridView1.Rows[rowIndex].Cells[6].Value = usr.Dni.ToString();
-                dataGridView1.Rows[rowIndex].Cells[7].Value = usr.Rol.ToString();
+                dataGridView1.Rows[rowIndex].Cells[7].Value = usr.Contraseña.ToString();
+                dataGridView1.Rows[rowIndex].Cells[8].Value = usr.Rol.ToString();
 
-                if (usr.Rol.ToString() == "1")
-                {
-                    dataGridView1.Rows[rowIndex].Cells[8].Value = "Admin";
-
-                }
-                else
-                {
-
-                    dataGridView1.Rows[rowIndex].Cells[8].Value = "Vendedor";
-                }
+                
                 dataGridView1.Rows[rowIndex].Cells[9].Value = "Editar";
                 dataGridView1.Rows[rowIndex].Cells[10].Value = "Eliminar";
 
