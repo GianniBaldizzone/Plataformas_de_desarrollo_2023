@@ -21,7 +21,7 @@ namespace EjemploABM
             Productos_UC prodsUC = new Productos_UC();
             addUserControl(prodsUC);
 
-            if(Program.logueado.Id_tipo != 1)
+            if(Program.logueado.Rol != 1)
             {
                 btn_users.Hide();
             }

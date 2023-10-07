@@ -17,7 +17,7 @@ namespace EjemploABM.Controladores
         public static bool autenticar(string usr, string pass, bool hasheado)
         {
             Usuario user = new Usuario();
-            string query = "select * from dbo.usuario where username = @usr and password = @pass;";
+            string query = "select * from dbo.usuario where nombre = @usr and contraseña = @pass;";
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
             cmd.Parameters.AddWithValue("@usr", usr);
@@ -38,7 +38,7 @@ namespace EjemploABM.Controladores
                 while (reader.Read())
                 {
                     Trace.WriteLine("Usr encontrado, nombre: " + reader.GetString(1));
-                    user = new Usuario(reader.GetInt32(0), reader.GetString(1), "", reader.GetString(3), reader.GetString(4), reader.GetInt32(5));
+                    user = new Usuario(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), "", reader.GetInt32(8));
                 }
 
                 reader.Close();
@@ -61,19 +61,27 @@ namespace EjemploABM.Controladores
 
             string query = "insert into dbo.usuario values" +
                "(@id, " +
-               "@username, " +
-               "@password, " +
-               "@name, " +
-               "@lastname, " +
+               "@nombre, " +
+               "@apellido, " +
+               "@mail, " +
+               "@telefono, " +
+               "@direccion, " +
+               "@dni, " +
+               "@contraseña, " +
                "@rol);";
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
             cmd.Parameters.AddWithValue("@id", obtenerMaxId() + 1);
-            cmd.Parameters.AddWithValue("@username", usr.usuario);
-            cmd.Parameters.AddWithValue("@password", usr.Contraseña);
-            cmd.Parameters.AddWithValue("@name", usr.Nombre);
-            cmd.Parameters.AddWithValue("@lastname", usr.Apellido);
-            cmd.Parameters.AddWithValue("@rol", usr.Id_tipo);
+            cmd.Parameters.AddWithValue("@nombre", usr.Nombre);
+            cmd.Parameters.AddWithValue("@apellido", usr.Apellido);
+            cmd.Parameters.AddWithValue("@mail", usr.Mail);
+            cmd.Parameters.AddWithValue("@telefono", usr.Telefono);
+            cmd.Parameters.AddWithValue("@direccion", usr.Direccion);
+            cmd.Parameters.AddWithValue("@dni", usr.Dni);
+            cmd.Parameters.AddWithValue("@contraseña", usr.Contraseña);
+            cmd.Parameters.AddWithValue("@rol", usr.Rol);
+
+
 
             try
             {
@@ -136,7 +144,8 @@ namespace EjemploABM.Controladores
 
                 while (reader.Read())
                 {
-                    list.Add(new Usuario(reader.GetInt32(0), reader.GetString(1), "", reader.GetString(3), reader.GetString(4), reader.GetInt32(5)));
+                    list.Add(new Usuario(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), "", reader.GetInt32(8)));
+         
                     Trace.WriteLine("Usr encontrado, nombre: " + reader.GetString(1));
                 }
 
@@ -171,7 +180,7 @@ namespace EjemploABM.Controladores
 
                 while (reader.Read())
                 {
-                    usr = new Usuario(reader.GetInt32(0), reader.GetString(1), "", reader.GetString(3), reader.GetString(4), reader.GetInt32(5));
+                    usr = new Usuario(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), "", reader.GetInt32(8));
                     Trace.WriteLine("Usr encontrado, nombre: " + reader.GetString(1));
                 }
 
@@ -195,18 +204,27 @@ namespace EjemploABM.Controladores
         {
             //Darlo de alta en la BBDD
 
-            string query = "update dbo.usuario set username = @username , " +
-                "name = @name , " +
-                "lastname = @lastname , " +
-                "rol = @rol " + 
-                "where id = @id ;";
+            string query = "insert into dbo.usuario values" +
+               "(@id, " +
+               "@nombre, " +
+               "@apellido, " +
+               "@mail, " +
+               "@telefono, " +
+               "@direccion, " +
+               "@dni, " +
+               "@contraseña, " +
+               "@rol);";
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
-            cmd.Parameters.AddWithValue("@id", usr.Id);
-            cmd.Parameters.AddWithValue("@username", usr.usuario);
-            cmd.Parameters.AddWithValue("@name", usr.Nombre);
-            cmd.Parameters.AddWithValue("@lastname", usr.Apellido);
-            cmd.Parameters.AddWithValue("@rol", usr.Id_tipo);
+            cmd.Parameters.AddWithValue("@id", obtenerMaxId() + 1);
+            cmd.Parameters.AddWithValue("@nombre", usr.Nombre);
+            cmd.Parameters.AddWithValue("@apellido", usr.Apellido);
+            cmd.Parameters.AddWithValue("@mail", usr.Mail);
+            cmd.Parameters.AddWithValue("@telefono", usr.Telefono);
+            cmd.Parameters.AddWithValue("@direccion", usr.Direccion);
+            cmd.Parameters.AddWithValue("@dni", usr.Dni);
+            cmd.Parameters.AddWithValue("@contraseña", usr.Contraseña);
+            cmd.Parameters.AddWithValue("@rol", usr.Rol);
 
             try
             {

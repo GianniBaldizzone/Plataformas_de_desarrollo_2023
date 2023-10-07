@@ -9,23 +9,27 @@ namespace EjemploABM.Modelo
     public class Usuario
     {
         public int Id { get; set; }
-        public String usuario { get; set; }
-        public String Contraseña { get; set; }
         public String Nombre { get; set; }
         public String Apellido { get; set; }
-        public int Id_tipo { get; set; }
+        public String Mail { get; set; }
+        public String Telefono { get; set; }
+        public String Direccion { get; set; }
+        public String Dni { get; set; }
+        public String Contraseña { get; set; }
+        public int Rol { get; set; }
 
-
-        public Usuario(int id, string username, string pass, string name, string lastname, int rol)
+        public Usuario(int id, string nombre, string apellido, string mail, string telefono, String direccion, String dni, String contraseña, int rol)
         {
             Id = id;
-            usuario = username;
-            Contraseña = pass;
-            Nombre = name;
-            Apellido = lastname;
-            Id_tipo = rol;
+            Nombre = nombre;
+            Apellido = apellido;
+            Mail = mail;
+            Telefono = telefono;
+            Direccion = direccion;
+            Dni = dni;
+            Contraseña = contraseña;
+            Rol = rol;
         }
-
         public Usuario()
         {
 

@@ -34,19 +34,24 @@ namespace EjemploABM.ControlesDeUsuario
                 dataGridView1.Rows[rowIndex].Cells[0].Value = usr.Id.ToString();
                 dataGridView1.Rows[rowIndex].Cells[1].Value = usr.Nombre.ToString();
                 dataGridView1.Rows[rowIndex].Cells[2].Value = usr.Apellido.ToString();
-                dataGridView1.Rows[rowIndex].Cells[3].Value = usr.usuario.ToString();
-                if(usr.Id_tipo.ToString() == "1")
+                dataGridView1.Rows[rowIndex].Cells[3].Value = usr.Mail.ToString();
+                dataGridView1.Rows[rowIndex].Cells[4].Value = usr.Telefono.ToString();
+                dataGridView1.Rows[rowIndex].Cells[5].Value = usr.Direccion.ToString();
+                dataGridView1.Rows[rowIndex].Cells[6].Value = usr.Dni.ToString();
+                dataGridView1.Rows[rowIndex].Cells[7].Value = usr.Rol.ToString();
+
+                if (usr.Rol.ToString() == "1")
                 {
-                    dataGridView1.Rows[rowIndex].Cells[4].Value = "Admin";
+                    dataGridView1.Rows[rowIndex].Cells[8].Value = "Admin";
 
                 }
                 else
                 {
 
-                    dataGridView1.Rows[rowIndex].Cells[4].Value = "Vendedor";
+                    dataGridView1.Rows[rowIndex].Cells[8].Value = "Vendedor";
                 }
-                dataGridView1.Rows[rowIndex].Cells[5].Value = "Editar";
-                dataGridView1.Rows[rowIndex].Cells[6].Value = "Eliminar";
+                dataGridView1.Rows[rowIndex].Cells[9].Value = "Editar";
+                dataGridView1.Rows[rowIndex].Cells[10].Value = "Eliminar";
 
             }
         }

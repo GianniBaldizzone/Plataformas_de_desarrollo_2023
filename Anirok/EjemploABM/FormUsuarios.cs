@@ -37,7 +37,7 @@ namespace EjemploABM
 
             id_editar = usr.Id;
 
-            txt_usuario.Text = usr.usuario.ToString();
+            txt_usuario.Text = usr.Nombre.ToString();
             txt_contraseña.Text = usr.Contraseña.ToString();
             txt_nombre.Text = usr.Nombre.ToString();
             txt_apellido.Text = usr.Apellido.ToString();
@@ -46,7 +46,7 @@ namespace EjemploABM
             combo_tipo.Items.Add("Admin");
             combo_tipo.Items.Add("Vendedor");
 
-            if (usr.Id_tipo == 1)
+            if (usr.Rol == 1)
             {
                 combo_tipo.SelectedIndex = 0;
             }
@@ -84,9 +84,9 @@ namespace EjemploABM
                 tipo = 1;
             }
 
-            Usuario usr = new Usuario(0, txt_usuario.Text, txt_contraseña.Text, txt_nombre.Text, txt_apellido.Text, tipo);
+            //Usuario usr = new Usuario(0, txt_usuario.Text, txt_contraseña.Text, txt_nombre.Text, txt_apellido.Text, tipo);
 
-            if (Usuario_Controller.crearUsuario(usr))
+            //if (Usuario_Controller.crearUsuario(usr))
             {
                 this.DialogResult = DialogResult.OK;
             }
@@ -100,9 +100,9 @@ namespace EjemploABM
                 tipo = 1;
             }
 
-            Usuario usr = new Usuario(id_editar, txt_usuario.Text, txt_contraseña.Text, txt_nombre.Text, txt_apellido.Text, tipo);
+            //Usuario usr = new Usuario(id_editar, txt_usuario.Text, txt_contraseña.Text, txt_nombre.Text, txt_apellido.Text, tipo);
 
-            if (Usuario_Controller.editarUsuario(usr))
+            //if (Usuario_Controller.editarUsuario(usr))
             {
                 this.DialogResult = DialogResult.OK;
             }
