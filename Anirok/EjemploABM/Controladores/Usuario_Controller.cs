@@ -16,7 +16,7 @@ namespace EjemploABM.Controladores
 
         public static bool autenticar(string usr, string pass, bool hasheado)
         {
-            Usuario user = null; // Inicializa user como null
+            Usuario user = null;
 
             string query = "select * from dbo.usuario where nombre = @usr and contraseña = @pass;";
 
@@ -47,13 +47,13 @@ namespace EjemploABM.Controladores
 
                 if (user != null)
                 {
-                    // Si se encontró un usuario, almacena en Program.logueado y retorna true
                     Program.logueado = user;
                     return true;
                 }
                 else
                 {
-                    // Si no se encontró un usuario, retorna false
+                    // Si no se encontró un usuario, borra el contenido de los TextBox
+                    
                     return false;
                 }
             }

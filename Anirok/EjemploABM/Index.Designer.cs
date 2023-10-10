@@ -91,12 +91,12 @@ namespace EjemploABM
             // lb_nombre_logueado
             // 
             this.lb_nombre_logueado.AutoSize = true;
+            this.lb_nombre_logueado.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lb_nombre_logueado.Location = new System.Drawing.Point(873, 12);
             this.lb_nombre_logueado.Name = "lb_nombre_logueado";
             this.lb_nombre_logueado.Size = new System.Drawing.Size(44, 16);
             this.lb_nombre_logueado.TabIndex = 5;
             this.lb_nombre_logueado.Text = "label2";
-           
             // 
             // Index
             // 

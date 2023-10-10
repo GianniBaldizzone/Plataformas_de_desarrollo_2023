@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EjemploABM.Controladores;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EjemploABM
 {
@@ -30,6 +31,8 @@ namespace EjemploABM
             else
             {
                 // Mostrar mensaje de error
+                textBox1.Text = "";
+                textBox2.Text = "";
                 labelError.Visible = true;
                 labelError.Text = "Usuario o contraseña incorrectos. Intente de nuevo.";
             }
