@@ -16,22 +16,25 @@ namespace EjemploABM
         public Form1()
         {
             InitializeComponent();
+            labelError.Visible = false;
         }
 
         private void btn_login_Click(object sender, EventArgs e)
         {
             if (Usuario_Controller.autenticar(textBox1.Text, textBox2.Text, true))
             {
-                /*if (MantenerSesion.Checked)
-                {
-                    Usuario_Controlador.persistirUsuario(Program.logueado);
-                }*/
-
                 Index index = new Index();
                 index.Show();
                 this.Hide();
             }
-
+            else
+            {
+                // Mostrar mensaje de error
+                labelError.Visible = true;
+                labelError.Text = "Usuario o contraseña incorrectos. Intente de nuevo.";
+            }
         }
+
+       
     }
 }

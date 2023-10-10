@@ -17,10 +17,11 @@ namespace EjemploABM
         {
             InitializeComponent();
 
-
+            
             Productos_UC prodsUC = new Productos_UC();
             addUserControl(prodsUC);
-
+            
+            lb_nombre_logueado.Text = Program.logueado.Nombre;
             if(Program.logueado.Rol != 1)
             {
                 btn_users.Hide();
@@ -55,6 +56,6 @@ namespace EjemploABM
             uc.BringToFront();
         }
 
-
+        
     }
 }

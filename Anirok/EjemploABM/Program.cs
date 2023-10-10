@@ -13,6 +13,7 @@ namespace EjemploABM
     {
 
         public static Usuario logueado;
+        
 
         /// <summary>
         /// Punto de entrada principal para la aplicación.
