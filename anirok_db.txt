@@ -200,7 +200,7 @@ CREATE TABLE dbo.usuario (
   direccion NVARCHAR(45) NULL,
   dni NVARCHAR(45) NULL,
   contraseña NVARCHAR(45) NULL,
-  rol NVARCHAR(45) NULL
+  rol int NULL
 );
 GO
 
