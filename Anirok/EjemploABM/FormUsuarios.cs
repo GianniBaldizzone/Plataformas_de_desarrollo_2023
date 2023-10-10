@@ -37,10 +37,17 @@ namespace EjemploABM
 
             id_editar = usr.Id;
 
-            txt_usuario.Text = usr.Nombre.ToString();
-            txt_contraseña.Text = usr.Contraseña.ToString();
+
             txt_nombre.Text = usr.Nombre.ToString();
             txt_apellido.Text = usr.Apellido.ToString();
+            txt_mail.Text = usr.Mail.ToString();
+            txt_direccion.Text = usr.Direccion.ToString();
+            txt_telefono.Text = usr.Telefono.ToString();
+            txt_dni.Text = usr.Dni.ToString();
+            
+            
+
+
 
             combo_tipo.Items.Clear();
             combo_tipo.Items.Add("Admin");
@@ -84,9 +91,9 @@ namespace EjemploABM
                 tipo = 1;
             }
 
-            //Usuario usr = new Usuario(0, txt_usuario.Text, txt_contraseña.Text, txt_nombre.Text, txt_apellido.Text, tipo);
+            Usuario usr = new Usuario(0, txt_nombre.Text, txt_apellido.Text, txt_mail.Text, txt_direccion.Text, txt_telefono.Text, txt_dni.Text, txt_contraseña.Text, tipo);
 
-            //if (Usuario_Controller.crearUsuario(usr))
+            if (Usuario_Controller.crearUsuario(usr))
             {
                 this.DialogResult = DialogResult.OK;
             }
