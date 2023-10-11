@@ -38,6 +38,31 @@ namespace EjemploABM
             }
         }
 
-       
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
+        
+
+        private void btn_log_Click(object sender, EventArgs e)
+        {
+            if (Usuario_Controller.autenticar(textBox1.Text, textBox2.Text, true))
+            {
+                Index index = new Index();
+                index.Show();
+                this.Hide();
+            }
+            else
+            {
+                // Mostrar mensaje de error
+                textBox1.Text = "";
+                textBox2.Text = "";
+                labelError.Visible = true;
+                labelError.Text = "Usuario o contraseña incorrectos. Intente de nuevo.";
+            }
+
+        }
     }
 }
