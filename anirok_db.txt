@@ -283,4 +283,11 @@ CREATE TABLE dbo.compra (
 );
 GO
 
+-- Insertar dos registros de ejemplo en la tabla usuario
+INSERT INTO dbo.usuario (id, nombre, apellido, mail, telefono, direccion, dni, contraseña, rol)
+VALUES
+    (1, 'Usuario1', 'Apellido1', 'usuario1@example.com', '1234567890', 'Calle 123, Ciudad', '123456789', 'contrasena1', 1),
+    (2, 'Usuario2', 'Apellido2', 'usuario2@example.com', '9876543210', 'Avenida 456, Ciudad', '987654321', 'contrasena2', 2);
+
+
 -- Fin del script
