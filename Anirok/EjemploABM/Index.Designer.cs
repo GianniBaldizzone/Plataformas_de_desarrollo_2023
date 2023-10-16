@@ -40,8 +40,9 @@ namespace EjemploABM
             // btn_prods
             // 
             this.btn_prods.Location = new System.Drawing.Point(0, 0);
+            this.btn_prods.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_prods.Name = "btn_prods";
-            this.btn_prods.Size = new System.Drawing.Size(75, 23);
+            this.btn_prods.Size = new System.Drawing.Size(112, 35);
             this.btn_prods.TabIndex = 0;
             this.btn_prods.Text = "Productos";
             this.btn_prods.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@ namespace EjemploABM
             // 
             // btn_cats
             // 
-            this.btn_cats.Location = new System.Drawing.Point(90, 0);
+            this.btn_cats.Location = new System.Drawing.Point(135, 0);
+            this.btn_cats.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_cats.Name = "btn_cats";
-            this.btn_cats.Size = new System.Drawing.Size(75, 23);
+            this.btn_cats.Size = new System.Drawing.Size(112, 35);
             this.btn_cats.TabIndex = 1;
             this.btn_cats.Text = "Categorias";
             this.btn_cats.UseVisualStyleBackColor = true;
@@ -60,17 +62,19 @@ namespace EjemploABM
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(589, 10);
+            this.label1.Location = new System.Drawing.Point(884, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.Size = new System.Drawing.Size(95, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Bienvenido: ";
             // 
             // btn_users
             // 
-            this.btn_users.Location = new System.Drawing.Point(180, 0);
+            this.btn_users.Location = new System.Drawing.Point(270, 0);
+            this.btn_users.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_users.Name = "btn_users";
-            this.btn_users.Size = new System.Drawing.Size(75, 23);
+            this.btn_users.Size = new System.Drawing.Size(112, 35);
             this.btn_users.TabIndex = 3;
             this.btn_users.Text = "Usuarios";
             this.btn_users.UseVisualStyleBackColor = true;
@@ -78,35 +82,44 @@ namespace EjemploABM
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(0, 29);
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoScroll = true;
+            this.panel1.AutoSize = true;
+            this.panel1.Location = new System.Drawing.Point(13, 58);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(799, 421);
+            this.panel1.Size = new System.Drawing.Size(1132, 500);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lb_nombre_logueado
             // 
             this.lb_nombre_logueado.AutoSize = true;
             this.lb_nombre_logueado.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lb_nombre_logueado.Location = new System.Drawing.Point(655, 10);
-            this.lb_nombre_logueado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_nombre_logueado.Location = new System.Drawing.Point(982, 15);
             this.lb_nombre_logueado.Name = "lb_nombre_logueado";
-            this.lb_nombre_logueado.Size = new System.Drawing.Size(35, 13);
+            this.lb_nombre_logueado.Size = new System.Drawing.Size(51, 20);
             this.lb_nombre_logueado.TabIndex = 5;
             this.lb_nombre_logueado.Text = "label2";
             // 
             // Index
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1158, 944);
             this.Controls.Add(this.lb_nombre_logueado);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_users);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_cats);
             this.Controls.Add(this.btn_prods);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Index";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Index";
+            this.Load += new System.EventHandler(this.Index_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

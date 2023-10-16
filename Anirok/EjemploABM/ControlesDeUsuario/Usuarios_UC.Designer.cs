@@ -31,6 +31,9 @@ namespace EjemploABM.ControlesDeUsuario
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btn_new = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,23 +45,23 @@ namespace EjemploABM.ControlesDeUsuario
             this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btn_new = new System.Windows.Forms.Button();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 13);
+            this.label1.Location = new System.Drawing.Point(30, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.Size = new System.Drawing.Size(76, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuarios:";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -72,19 +75,30 @@ namespace EjemploABM.ControlesDeUsuario
             this.Rol,
             this.Editar,
             this.Eliminar});
-            this.dataGridView1.Location = new System.Drawing.Point(23, 48);
+            this.dataGridView1.Location = new System.Drawing.Point(44, 61);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1382, 355);
+            this.dataGridView1.Size = new System.Drawing.Size(1100, 400);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // btn_new
+            // 
+            this.btn_new.Location = new System.Drawing.Point(584, 25);
+            this.btn_new.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_new.Name = "btn_new";
+            this.btn_new.Size = new System.Drawing.Size(136, 31);
+            this.btn_new.TabIndex = 2;
+            this.btn_new.Text = "Crear";
+            this.btn_new.UseVisualStyleBackColor = true;
+            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
             // 
             // Id
             // 
             this.Id.HeaderText = "Id";
             this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
-            this.Id.Width = 125;
             // 
             // Nombre
             // 
@@ -119,14 +133,12 @@ namespace EjemploABM.ControlesDeUsuario
             this.Direccion.HeaderText = "Direccion";
             this.Direccion.MinimumWidth = 6;
             this.Direccion.Name = "Direccion";
-            this.Direccion.Width = 125;
             // 
             // Dni
             // 
             this.Dni.HeaderText = "Dni";
             this.Dni.MinimumWidth = 6;
             this.Dni.Name = "Dni";
-            this.Dni.Width = 125;
             // 
             // Contraseña
             // 
@@ -137,44 +149,37 @@ namespace EjemploABM.ControlesDeUsuario
             // 
             // Rol
             // 
+            this.Rol.FillWeight = 70F;
             this.Rol.HeaderText = "Rol";
             this.Rol.MinimumWidth = 6;
             this.Rol.Name = "Rol";
-            this.Rol.Width = 125;
+            this.Rol.Width = 50;
             // 
             // Editar
             // 
             this.Editar.HeaderText = "Editar";
             this.Editar.MinimumWidth = 6;
             this.Editar.Name = "Editar";
-            this.Editar.Width = 125;
+            this.Editar.Width = 70;
             // 
             // Eliminar
             // 
             this.Eliminar.HeaderText = "Eliminar";
             this.Eliminar.MinimumWidth = 6;
             this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Width = 125;
-            // 
-            // btn_new
-            // 
-            this.btn_new.Location = new System.Drawing.Point(389, 16);
-            this.btn_new.Name = "btn_new";
-            this.btn_new.Size = new System.Drawing.Size(91, 20);
-            this.btn_new.TabIndex = 2;
-            this.btn_new.Text = "Crear";
-            this.btn_new.UseVisualStyleBackColor = true;
-            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
+            this.Eliminar.Width = 70;
             // 
             // Usuarios_UC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.Controls.Add(this.btn_new);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Usuarios_UC";
-            this.Size = new System.Drawing.Size(1298, 448);
+            this.Size = new System.Drawing.Size(1180, 1000);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

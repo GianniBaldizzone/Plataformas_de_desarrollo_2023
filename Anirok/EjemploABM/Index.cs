@@ -56,6 +56,14 @@ namespace EjemploABM
             uc.BringToFront();
         }
 
-        
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Index_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
