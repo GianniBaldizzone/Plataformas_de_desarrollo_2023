@@ -30,23 +30,25 @@ namespace EjemploABM
 
         }
 
-        private void btn_prods_Click(object sender, EventArgs e)
+        //BOTONES
+        private void btn_prods_Click_1(object sender, EventArgs e)
         {
             Productos_UC prodsUC = new Productos_UC();
             addUserControl(prodsUC);
         }
 
-        private void btn_cats_Click(object sender, EventArgs e)
+        private void btn_cats_Click_1(object sender, EventArgs e)
         {
             Categorias_UC catsUC = new Categorias_UC();
             addUserControl(catsUC);
         }
 
-        private void btn_users_Click(object sender, EventArgs e)
+        private void btn_users_Click_1(object sender, EventArgs e)
         {
             Usuarios_UC userUC = new Usuarios_UC();
             addUserControl(userUC);
         }
+
 
         private void addUserControl(UserControl uc)
         {
@@ -65,5 +67,24 @@ namespace EjemploABM
         {
 
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            
+            this.WindowState = FormWindowState.Minimized;
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

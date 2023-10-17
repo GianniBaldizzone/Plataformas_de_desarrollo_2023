@@ -15,12 +15,18 @@ namespace EjemploABM.ControlesDeUsuario
 {
     public partial class Usuarios_UC : UserControl
     {
+
         List<Usuario> users;
 
         public Usuarios_UC()
         {
             InitializeComponent();
             cargarUsuarios();
+            
+                
+            dataGridView1.Font = new Font("Roboto", 10, FontStyle.Regular); // Cambia la fuente del DataGridView
+            
+            
         }
 
         private void cargarUsuarios()
@@ -48,12 +54,12 @@ namespace EjemploABM.ControlesDeUsuario
             }
         }
 
-        private void btn_new_Click(object sender, EventArgs e)
+        private void btn_new_Click_1(object sender, EventArgs e)
         {
             FormUsuarios frmUser = new FormUsuarios();
             DialogResult dr = frmUser.ShowDialog();
 
-            if(dr == DialogResult.OK)
+            if (dr == DialogResult.OK)
             {
                 Trace.WriteLine("OK");
                 //ACTUALIZAR LA LISTA
@@ -61,9 +67,13 @@ namespace EjemploABM.ControlesDeUsuario
 
             }
         }
+        
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+            private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
+
             var senderGrid = (DataGridView)sender;
 
             if (senderGrid.Columns[e.ColumnIndex].Name == "Editar")
@@ -89,6 +99,11 @@ namespace EjemploABM.ControlesDeUsuario
                 }
 
             }
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
 
