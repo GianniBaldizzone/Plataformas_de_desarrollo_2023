@@ -70,9 +70,8 @@ namespace EjemploABM
 
         }
 
-        private void btn_crear_Click(object sender, EventArgs e)
+        private void btn_crear_Click_1(object sender, EventArgs e)
         {
-
             if (situacion == "creacion")
             {
                 crear();
@@ -81,7 +80,9 @@ namespace EjemploABM
             {
                 editar();
             }
+
         }
+
 
         private void crear()
         {
@@ -115,5 +116,29 @@ namespace EjemploABM
             }
         }
 
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void txt_nombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void combo_tipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
