@@ -215,19 +215,18 @@ namespace EjemploABM.Controladores
         {
             //Darlo de alta en la BBDD
 
-            string query = "insert into dbo.usuario values" +
-               "(@id, " +
-               "@nombre, " +
-               "@apellido, " +
-               "@mail, " +
-               "@telefono, " +
-               "@direccion, " +
-               "@dni, " +
-               "@contraseña, " +
-               "@rol);";
+            string query = "UPDATE dbo.usuario SET " +
+                "nombre = @nombre, " +
+                "apellido = @apellido, " +
+                "mail = @mail, " +
+                "telefono = @telefono, " +
+                "direccion = @direccion," +
+                " dni = @dni, contraseña = @contraseña," +
+                " rol = @rol " +
+                "WHERE id = @id;";
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
-            cmd.Parameters.AddWithValue("@id", obtenerMaxId() + 1);
+            cmd.Parameters.AddWithValue("@id", usr.Id);
             cmd.Parameters.AddWithValue("@nombre", usr.Nombre);
             cmd.Parameters.AddWithValue("@apellido", usr.Apellido);
             cmd.Parameters.AddWithValue("@mail", usr.Mail);

@@ -38,7 +38,6 @@ namespace EjemploABM.ControlesDeUsuario
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btn_add = new Guna.UI2.WinForms.Guna2Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +49,7 @@ namespace EjemploABM.ControlesDeUsuario
             this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btn_add = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,24 +147,6 @@ namespace EjemploABM.ControlesDeUsuario
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
             // 
-            // btn_add
-            // 
-            this.btn_add.BorderRadius = 10;
-            this.btn_add.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_add.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_add.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_add.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_add.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btn_add.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.ForeColor = System.Drawing.Color.White;
-            this.btn_add.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.Image")));
-            this.btn_add.Location = new System.Drawing.Point(1156, 55);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(238, 58);
-            this.btn_add.TabIndex = 17;
-            this.btn_add.Text = "AGREGAR";
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
-            // 
             // Id
             // 
             this.Id.HeaderText = "Id";
@@ -237,6 +219,24 @@ namespace EjemploABM.ControlesDeUsuario
             this.Eliminar.Text = "Eliminar";
             this.Eliminar.UseColumnTextForButtonValue = true;
             // 
+            // btn_add
+            // 
+            this.btn_add.BorderRadius = 10;
+            this.btn_add.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_add.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_add.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_add.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_add.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_add.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.ForeColor = System.Drawing.Color.White;
+            this.btn_add.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.Image")));
+            this.btn_add.Location = new System.Drawing.Point(1156, 55);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(238, 58);
+            this.btn_add.TabIndex = 17;
+            this.btn_add.Text = "AGREGAR";
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
             // Usuarios_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -248,7 +248,7 @@ namespace EjemploABM.ControlesDeUsuario
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Usuarios_UC";
-            this.Size = new System.Drawing.Size(1367, 948);
+            this.Size = new System.Drawing.Size(1341, 922);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
