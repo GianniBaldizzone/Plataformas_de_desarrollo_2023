@@ -121,6 +121,12 @@ namespace EjemploABM
             Application.Exit();
         }
 
+        //CIERRA VENTANA FORMUSUARIOS
+        private void btnCerrarVentana_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -140,5 +146,7 @@ namespace EjemploABM
         {
 
         }
+
+
     }
 }

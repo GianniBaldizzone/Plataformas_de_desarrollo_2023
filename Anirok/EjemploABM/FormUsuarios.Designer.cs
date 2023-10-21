@@ -40,7 +40,6 @@ namespace EjemploABM
             this.Dni = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btn_crear = new Guna.UI2.WinForms.Guna2Button();
             this.txt_nombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_apellido = new Guna.UI2.WinForms.Guna2TextBox();
@@ -50,8 +49,9 @@ namespace EjemploABM
             this.txt_dni = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_contraseña = new Guna.UI2.WinForms.Guna2TextBox();
             this.combo_tipo = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnCerrarVentana = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarVentana)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -164,20 +164,6 @@ namespace EjemploABM
             this.btnMinimizar.TabIndex = 19;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(720, 0);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(52, 54);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 18;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btn_crear
             // 
@@ -370,12 +356,27 @@ namespace EjemploABM
             this.combo_tipo.Size = new System.Drawing.Size(199, 36);
             this.combo_tipo.TabIndex = 28;
             // 
+            // btnCerrarVentana
+            // 
+            this.btnCerrarVentana.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrarVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCerrarVentana.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarVentana.Image")));
+            this.btnCerrarVentana.Location = new System.Drawing.Point(721, 0);
+            this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCerrarVentana.Name = "btnCerrarVentana";
+            this.btnCerrarVentana.Size = new System.Drawing.Size(52, 54);
+            this.btnCerrarVentana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrarVentana.TabIndex = 29;
+            this.btnCerrarVentana.TabStop = false;
+            this.btnCerrarVentana.Click += new System.EventHandler(this.btnCerrarVentana_Click_1);
+            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(772, 749);
+            this.Controls.Add(this.btnCerrarVentana);
             this.Controls.Add(this.combo_tipo);
             this.Controls.Add(this.txt_contraseña);
             this.Controls.Add(this.txt_dni);
@@ -386,7 +387,6 @@ namespace EjemploABM
             this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.btn_crear);
             this.Controls.Add(this.btnMinimizar);
-            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.Dni);
             this.Controls.Add(this.label7);
@@ -402,7 +402,7 @@ namespace EjemploABM
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUsuarios";
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarVentana)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,7 +420,6 @@ namespace EjemploABM
         private System.Windows.Forms.Label Dni;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox btnMinimizar;
-        private System.Windows.Forms.PictureBox btnCerrar;
         private Guna.UI2.WinForms.Guna2Button btn_crear;
         private Guna.UI2.WinForms.Guna2TextBox txt_nombre;
         private Guna.UI2.WinForms.Guna2TextBox txt_apellido;
@@ -430,5 +429,6 @@ namespace EjemploABM
         private Guna.UI2.WinForms.Guna2TextBox txt_dni;
         private Guna.UI2.WinForms.Guna2TextBox txt_contraseña;
         private Guna.UI2.WinForms.Guna2ComboBox combo_tipo;
+        private System.Windows.Forms.PictureBox btnCerrarVentana;
     }
 }
