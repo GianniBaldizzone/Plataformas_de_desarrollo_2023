@@ -80,6 +80,20 @@ namespace EjemploABM.ControlesDeUsuario
                     cargarUsuarios();
 
                 }
+            } else if (senderGrid.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                Debug.WriteLine("Valor de la celda: " + guna2DataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                int id = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                Trace.WriteLine("el id es: " + id);
+                Usuario user_eliminar = Usuario_Controller.obtenerPorId(id);
+                FormEliminar formeliminar= new FormEliminar(user_eliminar);
+                DialogResult eliminar = formeliminar.ShowDialog();
+                if (eliminar == DialogResult.OK)
+                {
+                    Trace.WriteLine("OK - se creo form eliminar");
+                    cargarUsuarios();
+
+                }
             }
 
         }

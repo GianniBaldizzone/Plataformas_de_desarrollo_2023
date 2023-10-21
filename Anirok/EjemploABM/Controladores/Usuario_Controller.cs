@@ -251,6 +251,31 @@ namespace EjemploABM.Controladores
         }
 
 
+        public static bool eliminarUsuario(int id)
+        {
+            //Darlo de alta en la BBDD
+
+            string query = "DELETE FROM usuario WHERE id = @id_eliminar;";
+
+            SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
+            cmd.Parameters.AddWithValue("@id_eliminar", id);
+            
+
+            try
+            {
+                DB_Controller.connection.Open();
+                cmd.ExecuteNonQuery();
+                DB_Controller.connection.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+
+        }
+
+
 
 
 
