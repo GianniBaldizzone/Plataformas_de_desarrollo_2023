@@ -86,6 +86,12 @@ namespace EjemploABM
 
         private void crear()
         {
+            if (string.IsNullOrEmpty(txt_nombre.Text) || string.IsNullOrEmpty(txt_apellido.Text) || string.IsNullOrEmpty(txt_mail.Text) || string.IsNullOrEmpty(txt_telefono.Text) || string.IsNullOrEmpty(txt_direccion.Text) || string.IsNullOrEmpty(txt_dni.Text) || string.IsNullOrEmpty(txt_contraseña.Text) || combo_tipo.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, complete todos los campos y seleccione un rol antes de crear un usuario.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             int tipo = 2;
             if (combo_tipo.SelectedItem.ToString() == "Admin")
             {
@@ -153,6 +159,11 @@ namespace EjemploABM
         }
 
         private void txt_direccion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void combo_tipo_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }

@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controladores\Categoria_Controller.cs" />
     <Compile Include="Controladores\DB_Controller.cs" />
     <Compile Include="Controladores\Usuario_Controller.cs" />
     <Compile Include="ControlesDeUsuario\Categorias_UC.cs">
@@ -81,11 +82,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCategorias.Designer.cs">
+      <DependentUpon>FormCategorias.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEliminar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormEliminar.Designer.cs">
       <DependentUpon>FormEliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEliminarCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarCat.Designer.cs">
+      <DependentUpon>FormEliminarCat.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUsuarios.cs">
       <SubType>Form</SubType>
@@ -116,8 +129,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCategorias.resx">
+      <DependentUpon>FormCategorias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEliminar.resx">
       <DependentUpon>FormEliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarCat.resx">
+      <DependentUpon>FormEliminarCat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarios.resx">
       <DependentUpon>FormUsuarios.cs</DependentUpon>

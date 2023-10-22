@@ -19,7 +19,7 @@ GO
 CREATE TABLE dbo.categoria (
   id INT NOT NULL PRIMARY KEY,
   nombre NVARCHAR(45) NULL,
-  esta_activo NVARCHAR(45) NULL
+  esta_activo int NULL
 );
 GO
 
