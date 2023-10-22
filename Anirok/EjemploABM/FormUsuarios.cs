@@ -108,6 +108,12 @@ namespace EjemploABM
 
         private void editar()
         {
+            if (string.IsNullOrEmpty(txt_nombre.Text) || string.IsNullOrEmpty(txt_apellido.Text) || string.IsNullOrEmpty(txt_mail.Text) || string.IsNullOrEmpty(txt_telefono.Text) || string.IsNullOrEmpty(txt_direccion.Text) || string.IsNullOrEmpty(txt_dni.Text) || string.IsNullOrEmpty(txt_contraseña.Text) || combo_tipo.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, complete todos los campos y seleccione un rol antes de crear un usuario.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             int tipo = 2;
             if (combo_tipo.SelectedItem.ToString() == "Admin")
             {
