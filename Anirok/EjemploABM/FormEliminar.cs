@@ -50,6 +50,15 @@ namespace EjemploABM
             }
         }
 
-        
+        private void btnCerrarVentana_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

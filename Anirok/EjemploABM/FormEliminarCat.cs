@@ -50,7 +50,7 @@ namespace EjemploABM
 
         private void btn_noeliminar_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
         }
 
         private void btn_sieliminar_Click(object sender, EventArgs e)
@@ -60,6 +60,16 @@ namespace EjemploABM
                 this.DialogResult = DialogResult.OK;
                 this.Hide();
             }
+        }
+
+        private void btnCerrarVentana_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
