@@ -40,8 +40,8 @@ namespace EjemploABM.ControlesDeUsuario
                
 
 
-                guna2DataGridView1.Rows[rowIndex].Cells[9].Value = "Editar";
-                guna2DataGridView1.Rows[rowIndex].Cells[10].Value = "Eliminar";
+                guna2DataGridView1.Rows[rowIndex].Cells[3].Value = "Editar";
+                guna2DataGridView1.Rows[rowIndex].Cells[4].Value = "Eliminar";
 
             }
         }

@@ -349,7 +349,7 @@ namespace EjemploABM
             this.combo_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_tipo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.combo_tipo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combo_tipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combo_tipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.combo_tipo.ForeColor = System.Drawing.Color.Black;
             this.combo_tipo.ItemHeight = 30;
             this.combo_tipo.Location = new System.Drawing.Point(350, 585);

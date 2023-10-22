@@ -20,7 +20,7 @@ namespace EjemploABM.Controladores
             string query = "insert into dbo.categoria values" +
                "(@id, " +
                "@nombre, " +
-               "@esta_activo";
+               "@esta_activo)";
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
             cmd.Parameters.AddWithValue("@id", obtenerMaxId() + 1);
@@ -149,13 +149,13 @@ namespace EjemploABM.Controladores
 
             string query = "UPDATE dbo.categoria SET " +
                 "nombre = @nombre, " +
-                "estaActivo = @isActive, " +
+                "esta_activo = @esta_activo " +
                 "WHERE id = @id;";
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
             cmd.Parameters.AddWithValue("@id", cat.Id);
             cmd.Parameters.AddWithValue("@nombre", cat.Nombre);
-            cmd.Parameters.AddWithValue("@isActive", cat.Nombre);
+            cmd.Parameters.AddWithValue("@esta_activo", cat.IsActive);
 
 
             try

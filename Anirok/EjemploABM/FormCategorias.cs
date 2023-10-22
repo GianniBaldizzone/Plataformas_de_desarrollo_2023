@@ -20,7 +20,16 @@ namespace EjemploABM
         public FormCategorias()
         {
             InitializeComponent();
+
+            combo_tipo.Items.Clear();
+
+            combo_tipo.Items.Add("Activo");
+            combo_tipo.Items.Add("No Activo");
+
+            situacion = "creacion";
         }
+
+        // SOBRECARGAR EL CONSTRUCTOR PARA INICIAR EL FORM CON LA INFO CARGADA, PARA EDITAR
         public FormCategorias(Categoria cat)
         {
             InitializeComponent();
@@ -29,12 +38,93 @@ namespace EjemploABM
 
 
             txt_nombre.Text = cat.Nombre.ToString();
+
             combo_tipo.Items.Clear();
             combo_tipo.Items.Add("Activo");
             combo_tipo.Items.Add("No Activo");
 
+            if (cat.IsActive == "Activo")
+            {
+                combo_tipo.SelectedIndex = 0;
+            }
+            else
+            {
+                combo_tipo.SelectedIndex = 1;
+            }
+
+            situacion = "edicion";
+
+            label2.Text = "Editar Categoria";
+            btn_crear.Text = "Editar";
+        }
+
+        private void btn_crear_Click(object sender, EventArgs e)
+        {
+
+            if (situacion == "creacion")
+            {
+                crear();
+            }
+
+            if (situacion == "edicion")
+            {
+                editar();
+            }
+
 
         }
+
+
+        private void crear()
+        {
+            if (string.IsNullOrEmpty(txt_nombre.Text) || combo_tipo.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, complete todos los campos y seleccione un rol antes de crear un usuario.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int tipo = 2;
+            if (combo_tipo.SelectedItem.ToString() == "Activo")
+            {
+                tipo = 1;
+            }
+
+            Categoria cat = new Categoria(0, txt_nombre.Text, tipo.ToString());
+
+            if (Categoria_Controller.crearCategoria(cat))
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+        }
+        private void editar()
+        {
+            if (string.IsNullOrEmpty(txt_nombre.Text) || combo_tipo.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, complete todos los campos y seleccione un rol antes de crear un usuario.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int tipo = 2;
+            if (combo_tipo.SelectedItem.ToString() == "Activo")
+            {
+                tipo = 1;
+            }
+            if (combo_tipo.SelectedItem.ToString() == "No Activo")
+            {
+                tipo = 2;
+            }
+
+            Categoria cat = new Categoria(id_editar, txt_nombre.Text, tipo.ToString());
+
+            if (Categoria_Controller.editarCategoria(cat))
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+        }
+
+
+
+
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -51,40 +141,17 @@ namespace EjemploABM
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btn_crear_Click(object sender, EventArgs e)
-        {
-            if (situacion == "creacion")
-            {
-                crear();
-            }
-          
-        }
+       
 
-        private void crear()
-        {
-            if (string.IsNullOrEmpty(txt_nombre.Text)|| combo_tipo.SelectedItem == null)
-            {
-                MessageBox.Show("Por favor, complete todos los campos y seleccione un rol antes de crear un usuario.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int tipo = 2;
-            if (combo_tipo.SelectedItem.ToString() == "Admin")
-            {
-                tipo = 1;
-            }
-
-            Categoria cat = new Categoria(0, txt_nombre.Text, combo_tipo.Text);
-
-            if (Categoria_Controller.crearCategoria(cat))
-            {
-                this.DialogResult = DialogResult.OK;
-            }
-        }
 
         private void combo_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+
+        }
+
+        private void materialComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

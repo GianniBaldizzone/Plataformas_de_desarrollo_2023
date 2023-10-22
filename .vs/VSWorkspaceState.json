@@ -3,8 +3,9 @@
     "",
     "\\Anirok",
     "\\Anirok\\EjemploABM",
-    "\\Anirok\\EjemploABM\\Controladores"
+    "\\Anirok\\EjemploABM\\Controladores",
+    "\\Anirok\\EjemploABM\\ControlesDeUsuario"
   ],
-  "SelectedNode": "\\Anirok\\EjemploABM\\FormEliminar.cs",
+  "SelectedNode": "\\Anirok\\EjemploABM\\ControlesDeUsuario\\Categorias_UC.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -250,7 +250,7 @@ namespace EjemploABM.ControlesDeUsuario
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Usuarios_UC";
-            this.Size = new System.Drawing.Size(1265, 844);
+            this.Size = new System.Drawing.Size(1239, 818);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

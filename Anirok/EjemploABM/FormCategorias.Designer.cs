@@ -146,6 +146,8 @@
             // combo_tipo
             // 
             this.combo_tipo.BackColor = System.Drawing.Color.Transparent;
+            this.combo_tipo.BorderColor = System.Drawing.Color.Black;
+            this.combo_tipo.BorderRadius = 6;
             this.combo_tipo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.combo_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_tipo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -163,6 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(772, 749);
             this.Controls.Add(this.combo_tipo);
             this.Controls.Add(this.btnCerrarVentana);
