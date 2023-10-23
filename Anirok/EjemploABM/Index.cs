@@ -91,5 +91,11 @@ namespace EjemploABM
             Form1 form = new Form1();
             form.Show();
         }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            Subcategoria_UC subcategoriaUC = new Subcategoria_UC();
+            addUserControl(subcategoriaUC);
+        }
     }
 }

@@ -203,6 +203,7 @@ namespace EjemploABM
             this.guna2Button5.Size = new System.Drawing.Size(212, 46);
             this.guna2Button5.TabIndex = 19;
             this.guna2Button5.Text = "VER SUBCATEGORIAS";
+            this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
             // 
             // btn_cats
             // 

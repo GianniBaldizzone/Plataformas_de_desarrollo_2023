@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\Categoria_Controller.cs" />
+    <Compile Include="Controladores\Subcategoria_Controller.cs" />
     <Compile Include="Controladores\DB_Controller.cs" />
     <Compile Include="Controladores\Usuario_Controller.cs" />
     <Compile Include="ControlesDeUsuario\Categorias_UC.cs">
@@ -69,6 +70,12 @@
     </Compile>
     <Compile Include="ControlesDeUsuario\Productos_UC.Designer.cs">
       <DependentUpon>Productos_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlesDeUsuario\Subcategoria_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlesDeUsuario\Subcategoria_UC.Designer.cs">
+      <DependentUpon>Subcategoria_UC.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlesDeUsuario\Usuarios_UC.cs">
       <SubType>UserControl</SubType>
@@ -113,6 +120,7 @@
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Categoria.cs" />
+    <Compile Include="Modelo\Subcategoria.cs" />
     <Compile Include="Modelo\Producto.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Program.cs" />

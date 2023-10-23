@@ -43,6 +43,7 @@ namespace EjemploABM
             txt_mail.Text = usr.Mail.ToString();
             txt_telefono.Text = usr.Telefono.ToString();
             txt_direccion.Text = usr.Direccion.ToString();
+            txt_contraseña.Text = usr.Contraseña.ToString();
             txt_dni.Text = usr.Dni.ToString();
             
             
