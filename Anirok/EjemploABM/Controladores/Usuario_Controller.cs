@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls.WebParts;
+using System.Windows.Forms;
 
 namespace EjemploABM.Controladores
 {
@@ -276,7 +278,31 @@ namespace EjemploABM.Controladores
         }
 
 
+        // validar repeticion de la contraseña
 
+
+        
+public static bool existeContraseña(string contraseña)
+        {
+            string query = "SELECT COUNT(*) FROM dbo.usuario WHERE contraseña = @contraseña;";
+            SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
+            cmd.Parameters.AddWithValue("@contraseña", contraseña);
+
+            try
+            {
+                DB_Controller.connection.Open();
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0; // Si count > 0, significa que la contraseña ya está en uso
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+            finally
+            {
+                DB_Controller.connection.Close();
+            }
+        }
 
 
     }

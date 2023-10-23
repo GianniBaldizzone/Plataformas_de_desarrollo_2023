@@ -98,6 +98,13 @@ namespace EjemploABM
                 tipo = 1;
             }
 
+            // Verificar si la contraseña ya está en uso
+            if (Usuario_Controller.existeContraseña(txt_contraseña.Text))
+            {
+                MessageBox.Show("La contraseña ingresada ya está en uso. Por favor, elija otra contraseña.", "Contraseña repetida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Usuario usr = new Usuario(0, txt_nombre.Text, txt_apellido.Text, txt_mail.Text, txt_telefono.Text, txt_direccion.Text, txt_dni.Text, txt_contraseña.Text, tipo);
 
             if (Usuario_Controller.crearUsuario(usr))
