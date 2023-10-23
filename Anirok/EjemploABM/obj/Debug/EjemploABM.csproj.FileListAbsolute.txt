@@ -85,3 +85,5 @@ C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploA
 C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormCategorias.resources
 C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormEliminar.resources
 C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormEliminarCat.resources
+C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormCategorias.resources
+C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormEliminarCat.resources
