@@ -63,6 +63,7 @@ namespace EjemploABM.ControlesDeUsuario
 
             label2.Text = "Editar Categoria";
             btn_crear.Text = "Editar";
+            CargarCategoriasEnComboBox();
         }
 
         //Maneja el combobox de categorias

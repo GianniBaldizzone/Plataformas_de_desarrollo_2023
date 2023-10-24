@@ -152,8 +152,8 @@ namespace EjemploABM.Controladores
 
             string query = "UPDATE dbo.subcategoria SET " +
                 "nombre = @nombre, " +
-                "esta_activo = @esta_activo " +
-                "@categoria_id"+
+                "esta_activo = @esta_activo, " +
+                "categoria_id = @categoria_id " +
                 "WHERE id = @id;";
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);

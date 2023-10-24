@@ -73,7 +73,7 @@ namespace EjemploABM.ControlesDeUsuario
 
                 Subcategoria sub_editar = Subcategoria_Controller.obtenerPorId(id);
 
-                FormSubcategorias frmCat = new FormSubcategorias();
+                FormSubcategorias frmCat = new FormSubcategorias(sub_editar);
 
                 DialogResult dr = frmCat.ShowDialog();
 
