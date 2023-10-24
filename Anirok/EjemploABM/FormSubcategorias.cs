@@ -44,13 +44,13 @@ namespace EjemploABM.ControlesDeUsuario
             txt_nombre.Text = sub.Nombre.ToString();
 
             combo_tipo.Items.Clear();
-            combo_tipo.Items.Add("Activo");
-            combo_tipo.Items.Add("No Activo");
+            combo_tipo.Items.Add("Activa");
+            combo_tipo.Items.Add("Desactivada");
 
             
 
 
-            if (sub.IsActive == "Activo")
+            if (sub.IsActive == "Activa")
             {
                 combo_tipo.SelectedIndex = 0;
             }
@@ -90,11 +90,11 @@ namespace EjemploABM.ControlesDeUsuario
 
 
             String tipo = "";
-            if (combo_tipo.SelectedItem.ToString() == "Activo")
+            if (combo_tipo.SelectedItem.ToString() == "Activa")
             {
                 tipo = "Activa";
             }
-            if (combo_tipo.SelectedItem.ToString() == "No Activo")
+            if (combo_tipo.SelectedItem.ToString() == "Desactivada")
             {
                 tipo = "Desactivada";
             }
@@ -123,11 +123,11 @@ namespace EjemploABM.ControlesDeUsuario
             }
 
             string tipo = "";
-            if (combo_tipo.SelectedItem.ToString() == "Activo")
+            if (combo_tipo.SelectedItem.ToString() == "Activa")
             {
                 tipo = "Activa";
             }
-            if (combo_tipo.SelectedItem.ToString() == "No Activo")
+            if (combo_tipo.SelectedItem.ToString() == "Desactivada")
             {
                 tipo = "Desactivada";
             }

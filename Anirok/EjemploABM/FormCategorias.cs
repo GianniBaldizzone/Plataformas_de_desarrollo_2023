@@ -23,8 +23,8 @@ namespace EjemploABM
 
             combo_tipo.Items.Clear();
 
-            combo_tipo.Items.Add("Activo");
-            combo_tipo.Items.Add("No Activo");
+            combo_tipo.Items.Add("Activa");
+            combo_tipo.Items.Add("Desactivada");
 
             situacion = "creacion";
 
@@ -41,10 +41,10 @@ namespace EjemploABM
             txt_nombre.Text = cat.Nombre.ToString();
 
             combo_tipo.Items.Clear();
-            combo_tipo.Items.Add("Activo");
-            combo_tipo.Items.Add("No Activo");
+            combo_tipo.Items.Add("Activa");
+            combo_tipo.Items.Add("Desactivada");
 
-            if (cat.IsActive == "Activo")
+            if (cat.IsActive == "Activa")
             {
                 combo_tipo.SelectedIndex = 0;
             }
@@ -85,11 +85,11 @@ namespace EjemploABM
             }
 
             string tipo = "";
-            if (combo_tipo.SelectedItem.ToString() == "Activo")
+            if (combo_tipo.SelectedItem.ToString() == "Activa")
             {
                 tipo = "Activa";
             }
-            else if (combo_tipo.SelectedItem.ToString() == "No Activo")
+            else if (combo_tipo.SelectedItem.ToString() == "Desactivada")
             {
                 tipo = "Desactivada";
             }
@@ -111,11 +111,11 @@ namespace EjemploABM
 
 
             string tipo = "";
-            if (combo_tipo.SelectedItem.ToString() == "Activo")
+            if (combo_tipo.SelectedItem.ToString() == "Activa")
             {
                 tipo = "Activa";
             }
-            else if (combo_tipo.SelectedItem.ToString() == "No Activo")
+            else if (combo_tipo.SelectedItem.ToString() == "Desactivada")
             {
                 tipo = "Desactivada";
             }
