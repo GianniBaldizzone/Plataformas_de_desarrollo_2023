@@ -113,17 +113,16 @@ namespace EjemploABM.ControlesDeUsuario
                 this.DialogResult = DialogResult.OK;
             }
         }
+
         private void editar()
         {
             if (string.IsNullOrEmpty(txt_nombre.Text) || combo_tipo.SelectedItem == null || ComboBoxCat.SelectedItem == null)
             {
-                MessageBox.Show("Por favor, complete todos los campos y seleccione un Categoria antes de crear un usuario.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, complete todos los campos y seleccione una categoría antes de editar la subcategoría.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            
-
-            String tipo = "";
+            string tipo = "";
             if (combo_tipo.SelectedItem.ToString() == "Activo")
             {
                 tipo = "Activa";
@@ -132,14 +131,27 @@ namespace EjemploABM.ControlesDeUsuario
             {
                 tipo = "Desactivada";
             }
-            int catId = (int)ComboBoxCat.SelectedValue;
-            Subcategoria sub = new Subcategoria(0, txt_nombre.Text, catId, tipo.ToString());
 
-            if (Subcategoria_Controller.editarSubcategoria(sub))
+            // Obtén el ID de la categoría seleccionada del ComboBoxCat
+            int catId = (int)ComboBoxCat.SelectedValue;
+
+            // Crea una instancia de Subcategoria con el ID correcto y las propiedades modificadas
+            Subcategoria subcategoria = new Subcategoria
+            {
+                Id = id_editar,
+                Nombre = txt_nombre.Text,
+                IsActive = tipo,
+                categoria_id = catId // Si `categoria_id` también se va a modificar, de lo contrario, puedes omitir esta línea.
+            };
+
+            // Llama al controlador para editar la subcategoría
+            if (Subcategoria_Controller.editarSubcategoria(subcategoria))
             {
                 this.DialogResult = DialogResult.OK;
             }
         }
+
+
 
         private void btn_crear_Click_1(object sender, EventArgs e)
         {
