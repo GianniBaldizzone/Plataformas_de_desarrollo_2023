@@ -11,21 +11,23 @@ namespace EjemploABM.Controladores
 {
     class Subcategoria_Controller
     {
-        public static bool crearCategoria(Subcategoria sub)
+        public static bool crearSubcategoria(Subcategoria sub)
         {
             //Darlo de alta en la BBDD
 
             string query = "insert into dbo.subcategoria values" +
                "(@id, " +
                "@nombre, " +
-               "@esta_activo)" +
-               "@categoria_id";
+               "@categoria_id," +
+               "@esta_activo)"
+               ;
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
             cmd.Parameters.AddWithValue("@id", obtenerMaxId() + 1);
             cmd.Parameters.AddWithValue("@nombre", sub.Nombre);
-            cmd.Parameters.AddWithValue("@esta_activo", sub.IsActive);
             cmd.Parameters.AddWithValue("@categoria_id", sub.categoria_id);
+            cmd.Parameters.AddWithValue("@esta_activo", sub.IsActive);
+            
 
 
 
@@ -76,7 +78,7 @@ namespace EjemploABM.Controladores
 
         // GET ALL
 
-        public static List<Subcategoria> obtenerCategorias()
+        public static List<Subcategoria> obtenerSubcategorias()
         {
             List<Subcategoria> list = new List<Subcategoria>();
             string query = "select * from dbo.subcategoria;";
@@ -90,7 +92,7 @@ namespace EjemploABM.Controladores
 
                 while (reader.Read())
                 {
-                    list.Add(new Subcategoria(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3)));
+                    list.Add(new Subcategoria(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetString(3)));
 
                     Trace.WriteLine("Subcategoria encontrada, nombre: " + reader.GetString(1));
                 }
@@ -125,7 +127,7 @@ namespace EjemploABM.Controladores
 
                 while (reader.Read())
                 {
-                    sub = new Subcategoria(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3));
+                    sub = new Subcategoria(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetString(3));
                     Trace.WriteLine("Sub encontrada, nombre: " + reader.GetString(1));
                 }
 
@@ -157,8 +159,9 @@ namespace EjemploABM.Controladores
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
             cmd.Parameters.AddWithValue("@id", sub.Id);
             cmd.Parameters.AddWithValue("@nombre", sub.Nombre);
-            cmd.Parameters.AddWithValue("@esta_activo", sub.IsActive);
             cmd.Parameters.AddWithValue("@categoria_id", sub.categoria_id);
+            cmd.Parameters.AddWithValue("@esta_activo", sub.IsActive);
+            
 
 
             try
@@ -198,5 +201,18 @@ namespace EjemploABM.Controladores
             }
 
         }
+    
+    
+    
+    
+    
+    
+    
     }
+
+
+
+
+
+
 }

@@ -27,6 +27,7 @@ namespace EjemploABM
             combo_tipo.Items.Add("No Activo");
 
             situacion = "creacion";
+
         }
 
         // SOBRECARGAR EL CONSTRUCTOR PARA INICIAR EL FORM CON LA INFO CARGADA, PARA EDITAR
