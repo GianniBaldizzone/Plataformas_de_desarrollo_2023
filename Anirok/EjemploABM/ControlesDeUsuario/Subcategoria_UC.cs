@@ -87,8 +87,18 @@ namespace EjemploABM.ControlesDeUsuario
             }
             else if (senderGrid.Columns[e.ColumnIndex].Name == "Eliminar")
             {
-                MessageBox.Show("La eliminación de subcategorías está en proceso.", "Proceso en curso",
-                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Debug.WriteLine("Valor de la celda: " + guna2DataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                int id = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                Trace.WriteLine("el id es: " + id);
+                Subcategoria sub_eliminar = Subcategoria_Controller.obtenerPorId(id);
+                FormEliminarSub formeliminarsub = new FormEliminarSub(sub_eliminar);
+                DialogResult eliminar = formeliminarsub.ShowDialog();
+                if (eliminar == DialogResult.OK)
+                {
+                    Trace.WriteLine("OK - se creo form eliminar");
+                    cargarSubcategorias();
+
+                }
             }
 
 
