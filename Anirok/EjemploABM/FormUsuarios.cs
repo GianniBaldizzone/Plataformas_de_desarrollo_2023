@@ -93,6 +93,7 @@ namespace EjemploABM
                 return;
             }
 
+
             int tipo = 2;
             if (combo_tipo.SelectedItem.ToString() == "Admin")
             {

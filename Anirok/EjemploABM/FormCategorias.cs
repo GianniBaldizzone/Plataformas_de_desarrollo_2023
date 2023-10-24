@@ -109,14 +109,15 @@ namespace EjemploABM
                 return;
             }
 
-            int tipo = 2;
+
+            string tipo = "";
             if (combo_tipo.SelectedItem.ToString() == "Activo")
             {
-                tipo = 1;
+                tipo = "Activa";
             }
-            if (combo_tipo.SelectedItem.ToString() == "No Activo")
+            else if (combo_tipo.SelectedItem.ToString() == "No Activo")
             {
-                tipo = 2;
+                tipo = "Desactivada";
             }
 
             Categoria cat = new Categoria(id_editar, txt_nombre.Text, tipo.ToString());

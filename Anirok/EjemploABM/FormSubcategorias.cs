@@ -88,10 +88,15 @@ namespace EjemploABM.ControlesDeUsuario
                 return;
             }
 
-            int tipo = 2;
+
+            String tipo = "";
             if (combo_tipo.SelectedItem.ToString() == "Activo")
             {
-                tipo = 1;
+                tipo = "Activa";
+            }
+            if (combo_tipo.SelectedItem.ToString() == "No Activo")
+            {
+                tipo = "Desactivada";
             }
 
             int catId = (int)ComboBoxCat.SelectedValue;
@@ -111,14 +116,16 @@ namespace EjemploABM.ControlesDeUsuario
                 return;
             }
 
-            int tipo = 2;
+            
+
+            String tipo = "";
             if (combo_tipo.SelectedItem.ToString() == "Activo")
             {
-                tipo = 1;
+                tipo = "Activa";
             }
             if (combo_tipo.SelectedItem.ToString() == "No Activo")
             {
-                tipo = 2;
+                tipo = "Desactivada";
             }
             int catId = (int)ComboBoxCat.SelectedValue;
             Subcategoria sub = new Subcategoria(0, txt_nombre.Text, catId, tipo.ToString());
