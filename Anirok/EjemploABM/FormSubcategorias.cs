@@ -24,8 +24,8 @@ namespace EjemploABM.ControlesDeUsuario
 
             combo_tipo.Items.Clear();
 
-            combo_tipo.Items.Add("Activo");
-            combo_tipo.Items.Add("No Activo");
+            combo_tipo.Items.Add("Activa");
+            combo_tipo.Items.Add("Desactivada");
 
             situacion = "creacion";
 
