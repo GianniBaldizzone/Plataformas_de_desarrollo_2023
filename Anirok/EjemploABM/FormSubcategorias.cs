@@ -100,7 +100,12 @@ namespace EjemploABM.ControlesDeUsuario
             }
 
             int catId = (int)ComboBoxCat.SelectedValue;
-            MessageBox.Show("ID categoria: " +  catId, "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (catId == null)
+            {
+                MessageBox.Show("ID categoria: " + catId, "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            
             Subcategoria sub = new Subcategoria(0, txt_nombre.Text,catId ,tipo.ToString());
 
             if (Subcategoria_Controller.crearSubcategoria(sub))
@@ -148,6 +153,16 @@ namespace EjemploABM.ControlesDeUsuario
                 editar();
             }
 
+        }
+
+        private void btnCerrarVentana_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

@@ -108,5 +108,10 @@ namespace EjemploABM.ControlesDeUsuario
 
             }
         }
+
+        private void Categorias_UC_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
