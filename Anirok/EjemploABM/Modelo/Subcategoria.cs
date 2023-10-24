@@ -16,11 +16,11 @@ namespace EjemploABM.Modelo
 
         
 
-        public Subcategoria(int id, string name, int categoria_id, string isActive )
+        public Subcategoria(int id, string nombre, int categoriaId, string isActive )
         {
             Id = id;
-            Nombre = name;
-            categoria_id = categoria_id;
+            Nombre = nombre;
+            categoria_id = categoriaId;
             IsActive = isActive;
             
 

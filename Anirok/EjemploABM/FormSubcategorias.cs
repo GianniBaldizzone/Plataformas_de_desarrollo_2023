@@ -94,7 +94,7 @@ namespace EjemploABM.ControlesDeUsuario
             }
 
             int catId = (int)ComboBoxCat.SelectedValue;
-            Trace.WriteLine("El id de la categoria es"+ catId);
+            MessageBox.Show("ID categoria: " +  catId, "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Subcategoria sub = new Subcategoria(0, txt_nombre.Text,catId ,tipo.ToString());
 
             if (Subcategoria_Controller.crearSubcategoria(sub))

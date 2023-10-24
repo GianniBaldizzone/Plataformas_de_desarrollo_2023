@@ -38,8 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
@@ -86,8 +86,8 @@
             this.guna2DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Nombre,
-            this.Activo,
             this.Categoria_id,
+            this.Activo,
             this.Editar,
             this.Eliminar});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -161,17 +161,17 @@
             this.Nombre.MinimumWidth = 8;
             this.Nombre.Name = "Nombre";
             // 
-            // Activo
-            // 
-            this.Activo.HeaderText = "Activo";
-            this.Activo.MinimumWidth = 8;
-            this.Activo.Name = "Activo";
-            // 
             // Categoria_id
             // 
             this.Categoria_id.HeaderText = "Categoria ID";
             this.Categoria_id.MinimumWidth = 6;
             this.Categoria_id.Name = "Categoria_id";
+            // 
+            // Activo
+            // 
+            this.Activo.HeaderText = "Activo";
+            this.Activo.MinimumWidth = 8;
+            this.Activo.Name = "Activo";
             // 
             // Editar
             // 
@@ -211,8 +211,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }

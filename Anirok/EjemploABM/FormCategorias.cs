@@ -84,10 +84,14 @@ namespace EjemploABM
                 return;
             }
 
-            int tipo = 2;
+            string tipo = "";
             if (combo_tipo.SelectedItem.ToString() == "Activo")
             {
-                tipo = 1;
+                tipo = "Activa";
+            }
+            else if (combo_tipo.SelectedItem.ToString() == "No Activo")
+            {
+                tipo = "Desactivada";
             }
 
             Categoria cat = new Categoria(0, txt_nombre.Text, tipo.ToString());

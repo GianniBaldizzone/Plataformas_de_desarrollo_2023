@@ -32,13 +32,14 @@ namespace EjemploABM.ControlesDeUsuario
 
                 guna2DataGridView1.Rows[rowIndex].Cells[0].Value = sub.Id.ToString();
                 guna2DataGridView1.Rows[rowIndex].Cells[1].Value = sub.Nombre.ToString();
-                guna2DataGridView1.Rows[rowIndex].Cells[2].Value = sub.IsActive.ToString();
-                guna2DataGridView1.Rows[rowIndex].Cells[3].Value = sub.categoria_id.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[2].Value = sub.categoria_id.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[3].Value = sub.IsActive.ToString();
+                
 
 
 
-                guna2DataGridView1.Rows[rowIndex].Cells[3].Value = "Editar";
-                guna2DataGridView1.Rows[rowIndex].Cells[4].Value = "Eliminar";
+                guna2DataGridView1.Rows[rowIndex].Cells[4].Value = "Editar";
+                guna2DataGridView1.Rows[rowIndex].Cells[5].Value = "Eliminar";
 
             }
         }
