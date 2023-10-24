@@ -29,7 +29,7 @@ namespace EjemploABM.ControlesDeUsuario
 
             situacion = "creacion";
 
-            CargarCategoriasEnComboBox();
+            CargarCategoriasEnComboBoxCrear();
 
         }
 
@@ -61,24 +61,55 @@ namespace EjemploABM.ControlesDeUsuario
 
             situacion = "edicion";
 
-            label2.Text = "Editar Categoria";
+            label2.Text = "Editar Subcategoria";
             btn_crear.Text = "Editar";
-            CargarCategoriasEnComboBox();
+            CargarCategoriasEnComboBoxEditar(sub);
         }
 
         //Maneja el combobox de categorias
 
-        public void CargarCategoriasEnComboBox()
+        public void CargarCategoriasEnComboBoxCrear()
         {
-            
-            List<Categoria> categorias = Categoria_Controller.ObtenerCategorias();
+            List<Categoria> categorias= Categoria_Controller.obtenerCategorias();
+
 
             ComboBoxCat.DisplayMember = "Nombre"; // Establece la propiedad que se mostrará en el ComboBox
             ComboBoxCat.ValueMember = "Id"; // Establece la propiedad que se usará como valor interno
             ComboBoxCat.DataSource = categorias; // Asigna la lista de categorías al ComboBox
+
         }
 
-      
+        public void CargarCategoriasEnComboBoxEditar(Subcategoria sub)
+        {
+            // Obtén la lista de todas las subcategorías y categorías
+            List<Subcategoria> subcategorias = Subcategoria_Controller.obtenerSubcategorias();
+            List<Categoria> categorias = Categoria_Controller.ObtenerCategorias();
+
+            // Establece la propiedad que se mostrará en el ComboBox para las categorías
+            ComboBoxCat.DisplayMember = "Nombre";
+            // Establece la propiedad que se usará como valor interno en el ComboBox para las categorías
+            ComboBoxCat.ValueMember = "Id";
+            // Asigna la lista de categorías al ComboBox
+            ComboBoxCat.DataSource = categorias;
+
+            // Verifica si estamos en modo de edición
+            if (situacion == "edicion")
+            {
+                // Obtiene la subcategoría específica que se está editando
+                Subcategoria subcategoriaEditando = subcategorias.FirstOrDefault(s => s.Id == sub.Id);
+
+                // Obtiene el id de la categoría asociada a la subcategoría
+                int categoriaIdAsociada = subcategoriaEditando.categoria_id;
+
+                // Encuentra la categoría correspondiente al id de la categoría asociada
+                Categoria categoriaAsociada = categorias.FirstOrDefault(c => c.Id == categoriaIdAsociada);
+
+                // Establece la categoría correspondiente como seleccionada en el ComboBoxCat
+                ComboBoxCat.SelectedItem = categoriaAsociada;
+            }
+        }
+
+
 
         private void crear()
         {
