@@ -19,7 +19,7 @@ GO
 CREATE TABLE dbo.categoria (
   id INT NOT NULL PRIMARY KEY,
   nombre NVARCHAR(45) NULL,
-  esta_activo int NULL
+  esta_activo NVARCHAR(45) NULL
 );
 GO
 
@@ -288,6 +288,18 @@ INSERT INTO dbo.usuario (id, nombre, apellido, mail, telefono, direccion, dni, c
 VALUES
     (1, 'Usuario1', 'Apellido1', 'usuario1@example.com', '1234567890', 'Calle 123, Ciudad', '123456789', 'contrasena1', 1),
     (2, 'Usuario2', 'Apellido2', 'usuario2@example.com', '9876543210', 'Avenida 456, Ciudad', '987654321', 'contrasena2', 2);
+
+INSERT INTO dbo.categoria (id, nombre, esta_activo)
+VALUES
+    (1, 'Peluches', 'Activo'),
+    (2, 'Figuras', 'Activo'),
+    (3, 'Llaveros', 'Inactivo');
+
+-- Insertar registros de ejemplo en la tabla subcategoria
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo)
+VALUES
+    (1, 'Grandes', 1, 'Activo')
+    
 
 
 -- Fin del script
