@@ -108,7 +108,7 @@ namespace EjemploABM.ControlesDeUsuario
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(15, 84);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(19, 76);
             this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -123,7 +123,7 @@ namespace EjemploABM.ControlesDeUsuario
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 62;
             this.guna2DataGridView1.RowTemplate.Height = 28;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(915, 780);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(728, 780);
             this.guna2DataGridView1.TabIndex = 1;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.Black;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -159,7 +159,7 @@ namespace EjemploABM.ControlesDeUsuario
             this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.ForeColor = System.Drawing.Color.White;
             this.btn_add.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.Image")));
-            this.btn_add.Location = new System.Drawing.Point(771, 36);
+            this.btn_add.Location = new System.Drawing.Point(588, 36);
             this.btn_add.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(159, 38);
