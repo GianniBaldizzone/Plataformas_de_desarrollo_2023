@@ -26,7 +26,7 @@ namespace EjemploABM
 
         private void btnCerrarVentana_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void btn_confirmar_Click(object sender, EventArgs e)
@@ -34,27 +34,24 @@ namespace EjemploABM
             Categoria_Controller.DesactivarCategoria(id_editar);
             int catId = (int)ComboBoxCat.SelectedValue;
 
-            int idAnteriorCategoria = 1;  // Reemplaza con el ID de la categoría anterior
-            int idCategoriaPosterior = 2; // Reemplaza con el ID de la categoría posterior
 
             try
             {
-                bool cambioExitoso = Producto_Controller.CambiarCategoriaDeProductos(idAnteriorCategoria, idCategoriaPosterior);
+                bool cambioExitoso = Producto_Controller.CambiarCategoriaDeProductos(id_editar, catId);
 
                 if (cambioExitoso)
                 {
-                    Console.WriteLine("Cambio de categoría exitoso.");
+                    MessageBox.Show("Cambio de categoría exitoso.");
                 }
                 else
                 {
-                    Console.WriteLine("No se realizó ningún cambio en la categoría.");
+                    MessageBox.Show("No se realizó ningún cambio en la categoría.");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al cambiar la categoría de los productos: " + ex.Message);
+                MessageBox.Show("Error al cambiar la categoría de los productos: " + ex.Message);
             }
-
         }
 
         public void CargarCategoriasEnComboBoxCrear()

@@ -1,4 +1,5 @@
-﻿using EjemploABM.Modelo;
+﻿using EjemploABM.Controladores;
+using EjemploABM.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,5 +35,22 @@ namespace EjemploABM
         {
             this.Close();
         }
+
+
+        private void btn_cambiar_Click(object sender, EventArgs e)
+        {
+            Categoria cat_eliminar = Categoria_Controller.obtenerPorId(id_eliminar);
+            FormDesactivacionLogica formdesactivar = new FormDesactivacionLogica(cat_eliminar);
+            //this.Hide();
+            DialogResult eliminar;
+            eliminar = formdesactivar.ShowDialog();
+
+            if (eliminar == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            this.Close();
+        }
     }
-}
+    }
+
