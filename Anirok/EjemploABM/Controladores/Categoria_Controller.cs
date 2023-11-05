@@ -263,6 +263,31 @@ namespace EjemploABM.Controladores
             return listaCategorias;
         }
 
+
+
+        public static bool DesactivarCategoria(int idCategoria)
+        {
+            string query = "UPDATE dbo.categoria SET " +
+                "esta_activo = @esta_activo " +
+                "WHERE id = @id;";
+
+            SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
+            cmd.Parameters.AddWithValue("@id", idCategoria);
+            cmd.Parameters.AddWithValue("@esta_activo", "Desactivada"); // Establecer el valor a "Desactivada"
+
+            try
+            {
+                DB_Controller.connection.Open();
+                cmd.ExecuteNonQuery();
+                DB_Controller.connection.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al desactivar la categoría: " + ex.Message);
+            }
+        }
+
     }
 
 

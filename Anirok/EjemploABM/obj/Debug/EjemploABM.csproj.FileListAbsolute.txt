@@ -101,3 +101,4 @@ C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploAB
 C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.ControlesDeUsuario.FormSubcategorias.resources
 C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormEliminarVendedorCat.resources
 C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormEliminarAdminCat.resources
+C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormDesactivacionLogica.resources

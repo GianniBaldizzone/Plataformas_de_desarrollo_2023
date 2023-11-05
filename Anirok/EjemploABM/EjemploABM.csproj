@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\Categoria_Controller.cs" />
+    <Compile Include="Controladores\Producto_Controller.cs" />
     <Compile Include="Controladores\Subcategoria_Controller.cs" />
     <Compile Include="Controladores\DB_Controller.cs" />
     <Compile Include="Controladores\Usuario_Controller.cs" />
@@ -64,6 +65,12 @@
     </Compile>
     <Compile Include="ControlesDeUsuario\Categorias_UC.Designer.cs">
       <DependentUpon>Categorias_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDesactivacionLogica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDesactivacionLogica.Designer.cs">
+      <DependentUpon>FormDesactivacionLogica.cs</DependentUpon>
     </Compile>
     <Compile Include="FormEliminarVendedorCat.cs">
       <SubType>Form</SubType>
@@ -163,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDesactivacionLogica.resx">
+      <DependentUpon>FormDesactivacionLogica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEliminarVendedorCat.resx">
       <DependentUpon>FormEliminarVendedorCat.cs</DependentUpon>
