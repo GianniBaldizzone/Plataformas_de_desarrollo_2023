@@ -70,20 +70,21 @@ namespace EjemploABM.ControlesDeUsuario
 
         public void CargarCategoriasEnComboBoxCrear()
         {
-            List<Categoria> categorias= Categoria_Controller.obtenerCategorias();
+            List<Categoria> categorias = Categoria_Controller.ObtenerCategoriasActivas();
 
+            // Agrega un elemento en blanco al principio de la lista de categorías
+            categorias.Insert(0, new Categoria { Id = 0, Nombre = "" });
 
             ComboBoxCat.DisplayMember = "Nombre"; // Establece la propiedad que se mostrará en el ComboBox
             ComboBoxCat.ValueMember = "Id"; // Establece la propiedad que se usará como valor interno
             ComboBoxCat.DataSource = categorias; // Asigna la lista de categorías al ComboBox
-
         }
 
         public void CargarCategoriasEnComboBoxEditar(Subcategoria sub)
         {
             // Obtén la lista de todas las subcategorías y categorías
             List<Subcategoria> subcategorias = Subcategoria_Controller.obtenerSubcategorias();
-            List<Categoria> categorias = Categoria_Controller.ObtenerCategorias();
+            List<Categoria> categorias = Categoria_Controller.ObtenerCategoriasActivas();
 
             // Establece la propiedad que se mostrará en el ComboBox para las categorías
             ComboBoxCat.DisplayMember = "Nombre";

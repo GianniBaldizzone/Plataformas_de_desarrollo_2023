@@ -148,10 +148,7 @@ namespace EjemploABM
             this.Hide();
         }
 
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
+      
 
         private void txt_nombre_TextChanged(object sender, EventArgs e)
         {

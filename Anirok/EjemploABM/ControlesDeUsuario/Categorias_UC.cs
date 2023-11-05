@@ -79,16 +79,30 @@ namespace EjemploABM.ControlesDeUsuario
                 int id = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                 Trace.WriteLine("el id es: " + id);
                 Categoria cat_eliminar = Categoria_Controller.obtenerPorId(id);
-                FormEliminarCat formeliminarcat = new FormEliminarCat(cat_eliminar);
-                DialogResult eliminar = formeliminarcat.ShowDialog();
+
+                DialogResult eliminar;
+                if (Program.logueado.Rol == 1)
+                {
+                    FormEliminarAdminCat formeliminarcat = new FormEliminarAdminCat(cat_eliminar);
+                    eliminar = formeliminarcat.ShowDialog();
+                }
+                else if (Program.logueado.Rol == 2)
+                {
+                    FormEliminarVendedorCat formeliminarcat = new FormEliminarVendedorCat(cat_eliminar);
+                    eliminar = formeliminarcat.ShowDialog();
+                }
+                else
+                {
+                    // En caso de otro valor de logueado.Rol, puedes manejarlo según tus necesidades.
+                    eliminar = DialogResult.Cancel;
+                }
+
                 if (eliminar == DialogResult.OK)
                 {
-                    Trace.WriteLine("OK - se creo form eliminar");
+                    Trace.WriteLine("OK - se creó el formulario para eliminar");
                     cargarCategorias();
-
                 }
             }
-
 
         }
 

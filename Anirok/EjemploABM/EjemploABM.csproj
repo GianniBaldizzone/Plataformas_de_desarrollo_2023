@@ -65,6 +65,18 @@
     <Compile Include="ControlesDeUsuario\Categorias_UC.Designer.cs">
       <DependentUpon>Categorias_UC.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEliminarVendedorCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarVendedorCat.Designer.cs">
+      <DependentUpon>FormEliminarVendedorCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEliminarAdminCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarAdminCat.Designer.cs">
+      <DependentUpon>FormEliminarAdminCat.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEliminarSub.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarVendedorCat.resx">
+      <DependentUpon>FormEliminarVendedorCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarAdminCat.resx">
+      <DependentUpon>FormEliminarAdminCat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCategorias.resx">
       <DependentUpon>FormCategorias.cs</DependentUpon>

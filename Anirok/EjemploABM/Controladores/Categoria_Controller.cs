@@ -229,7 +229,39 @@ namespace EjemploABM.Controladores
             return listaCategorias;
         }
 
+        public static List<Categoria> ObtenerCategoriasActivas()
+        {
+            List<Categoria> listaCategorias = new List<Categoria>();
+            string query = "SELECT * FROM dbo.categoria WHERE esta_activo = 'Activa';";
 
+
+            using (SqlCommand cmd = new SqlCommand(query, DB_Controller.connection))
+            {
+                try
+                {
+                    DB_Controller.connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Categoria categoria = new Categoria(reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
+                        listaCategorias.Add(categoria);
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al obtener las categorías: " + ex.Message);
+                }
+                finally
+                {
+                    DB_Controller.connection.Close();
+                }
+            }
+
+            return listaCategorias;
+        }
 
     }
 

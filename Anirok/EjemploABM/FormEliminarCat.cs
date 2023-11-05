@@ -15,7 +15,10 @@ namespace EjemploABM
     public partial class FormEliminarCat : Form
     {
         int id_eliminar;
-    
+        
+
+       
+        
 
         private Categoria cat;
         public FormEliminarCat()
@@ -55,22 +58,24 @@ namespace EjemploABM
 
         private void btn_sieliminar_Click(object sender, EventArgs e)
         {
-            if (Categoria_Controller.eliminarCategoria(id_eliminar))
-            {
-                this.DialogResult = DialogResult.OK;
-                this.Hide();
-            }
+            ConfirmarEliminacion();
         }
 
         private void btnCerrarVentana_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
-        private void btnMinimizar_Click(object sender, EventArgs e)
+        private void ConfirmarEliminacion()
         {
-            this.WindowState = FormWindowState.Minimized;
+            // Realiza la eliminación de la categoría aquí...
+            if (Categoria_Controller.eliminarCategoria(id_eliminar))
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            
         }
-    }
+}
 }
 
