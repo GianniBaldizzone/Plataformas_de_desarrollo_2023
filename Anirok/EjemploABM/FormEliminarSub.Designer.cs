@@ -30,14 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEliminarSub));
             this.btnCerrarVentana = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.txt_id_sub = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_noeliminar = new Guna.UI2.WinForms.Guna2Button();
             this.btn_sieliminar = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarVentana)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,26 +44,14 @@
             this.btnCerrarVentana.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrarVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrarVentana.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarVentana.Image")));
-            this.btnCerrarVentana.Location = new System.Drawing.Point(690, 34);
+            this.btnCerrarVentana.Location = new System.Drawing.Point(755, 0);
             this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrarVentana.Name = "btnCerrarVentana";
             this.btnCerrarVentana.Size = new System.Drawing.Size(46, 43);
             this.btnCerrarVentana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrarVentana.TabIndex = 48;
             this.btnCerrarVentana.TabStop = false;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizar.BackColor = System.Drawing.Color.Black;
-            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(645, 34);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(46, 43);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 47;
-            this.btnMinimizar.TabStop = false;
+            this.btnCerrarVentana.Click += new System.EventHandler(this.btnCerrarVentana_Click);
             // 
             // txt_id_sub
             // 
@@ -138,16 +124,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnCerrarVentana);
-            this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.txt_id_sub);
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_noeliminar);
             this.Controls.Add(this.btn_sieliminar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormEliminarSub";
             this.Text = "FormEliminarSub";
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarVentana)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -157,7 +143,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox btnCerrarVentana;
-        private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.Label txt_id_sub;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.Label label1;

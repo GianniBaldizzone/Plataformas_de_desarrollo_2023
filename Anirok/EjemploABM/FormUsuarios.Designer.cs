@@ -39,7 +39,6 @@ namespace EjemploABM
             this.label7 = new System.Windows.Forms.Label();
             this.Dni = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btn_crear = new Guna.UI2.WinForms.Guna2Button();
             this.txt_nombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_apellido = new Guna.UI2.WinForms.Guna2TextBox();
@@ -50,7 +49,6 @@ namespace EjemploABM
             this.txt_contraseña = new Guna.UI2.WinForms.Guna2TextBox();
             this.combo_tipo = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnCerrarVentana = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarVentana)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,10 +56,10 @@ namespace EjemploABM
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(207, 128);
+            this.label1.Location = new System.Drawing.Point(184, 102);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 25);
+            this.label1.Size = new System.Drawing.Size(80, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
@@ -69,10 +67,10 @@ namespace EjemploABM
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(294, 62);
+            this.label2.Location = new System.Drawing.Point(261, 50);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 29);
+            this.label2.Size = new System.Drawing.Size(146, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Crear Usuario";
             // 
@@ -80,10 +78,10 @@ namespace EjemploABM
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(207, 192);
+            this.label3.Location = new System.Drawing.Point(184, 154);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 25);
+            this.label3.Size = new System.Drawing.Size(82, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Apellido:";
             // 
@@ -91,10 +89,10 @@ namespace EjemploABM
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(210, 258);
+            this.label4.Location = new System.Drawing.Point(187, 206);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 25);
+            this.label4.Size = new System.Drawing.Size(50, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Mail:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -103,10 +101,10 @@ namespace EjemploABM
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(207, 322);
+            this.label5.Location = new System.Drawing.Point(184, 258);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 25);
+            this.label5.Size = new System.Drawing.Size(87, 20);
             this.label5.TabIndex = 8;
             this.label5.Text = "Telefono:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -115,10 +113,10 @@ namespace EjemploABM
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(210, 598);
+            this.label6.Location = new System.Drawing.Point(187, 478);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 25);
+            this.label6.Size = new System.Drawing.Size(43, 20);
             this.label6.TabIndex = 9;
             this.label6.Text = "Rol:";
             // 
@@ -126,9 +124,9 @@ namespace EjemploABM
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(207, 389);
+            this.label7.Location = new System.Drawing.Point(184, 311);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 25);
+            this.label7.Size = new System.Drawing.Size(96, 20);
             this.label7.TabIndex = 13;
             this.label7.Text = "Dirección:";
             // 
@@ -136,9 +134,9 @@ namespace EjemploABM
             // 
             this.Dni.AutoSize = true;
             this.Dni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Dni.Location = new System.Drawing.Point(207, 454);
+            this.Dni.Location = new System.Drawing.Point(184, 363);
             this.Dni.Name = "Dni";
-            this.Dni.Size = new System.Drawing.Size(51, 25);
+            this.Dni.Size = new System.Drawing.Size(44, 20);
             this.Dni.TabIndex = 14;
             this.Dni.Text = "Dni:";
             // 
@@ -146,25 +144,11 @@ namespace EjemploABM
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(207, 518);
+            this.label8.Location = new System.Drawing.Point(184, 414);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 25);
+            this.label8.Size = new System.Drawing.Size(105, 20);
             this.label8.TabIndex = 17;
             this.label8.Text = "Contraseña";
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizar.BackColor = System.Drawing.Color.Black;
-            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(670, 0);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(52, 54);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 19;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btn_crear
             // 
@@ -176,10 +160,10 @@ namespace EjemploABM
             this.btn_crear.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_crear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_crear.ForeColor = System.Drawing.Color.White;
-            this.btn_crear.Location = new System.Drawing.Point(268, 665);
-            this.btn_crear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_crear.Location = new System.Drawing.Point(238, 532);
+            this.btn_crear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_crear.Name = "btn_crear";
-            this.btn_crear.Size = new System.Drawing.Size(189, 66);
+            this.btn_crear.Size = new System.Drawing.Size(168, 53);
             this.btn_crear.TabIndex = 20;
             this.btn_crear.Text = "CREAR";
             this.btn_crear.Click += new System.EventHandler(this.btn_crear_Click_1);
@@ -197,13 +181,13 @@ namespace EjemploABM
             this.txt_nombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_nombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_nombre.Location = new System.Drawing.Point(351, 128);
-            this.txt_nombre.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_nombre.Location = new System.Drawing.Point(312, 102);
+            this.txt_nombre.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.PasswordChar = '\0';
             this.txt_nombre.PlaceholderText = "";
             this.txt_nombre.SelectedText = "";
-            this.txt_nombre.Size = new System.Drawing.Size(198, 31);
+            this.txt_nombre.Size = new System.Drawing.Size(176, 25);
             this.txt_nombre.TabIndex = 21;
             this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
             // 
@@ -220,13 +204,13 @@ namespace EjemploABM
             this.txt_apellido.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_apellido.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_apellido.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_apellido.Location = new System.Drawing.Point(350, 185);
-            this.txt_apellido.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_apellido.Location = new System.Drawing.Point(311, 148);
+            this.txt_apellido.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_apellido.Name = "txt_apellido";
             this.txt_apellido.PasswordChar = '\0';
             this.txt_apellido.PlaceholderText = "";
             this.txt_apellido.SelectedText = "";
-            this.txt_apellido.Size = new System.Drawing.Size(198, 31);
+            this.txt_apellido.Size = new System.Drawing.Size(176, 25);
             this.txt_apellido.TabIndex = 22;
             // 
             // txt_mail
@@ -242,13 +226,13 @@ namespace EjemploABM
             this.txt_mail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_mail.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_mail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_mail.Location = new System.Drawing.Point(351, 251);
-            this.txt_mail.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_mail.Location = new System.Drawing.Point(312, 201);
+            this.txt_mail.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_mail.Name = "txt_mail";
             this.txt_mail.PasswordChar = '\0';
             this.txt_mail.PlaceholderText = "";
             this.txt_mail.SelectedText = "";
-            this.txt_mail.Size = new System.Drawing.Size(198, 31);
+            this.txt_mail.Size = new System.Drawing.Size(176, 25);
             this.txt_mail.TabIndex = 23;
             // 
             // txt_direccion
@@ -264,13 +248,13 @@ namespace EjemploABM
             this.txt_direccion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_direccion.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_direccion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_direccion.Location = new System.Drawing.Point(350, 382);
-            this.txt_direccion.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_direccion.Location = new System.Drawing.Point(311, 306);
+            this.txt_direccion.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.PasswordChar = '\0';
             this.txt_direccion.PlaceholderText = "";
             this.txt_direccion.SelectedText = "";
-            this.txt_direccion.Size = new System.Drawing.Size(198, 31);
+            this.txt_direccion.Size = new System.Drawing.Size(176, 25);
             this.txt_direccion.TabIndex = 24;
             this.txt_direccion.TextChanged += new System.EventHandler(this.txt_direccion_TextChanged);
             // 
@@ -287,13 +271,13 @@ namespace EjemploABM
             this.txt_telefono.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_telefono.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_telefono.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_telefono.Location = new System.Drawing.Point(351, 316);
-            this.txt_telefono.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_telefono.Location = new System.Drawing.Point(312, 253);
+            this.txt_telefono.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.PasswordChar = '\0';
             this.txt_telefono.PlaceholderText = "";
             this.txt_telefono.SelectedText = "";
-            this.txt_telefono.Size = new System.Drawing.Size(198, 31);
+            this.txt_telefono.Size = new System.Drawing.Size(176, 25);
             this.txt_telefono.TabIndex = 25;
             // 
             // txt_dni
@@ -309,13 +293,13 @@ namespace EjemploABM
             this.txt_dni.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_dni.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_dni.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_dni.Location = new System.Drawing.Point(351, 446);
-            this.txt_dni.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_dni.Location = new System.Drawing.Point(312, 357);
+            this.txt_dni.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_dni.Name = "txt_dni";
             this.txt_dni.PasswordChar = '\0';
             this.txt_dni.PlaceholderText = "";
             this.txt_dni.SelectedText = "";
-            this.txt_dni.Size = new System.Drawing.Size(198, 31);
+            this.txt_dni.Size = new System.Drawing.Size(176, 25);
             this.txt_dni.TabIndex = 26;
             // 
             // txt_contraseña
@@ -331,13 +315,13 @@ namespace EjemploABM
             this.txt_contraseña.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_contraseña.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_contraseña.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_contraseña.Location = new System.Drawing.Point(351, 511);
-            this.txt_contraseña.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_contraseña.Location = new System.Drawing.Point(312, 409);
+            this.txt_contraseña.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_contraseña.Name = "txt_contraseña";
             this.txt_contraseña.PasswordChar = '\0';
             this.txt_contraseña.PlaceholderText = "";
             this.txt_contraseña.SelectedText = "";
-            this.txt_contraseña.Size = new System.Drawing.Size(198, 31);
+            this.txt_contraseña.Size = new System.Drawing.Size(176, 25);
             this.txt_contraseña.TabIndex = 27;
             // 
             // combo_tipo
@@ -352,10 +336,10 @@ namespace EjemploABM
             this.combo_tipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.combo_tipo.ForeColor = System.Drawing.Color.Black;
             this.combo_tipo.ItemHeight = 30;
-            this.combo_tipo.Location = new System.Drawing.Point(350, 585);
-            this.combo_tipo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.combo_tipo.Location = new System.Drawing.Point(311, 468);
+            this.combo_tipo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.combo_tipo.Name = "combo_tipo";
-            this.combo_tipo.Size = new System.Drawing.Size(199, 36);
+            this.combo_tipo.Size = new System.Drawing.Size(177, 36);
             this.combo_tipo.TabIndex = 28;
             this.combo_tipo.SelectedIndexChanged += new System.EventHandler(this.combo_tipo_SelectedIndexChanged_1);
             // 
@@ -364,10 +348,10 @@ namespace EjemploABM
             this.btnCerrarVentana.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrarVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrarVentana.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarVentana.Image")));
-            this.btnCerrarVentana.Location = new System.Drawing.Point(721, 0);
-            this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCerrarVentana.Location = new System.Drawing.Point(641, 0);
+            this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrarVentana.Name = "btnCerrarVentana";
-            this.btnCerrarVentana.Size = new System.Drawing.Size(52, 54);
+            this.btnCerrarVentana.Size = new System.Drawing.Size(46, 43);
             this.btnCerrarVentana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrarVentana.TabIndex = 29;
             this.btnCerrarVentana.TabStop = false;
@@ -375,10 +359,10 @@ namespace EjemploABM
             // 
             // FormUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(772, 749);
+            this.ClientSize = new System.Drawing.Size(686, 599);
             this.Controls.Add(this.btnCerrarVentana);
             this.Controls.Add(this.combo_tipo);
             this.Controls.Add(this.txt_contraseña);
@@ -389,7 +373,6 @@ namespace EjemploABM
             this.Controls.Add(this.txt_apellido);
             this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.btn_crear);
-            this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.Dni);
             this.Controls.Add(this.label7);
@@ -400,11 +383,11 @@ namespace EjemploABM
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUsuarios";
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarVentana)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -422,7 +405,6 @@ namespace EjemploABM
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label Dni;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox btnMinimizar;
         private Guna.UI2.WinForms.Guna2Button btn_crear;
         private Guna.UI2.WinForms.Guna2TextBox txt_nombre;
         private Guna.UI2.WinForms.Guna2TextBox txt_apellido;

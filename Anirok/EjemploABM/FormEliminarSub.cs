@@ -46,6 +46,9 @@ namespace EjemploABM
             this.Hide();
         }
 
-       
+        private void btnCerrarVentana_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
