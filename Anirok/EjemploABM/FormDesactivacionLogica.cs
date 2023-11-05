@@ -33,20 +33,12 @@ namespace EjemploABM
         {
             Categoria_Controller.DesactivarCategoria(id_editar);
             int catId = (int)ComboBoxCat.SelectedValue;
-
+            MessageBox.Show("El valor utilizados son: "+ catId + id_editar);
 
             try
             {
-                bool cambioExitoso = Producto_Controller.CambiarCategoriaDeProductos(id_editar, catId);
+                Producto_Controller.CambiarCategoriaDeProductos(id_editar, catId);
 
-                if (cambioExitoso)
-                {
-                    MessageBox.Show("Cambio de categoría exitoso.");
-                }
-                else
-                {
-                    MessageBox.Show("No se realizó ningún cambio en la categoría.");
-                }
             }
             catch (Exception ex)
             {

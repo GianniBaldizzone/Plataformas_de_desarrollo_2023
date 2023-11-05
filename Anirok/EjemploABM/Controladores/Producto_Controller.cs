@@ -25,7 +25,7 @@ namespace EjemploABM.Controladores
                "@img," +
                "@talle," +
                "@proveedor," +
-               "@categoriaid"
+               "@categoria_id"
 
                ;
 
@@ -230,10 +230,10 @@ namespace EjemploABM.Controladores
         }
 
 
-        public static bool CambiarCategoriaDeProductos(int idAnteriorCategoria, int idCategoriaPosterior)
+        public static void CambiarCategoriaDeProductos(int idAnteriorCategoria, int idCategoriaPosterior)
         {
             // Utiliza una consulta SQL de actualización para cambiar el id_categoria de los productos.
-            string query = "UPDATE productos SET id_categoria = @idCategoriaPosterior WHERE id_categoria = @idAnteriorCategoria";
+            string query = "UPDATE producto SET categoria_id = @idCategoriaPosterior WHERE categoria_id = @idAnteriorCategoria;";
 
             using (SqlConnection connection = new SqlConnection("TuCadenaDeConexion"))
             using (SqlCommand cmd = new SqlCommand(query, connection))
@@ -245,10 +245,8 @@ namespace EjemploABM.Controladores
                 try
                 {
                     connection.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
 
-                    // Si se actualiza al menos una fila, se considera un éxito.
-                    return rowsAffected > 0;
                 }
                 catch (Exception ex)
                 {
