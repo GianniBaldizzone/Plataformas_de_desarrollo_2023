@@ -23,12 +23,14 @@ namespace EjemploABM.Modelo
 
         public int CategoriaId { get; set; }
 
+        public int SubcategoriaId { get; set; }
+
         
         
         
 
 
-        public Producto(int id, string name, string desc, double precio, string cod,int stock, string img, string talle, string proveedor, int categoriaid )
+        public Producto(int id, string name, string desc, double precio, string cod,int stock, string img, string talle, string proveedor, int categoriaid, int subcategoriaid)
         {
             Id = id;
             Nombre = name;
@@ -40,6 +42,7 @@ namespace EjemploABM.Modelo
             Talle = talle;
             Proveedor = proveedor;
             CategoriaId = categoriaid;
+            SubcategoriaId = subcategoriaid;
             
         }
 

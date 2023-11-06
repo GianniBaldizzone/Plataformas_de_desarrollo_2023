@@ -25,8 +25,8 @@ namespace EjemploABM.Controladores
                "@img," +
                "@talle," +
                "@proveedor," +
-               "@categoria_id"
-
+               "@categoria_id," +
+               "@subcategoria_id"
                ;
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
@@ -39,8 +39,9 @@ namespace EjemploABM.Controladores
             cmd.Parameters.AddWithValue("@img", prod.Img);
             cmd.Parameters.AddWithValue("@talle", prod.Talle);
             cmd.Parameters.AddWithValue("@proveedor", prod.Proveedor);
-            cmd.Parameters.AddWithValue("@categoriaid", prod.CategoriaId);
-            
+            cmd.Parameters.AddWithValue("@categoria_id", prod.CategoriaId);
+            cmd.Parameters.AddWithValue("@subcategoria_id", prod.SubcategoriaId);
+
 
 
 
@@ -95,7 +96,7 @@ namespace EjemploABM.Controladores
         public static List<Producto> obtenerProductos()
         {
             List<Producto> list = new List<Producto>();
-            string query = "select * from dbo.prodcuto;";
+            string query = "SELECT id, nombre, descripción, precio, codigo, stock, img, talle, proovedor, categoria_id, subcategoria_id FROM dbo.producto;";
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
 
@@ -106,7 +107,7 @@ namespace EjemploABM.Controladores
 
                 while (reader.Read())
                 {
-                    list.Add(new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDouble(3), reader.GetString(4), reader.GetInt32(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetInt32(9)));
+                    list.Add(new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDouble(3), reader.GetString(4), reader.GetInt32(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetInt32(9), reader.GetInt32(10)));
 
                     Trace.WriteLine("Producto encontrada, nombre: " + reader.GetString(1));
                 }
@@ -141,7 +142,7 @@ namespace EjemploABM.Controladores
 
                 while (reader.Read())
                 {
-                    sub = new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDouble(3), reader.GetString(4), reader.GetInt32(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetInt32(9));
+                    sub = new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetFloat(3), reader.GetString(4), reader.GetInt32(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetInt32(9), reader.GetInt32(9));
                     Trace.WriteLine("Prod encontrada, nombre: " + reader.GetString(1));
                 }
 
@@ -174,8 +175,9 @@ namespace EjemploABM.Controladores
                "@img," +
                "@talle," +
                "@proveedor," +
-               "@categoriaid"
-;
+               "@categoriaid" +
+               "@subcategoria_id"
+               ;
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
             cmd.Parameters.AddWithValue("@id", obtenerMaxId() + 1);
@@ -187,8 +189,9 @@ namespace EjemploABM.Controladores
             cmd.Parameters.AddWithValue("@img", prod.Img);
             cmd.Parameters.AddWithValue("@talle", prod.Talle);
             cmd.Parameters.AddWithValue("@proveedor", prod.Proveedor);
-            cmd.Parameters.AddWithValue("@categoriaid", prod.CategoriaId);
-
+            cmd.Parameters.AddWithValue("@categoria_id", prod.CategoriaId);
+            cmd.Parameters.AddWithValue("@subcategoria_id", prod.SubcategoriaId);
+            ;
 
 
             try
@@ -230,7 +233,7 @@ namespace EjemploABM.Controladores
         }
 
 
-        public static void CambiarCategoriaDeProductos(int idAnteriorCategoria, int idCategoriaPosterior)
+        public static bool CambiarCategoriaDeProductos(int idAnteriorCategoria, int idCategoriaPosterior)
         {
             // Utiliza una consulta SQL de actualización para cambiar el id_categoria de los productos.
             string query = "UPDATE producto SET categoria_id = @idCategoriaPosterior WHERE categoria_id = @idAnteriorCategoria;";
@@ -245,8 +248,10 @@ namespace EjemploABM.Controladores
                 try
                 {
                     connection.Open();
-                    cmd.ExecuteNonQuery();
+                    int rowsAffected = cmd.ExecuteNonQuery();
 
+                    // Si se actualiza al menos una fila, se considera un éxito.
+                    return rowsAffected > 0;
                 }
                 catch (Exception ex)
                 {

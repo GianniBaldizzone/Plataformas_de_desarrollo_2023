@@ -45,8 +45,8 @@ namespace EjemploABM
             txt_direccion.Text = usr.Direccion.ToString();
             txt_contraseña.Text = usr.Contraseña.ToString();
             txt_dni.Text = usr.Dni.ToString();
-            
-            
+
+            MessageBox.Show("la contraseña es:" + usr.Contraseña.ToString());
 
 
 

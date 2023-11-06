@@ -106,3 +106,4 @@ C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM
 C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormEliminarVendedorCat.resources
 C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormEliminarAdminCat.resources
 C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormEliminarSub.resources
+C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormProducto.resources

@@ -66,6 +66,12 @@
     <Compile Include="ControlesDeUsuario\Categorias_UC.Designer.cs">
       <DependentUpon>Categorias_UC.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProducto.Designer.cs">
+      <DependentUpon>FormProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDesactivacionLogica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormProducto.resx">
+      <DependentUpon>FormProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDesactivacionLogica.resx">
       <DependentUpon>FormDesactivacionLogica.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +232,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Recursos\img\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

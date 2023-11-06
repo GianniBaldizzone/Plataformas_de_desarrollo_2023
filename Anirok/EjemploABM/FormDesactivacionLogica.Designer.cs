@@ -46,7 +46,7 @@
             this.ComboBoxCat.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ComboBoxCat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.ComboBoxCat.ItemHeight = 30;
-            this.ComboBoxCat.Location = new System.Drawing.Point(323, 152);
+            this.ComboBoxCat.Location = new System.Drawing.Point(322, 188);
             this.ComboBoxCat.Name = "ComboBoxCat";
             this.ComboBoxCat.Size = new System.Drawing.Size(140, 36);
             this.ComboBoxCat.TabIndex = 0;
@@ -55,7 +55,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(273, 79);
+            this.label2.Location = new System.Drawing.Point(272, 105);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(246, 25);
@@ -72,7 +72,7 @@
             this.btn_confirmar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_confirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_confirmar.ForeColor = System.Drawing.Color.White;
-            this.btn_confirmar.Location = new System.Drawing.Point(310, 239);
+            this.btn_confirmar.Location = new System.Drawing.Point(307, 300);
             this.btn_confirmar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_confirmar.Name = "btn_confirmar";
             this.btn_confirmar.Size = new System.Drawing.Size(168, 53);
@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 377);
+            this.ClientSize = new System.Drawing.Size(810, 477);
             this.Controls.Add(this.btnCerrarVentana);
             this.Controls.Add(this.btn_confirmar);
             this.Controls.Add(this.label2);
