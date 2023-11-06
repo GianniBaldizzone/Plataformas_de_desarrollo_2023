@@ -23,6 +23,7 @@ CREATE TABLE producto (
   descripción VARCHAR(45),
   precio FLOAT,
   codigo VARCHAR(45),
+  stock int,	
   img VARCHAR(45),
   proovedor VARCHAR(45),
   subcategoria_id INT,
