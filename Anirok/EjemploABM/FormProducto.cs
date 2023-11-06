@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace EjemploABM
 {
@@ -82,6 +83,54 @@ namespace EjemploABM
             comboBoxSub.DataSource = Subcategoria_Controller.ObtenerSubcategoriasPorCategoria(categoriaId); // Asigna las subcategorías filtradas por categoría al ComboBox
             comboBoxSub.SelectedIndex = -1; // Establece la selección actual en vacío (ningún elemento seleccionado)
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_confirmar_Click(object sender, EventArgs e)
+        {
+            // Verificar si se ha seleccionado una imagen
+            if (File == null)
+            {
+                MessageBox.Show("Debes seleccionar una imagen antes de guardarla.");
+                return; // Salir de la función si no hay imagen seleccionada
+            }
+
+            int nombreProd;
+            nombreProd = Producto_Controller.obtenerMaxId();
+            string nombreProdStr = nombreProd.ToString();
+
+            // Verificar si el nombre del producto es válido
+            if (string.IsNullOrEmpty(nombreProdStr))
+            {
+                MessageBox.Show("El nombre del producto no es válido.");
+                return; // Salir de la función si el nombre del producto no es válido
+            }
+
+            try
+            {
+                string filePath = @"C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nombreProdStr + ".jpg";
+
+                // Asegurarse de que el directorio de destino exista
+                if (!Directory.Exists(Path.GetDirectoryName(filePath)))
+                {
+                    Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                }
+
+                // Guardar la imagen en el directorio de destino
+                File.Save(filePath);
+
+                MessageBox.Show("Imagen guardada con éxito.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar la imagen: " + ex.Message);
+            }
+        }
+
+
 
 
         //public void CargarSubcategoriasEnComboBoxCrear()
