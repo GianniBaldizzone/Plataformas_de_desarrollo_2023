@@ -13,6 +13,7 @@ namespace EjemploABM
 {
     public partial class Index : Form
     {
+        private bool userScrolled = false;
         public Index()
         {
             InitializeComponent();
@@ -60,12 +61,13 @@ namespace EjemploABM
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+           
         }
 
         private void Index_Load(object sender, EventArgs e)
         {
-
+            // Establece la posición del panel para que la barra de desplazamiento esté en la parte superior
+            //panel1.AutoScrollPosition = new Point(0, 0);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

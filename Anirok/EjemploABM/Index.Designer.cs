@@ -53,10 +53,10 @@ namespace EjemploABM
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(773, 66);
+            this.label1.Location = new System.Drawing.Point(870, 82);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 29);
+            this.label1.Size = new System.Drawing.Size(176, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Bienvenido,";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -65,12 +65,13 @@ namespace EjemploABM
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoScroll = true;
             this.panel1.AutoSize = true;
-            this.panel1.Location = new System.Drawing.Point(-2, 370);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(77, 457);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.MaximumSize = new System.Drawing.Size(1828, 518);
+            this.panel1.MinimumSize = new System.Drawing.Size(1828, 518);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1208, 420);
+            this.panel1.Size = new System.Drawing.Size(1828, 518);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -79,9 +80,9 @@ namespace EjemploABM
             this.lb_nombre_logueado.AutoSize = true;
             this.lb_nombre_logueado.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_nombre_logueado.ForeColor = System.Drawing.Color.Firebrick;
-            this.lb_nombre_logueado.Location = new System.Drawing.Point(772, 102);
+            this.lb_nombre_logueado.Location = new System.Drawing.Point(868, 128);
             this.lb_nombre_logueado.Name = "lb_nombre_logueado";
-            this.lb_nombre_logueado.Size = new System.Drawing.Size(92, 31);
+            this.lb_nombre_logueado.Size = new System.Drawing.Size(108, 37);
             this.lb_nombre_logueado.TabIndex = 5;
             this.lb_nombre_logueado.Text = "label2";
             // 
@@ -90,10 +91,10 @@ namespace EjemploABM
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.BackColor = System.Drawing.Color.Black;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(1094, -1);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMinimizar.Location = new System.Drawing.Point(1795, 0);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(46, 43);
+            this.btnMinimizar.Size = new System.Drawing.Size(52, 54);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMinimizar.TabIndex = 13;
             this.btnMinimizar.TabStop = false;
@@ -104,10 +105,10 @@ namespace EjemploABM
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1138, -1);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCerrar.Location = new System.Drawing.Point(1844, 0);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(46, 43);
+            this.btnCerrar.Size = new System.Drawing.Size(52, 54);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 12;
             this.btnCerrar.TabStop = false;
@@ -118,10 +119,10 @@ namespace EjemploABM
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(393, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(604, 26);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(374, 148);
+            this.pictureBox1.Size = new System.Drawing.Size(930, 185);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
@@ -138,10 +139,10 @@ namespace EjemploABM
             this.cerrar__sesion_btn.ForeColor = System.Drawing.Color.White;
             this.cerrar__sesion_btn.Image = ((System.Drawing.Image)(resources.GetObject("cerrar__sesion_btn.Image")));
             this.cerrar__sesion_btn.ImageSize = new System.Drawing.Size(40, 40);
-            this.cerrar__sesion_btn.Location = new System.Drawing.Point(137, 46);
+            this.cerrar__sesion_btn.Location = new System.Drawing.Point(215, 58);
             this.cerrar__sesion_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cerrar__sesion_btn.Name = "cerrar__sesion_btn";
-            this.cerrar__sesion_btn.Size = new System.Drawing.Size(180, 112);
+            this.cerrar__sesion_btn.Size = new System.Drawing.Size(202, 140);
             this.cerrar__sesion_btn.TabIndex = 15;
             this.cerrar__sesion_btn.Text = "CERRAR";
             this.cerrar__sesion_btn.Click += new System.EventHandler(this.cerrar__sesion_btn_Click);
@@ -158,10 +159,10 @@ namespace EjemploABM
             this.guna2Button7.ForeColor = System.Drawing.Color.White;
             this.guna2Button7.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button7.Image")));
             this.guna2Button7.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button7.Location = new System.Drawing.Point(521, 299);
+            this.guna2Button7.Location = new System.Drawing.Point(1066, 361);
             this.guna2Button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button7.Name = "guna2Button7";
-            this.guna2Button7.Size = new System.Drawing.Size(212, 46);
+            this.guna2Button7.Size = new System.Drawing.Size(238, 58);
             this.guna2Button7.TabIndex = 21;
             this.guna2Button7.Text = "CAMBIOS";
             // 
@@ -177,10 +178,10 @@ namespace EjemploABM
             this.guna2Button9.ForeColor = System.Drawing.Color.White;
             this.guna2Button9.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button9.Image")));
             this.guna2Button9.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button9.Location = new System.Drawing.Point(292, 299);
+            this.guna2Button9.Location = new System.Drawing.Point(808, 361);
             this.guna2Button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button9.Name = "guna2Button9";
-            this.guna2Button9.Size = new System.Drawing.Size(212, 46);
+            this.guna2Button9.Size = new System.Drawing.Size(238, 58);
             this.guna2Button9.TabIndex = 20;
             this.guna2Button9.Text = "VER VENTAS";
             // 
@@ -197,10 +198,10 @@ namespace EjemploABM
             this.guna2Button5.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button5.Image")));
             this.guna2Button5.ImageOffset = new System.Drawing.Point(3, 0);
             this.guna2Button5.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button5.Location = new System.Drawing.Point(754, 240);
+            this.guna2Button5.Location = new System.Drawing.Point(1328, 287);
             this.guna2Button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(212, 46);
+            this.guna2Button5.Size = new System.Drawing.Size(238, 58);
             this.guna2Button5.TabIndex = 19;
             this.guna2Button5.Text = "VER SUBCATEGORIAS";
             this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
@@ -218,10 +219,10 @@ namespace EjemploABM
             this.btn_cats.Image = ((System.Drawing.Image)(resources.GetObject("btn_cats.Image")));
             this.btn_cats.ImageOffset = new System.Drawing.Point(3, 0);
             this.btn_cats.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_cats.Location = new System.Drawing.Point(521, 240);
+            this.btn_cats.Location = new System.Drawing.Point(1066, 287);
             this.btn_cats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_cats.Name = "btn_cats";
-            this.btn_cats.Size = new System.Drawing.Size(212, 46);
+            this.btn_cats.Size = new System.Drawing.Size(238, 58);
             this.btn_cats.TabIndex = 18;
             this.btn_cats.Text = "VER CATEGORIAS";
             this.btn_cats.Click += new System.EventHandler(this.btn_cats_Click_1);
@@ -237,10 +238,10 @@ namespace EjemploABM
             this.btn_prods.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_prods.ForeColor = System.Drawing.Color.White;
             this.btn_prods.Image = ((System.Drawing.Image)(resources.GetObject("btn_prods.Image")));
-            this.btn_prods.Location = new System.Drawing.Point(292, 240);
+            this.btn_prods.Location = new System.Drawing.Point(808, 287);
             this.btn_prods.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_prods.Name = "btn_prods";
-            this.btn_prods.Size = new System.Drawing.Size(212, 46);
+            this.btn_prods.Size = new System.Drawing.Size(238, 58);
             this.btn_prods.TabIndex = 17;
             this.btn_prods.Text = "VER PRODUCTOS";
             this.btn_prods.Click += new System.EventHandler(this.btn_prods_Click_1);
@@ -256,10 +257,10 @@ namespace EjemploABM
             this.guna2Button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button8.ForeColor = System.Drawing.Color.White;
             this.guna2Button8.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button8.Image")));
-            this.guna2Button8.Location = new System.Drawing.Point(60, 240);
+            this.guna2Button8.Location = new System.Drawing.Point(548, 287);
             this.guna2Button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button8.Name = "guna2Button8";
-            this.guna2Button8.Size = new System.Drawing.Size(212, 46);
+            this.guna2Button8.Size = new System.Drawing.Size(238, 58);
             this.guna2Button8.TabIndex = 16;
             this.guna2Button8.Text = "NUEVA VENTA";
             // 
@@ -274,21 +275,22 @@ namespace EjemploABM
             this.btn_users.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_users.ForeColor = System.Drawing.Color.White;
             this.btn_users.Image = ((System.Drawing.Image)(resources.GetObject("btn_users.Image")));
-            this.btn_users.Location = new System.Drawing.Point(405, 182);
+            this.btn_users.Location = new System.Drawing.Point(936, 215);
             this.btn_users.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_users.Name = "btn_users";
-            this.btn_users.Size = new System.Drawing.Size(212, 46);
+            this.btn_users.Size = new System.Drawing.Size(238, 58);
             this.btn_users.TabIndex = 22;
             this.btn_users.Text = "VER USUARIOS";
             this.btn_users.Click += new System.EventHandler(this.btn_users_Click_1);
             // 
             // Index
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(1340, 30);
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1183, 882);
+            this.ClientSize = new System.Drawing.Size(1840, 825);
             this.Controls.Add(this.btn_users);
             this.Controls.Add(this.guna2Button7);
             this.Controls.Add(this.guna2Button9);
@@ -305,7 +307,9 @@ namespace EjemploABM
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(1840, 825);
+            this.MinimumSize = new System.Drawing.Size(1340, 525);
             this.Name = "Index";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Index";

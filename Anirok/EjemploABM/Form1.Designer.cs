@@ -57,10 +57,10 @@ namespace EjemploABM
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.Menu;
-            this.textBox1.Location = new System.Drawing.Point(573, 154);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(645, 192);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(418, 29);
+            this.textBox1.Size = new System.Drawing.Size(470, 33);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Usuario";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -73,10 +73,10 @@ namespace EjemploABM
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.textBox2.ForeColor = System.Drawing.SystemColors.Menu;
-            this.textBox2.Location = new System.Drawing.Point(573, 282);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Location = new System.Drawing.Point(645, 352);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(417, 29);
+            this.textBox2.Size = new System.Drawing.Size(469, 33);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "Contraseña";
             this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
@@ -88,10 +88,10 @@ namespace EjemploABM
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(567, 119);
+            this.label1.Location = new System.Drawing.Point(638, 149);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 31);
+            this.label1.Size = new System.Drawing.Size(137, 37);
             this.label1.TabIndex = 3;
             this.label1.Text = "Usuario:";
             // 
@@ -101,10 +101,10 @@ namespace EjemploABM
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(567, 247);
+            this.label2.Location = new System.Drawing.Point(638, 309);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 31);
+            this.label2.Size = new System.Drawing.Size(192, 37);
             this.label2.TabIndex = 4;
             this.label2.Text = "Contraseña:";
             // 
@@ -112,10 +112,10 @@ namespace EjemploABM
             // 
             this.labelError.AutoSize = true;
             this.labelError.ForeColor = System.Drawing.Color.IndianRed;
-            this.labelError.Location = new System.Drawing.Point(569, 324);
+            this.labelError.Location = new System.Drawing.Point(640, 405);
             this.labelError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(150, 16);
+            this.labelError.Size = new System.Drawing.Size(175, 20);
             this.labelError.TabIndex = 5;
             this.labelError.Text = "Error al ingresar valores";
             // 
@@ -129,8 +129,8 @@ namespace EjemploABM
             this.btn_log.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.btn_log.HighEmphasis = true;
             this.btn_log.Icon = null;
-            this.btn_log.Location = new System.Drawing.Point(695, 410);
-            this.btn_log.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.btn_log.Location = new System.Drawing.Point(782, 512);
+            this.btn_log.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
             this.btn_log.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_log.Name = "btn_log";
             this.btn_log.Size = new System.Drawing.Size(128, 36);
@@ -147,18 +147,18 @@ namespace EjemploABM
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(520, 690);
+            this.panel1.Size = new System.Drawing.Size(585, 862);
             this.panel1.TabIndex = 7;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(-89, 90);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(-100, 112);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(669, 421);
+            this.pictureBox3.Size = new System.Drawing.Size(753, 526);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
@@ -168,10 +168,10 @@ namespace EjemploABM
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(720, 46);
+            this.label3.Location = new System.Drawing.Point(810, 58);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 46);
+            this.label3.Size = new System.Drawing.Size(178, 55);
             this.label3.TabIndex = 8;
             this.label3.Text = "LOGIN";
             // 
@@ -181,10 +181,10 @@ namespace EjemploABM
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(655, 478);
+            this.linkLabel1.Location = new System.Drawing.Point(737, 598);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(230, 20);
+            this.linkLabel1.Size = new System.Drawing.Size(265, 25);
             this.linkLabel1.TabIndex = 9;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "¿Olvidaste tu contraseña?";
@@ -194,10 +194,10 @@ namespace EjemploABM
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(994, 0);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Location = new System.Drawing.Point(1118, 0);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(46, 43);
+            this.btnCerrar.Size = new System.Drawing.Size(52, 54);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 10;
             this.btnCerrar.TabStop = false;
@@ -207,10 +207,10 @@ namespace EjemploABM
             // 
             this.btnMinimizar.BackColor = System.Drawing.Color.Transparent;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(946, 0);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMinimizar.Location = new System.Drawing.Point(1064, 0);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(46, 43);
+            this.btnMinimizar.Size = new System.Drawing.Size(52, 54);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMinimizar.TabIndex = 11;
             this.btnMinimizar.TabStop = false;
@@ -218,10 +218,10 @@ namespace EjemploABM
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(1040, 690);
+            this.ClientSize = new System.Drawing.Size(1170, 862);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.linkLabel1);
@@ -235,8 +235,8 @@ namespace EjemploABM
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MinimumSize = new System.Drawing.Size(713, 690);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(802, 862);
             this.Name = "Form1";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
