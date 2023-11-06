@@ -31,13 +31,13 @@
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.txt_descripcion = new System.Windows.Forms.TextBox();
             this.txt_cantidad = new System.Windows.Forms.NumericUpDown();
-            this.txt_ = new System.Windows.Forms.TextBox();
+            this.txt_precio = new System.Windows.Forms.TextBox();
             this.lbl_nombre = new System.Windows.Forms.Label();
             this.lbl_descripcion = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_codigo = new System.Windows.Forms.TextBox();
             this.btn_cargar_img = new Guna.UI2.WinForms.Guna2Button();
             this.comboBoxTalle = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -75,12 +75,12 @@
             this.txt_cantidad.Size = new System.Drawing.Size(120, 22);
             this.txt_cantidad.TabIndex = 2;
             // 
-            // txt_
+            // txt_precio
             // 
-            this.txt_.Location = new System.Drawing.Point(146, 213);
-            this.txt_.Name = "txt_";
-            this.txt_.Size = new System.Drawing.Size(211, 22);
-            this.txt_.TabIndex = 3;
+            this.txt_precio.Location = new System.Drawing.Point(146, 213);
+            this.txt_precio.Name = "txt_precio";
+            this.txt_precio.Size = new System.Drawing.Size(211, 22);
+            this.txt_precio.TabIndex = 3;
             // 
             // lbl_nombre
             // 
@@ -127,12 +127,12 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Codigo:";
             // 
-            // textBox2
+            // txt_codigo
             // 
-            this.textBox2.Location = new System.Drawing.Point(146, 265);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(211, 22);
-            this.textBox2.TabIndex = 9;
+            this.txt_codigo.Location = new System.Drawing.Point(146, 265);
+            this.txt_codigo.Name = "txt_codigo";
+            this.txt_codigo.Size = new System.Drawing.Size(211, 22);
+            this.txt_codigo.TabIndex = 9;
             // 
             // btn_cargar_img
             // 
@@ -261,6 +261,7 @@
             this.guna2PictureBox1.Location = new System.Drawing.Point(690, 132);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(300, 200);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 48;
             this.guna2PictureBox1.TabStop = false;
             // 
@@ -292,13 +293,13 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBoxTalle);
             this.Controls.Add(this.btn_cargar_img);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_codigo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbl_descripcion);
             this.Controls.Add(this.lbl_nombre);
-            this.Controls.Add(this.txt_);
+            this.Controls.Add(this.txt_precio);
             this.Controls.Add(this.txt_cantidad);
             this.Controls.Add(this.txt_descripcion);
             this.Controls.Add(this.txt_nombre);
@@ -316,13 +317,13 @@
         private System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.TextBox txt_descripcion;
         private System.Windows.Forms.NumericUpDown txt_cantidad;
-        private System.Windows.Forms.TextBox txt_;
+        private System.Windows.Forms.TextBox txt_precio;
         private System.Windows.Forms.Label lbl_nombre;
         private System.Windows.Forms.Label lbl_descripcion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_codigo;
         private Guna.UI2.WinForms.Guna2Button btn_cargar_img;
         private Guna.UI2.WinForms.Guna2ComboBox comboBoxTalle;
         private System.Windows.Forms.Label label6;

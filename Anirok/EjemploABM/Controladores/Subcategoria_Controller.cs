@@ -27,7 +27,7 @@ namespace EjemploABM.Controladores
             cmd.Parameters.AddWithValue("@nombre", sub.Nombre);
             cmd.Parameters.AddWithValue("@categoria_id", sub.categoria_id);
             cmd.Parameters.AddWithValue("@esta_activo", sub.IsActive);
-            
+
 
 
 
@@ -161,7 +161,7 @@ namespace EjemploABM.Controladores
             cmd.Parameters.AddWithValue("@nombre", sub.Nombre);
             cmd.Parameters.AddWithValue("@categoria_id", sub.categoria_id);
             cmd.Parameters.AddWithValue("@esta_activo", sub.IsActive);
-            
+
 
 
             try
@@ -201,13 +201,53 @@ namespace EjemploABM.Controladores
             }
 
         }
-    
-    
-    
-    
-    
-    
-    
+
+
+
+        public static List<Subcategoria> ObtenerSubcategoriasPorCategoria(int categoriaId)
+        {
+            List<Subcategoria> subcategorias = new List<Subcategoria>();
+
+            // Realiza una consulta a la base de datos para obtener subcategorías de la categoría especificada.
+            string query = "SELECT * FROM dbo.subcategoria WHERE categoria_id = @categoriaId";
+
+            SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
+            cmd.Parameters.AddWithValue("@categoriaId", categoriaId);
+
+            try
+            {
+                DB_Controller.connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string nombre = reader.GetString(1);
+                    int categoria = reader.GetInt32(2);
+                    string estaActivo = reader.GetString(3);
+
+                    Subcategoria subcategoria = new Subcategoria(id, nombre, categoria, estaActivo);
+                    subcategorias.Add(subcategoria);
+                }
+
+                reader.Close();
+                DB_Controller.connection.Close();
+                return subcategorias;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener subcategorías por categoría: " + ex.Message);
+            }
+        }
+
+            
+
+            
+        }
+
+
+
+
     }
 
 
@@ -215,4 +255,4 @@ namespace EjemploABM.Controladores
 
 
 
-}
+

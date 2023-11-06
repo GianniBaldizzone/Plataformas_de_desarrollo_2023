@@ -68,14 +68,15 @@ namespace EjemploABM.ControlesDeUsuario
 
         //Maneja el combobox de categorias
 
-        public void CargarCategoriasEnComboBoxCrear()
-        {
-            List<Categoria> categorias = Categoria_Controller.ObtenerCategoriasActivas();
-
-            ComboBoxCat.DisplayMember = "Nombre"; // Establece la propiedad que se mostrará en el ComboBox
-            ComboBoxCat.ValueMember = "Id"; // Establece la propiedad que se usará como valor interno
-            ComboBoxCat.DataSource = categorias; // Asigna la lista de categorías al ComboBox
-        }
+        
+            public void CargarCategoriasEnComboBoxCrear()
+            {
+                ComboBoxCat.DisplayMember = "Nombre"; // Establece la propiedad que se mostrará en el ComboBox
+                ComboBoxCat.ValueMember = "Id"; // Establece la propiedad que se usará como valor interno
+                ComboBoxCat.DataSource = Categoria_Controller.ObtenerCategoriasActivas(); // Asigna la lista de categorías al ComboBox
+                ComboBoxCat.SelectedIndex = -1; // Establece la selección actual en vacío (ningún elemento seleccionado)
+            }
+        
 
         public void CargarCategoriasEnComboBoxEditar(Subcategoria sub)
         {
@@ -111,7 +112,7 @@ namespace EjemploABM.ControlesDeUsuario
 
         private void crear()
         {
-            if (string.IsNullOrEmpty(txt_nombre.Text) || combo_tipo.SelectedItem == null || ComboBoxCat.SelectedItem == null)
+            if (string.IsNullOrEmpty(txt_nombre.Text) || combo_tipo.SelectedItem == null || ComboBoxCat.SelectedItem == null || ComboBoxCat.SelectedItem == "")
             {
                 MessageBox.Show("Por favor, complete todos los campos y seleccione una categoria antes de crear un usuario.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -129,7 +130,7 @@ namespace EjemploABM.ControlesDeUsuario
             }
 
             int catId = (int)ComboBoxCat.SelectedValue;
-            if (catId == null)
+            if (catId == null || catId==0)
             {
                 MessageBox.Show("ID categoria: " + catId, "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
