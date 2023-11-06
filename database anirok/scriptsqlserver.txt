@@ -1,0 +1,92 @@
+USE anirok2;
+
+-- Crear la tabla `categoria`
+CREATE TABLE categoria (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(45),
+  esta_activo VARCHAR(45)
+);
+
+-- Crear la tabla `subcategoria`
+CREATE TABLE subcategoria (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(45),
+  categoria_id INT,
+  esta_activo VARCHAR(45),
+  FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+);
+
+-- Crear la tabla `producto`
+CREATE TABLE producto (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(45),
+  descripción VARCHAR(45),
+  precio FLOAT,
+  codigo VARCHAR(45),
+  img VARCHAR(45),
+  proovedor VARCHAR(45),
+  subcategoria_id INT,
+  categoria_id INT,
+  talle VARCHAR(45),
+  FOREIGN KEY (subcategoria_id) REFERENCES subcategoria(id),
+  FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+);
+
+-- Crear la tabla `cliente`
+CREATE TABLE cliente (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(45),
+  apellido VARCHAR(45),
+  mail VARCHAR(45),
+  telefono VARCHAR(45),
+  direccion VARCHAR(45),
+  dni VARCHAR(45)
+);
+
+-- Crear la tabla `usuario`
+CREATE TABLE usuario (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(45),
+  apellido VARCHAR(45),
+  mail VARCHAR(45),
+  telefono VARCHAR(45),
+  direccion VARCHAR(45),
+  dni VARCHAR(45),
+  contraseña VARCHAR(45),
+  rol INT
+);
+
+-- Crear la tabla `venta`
+CREATE TABLE venta (
+  id INT PRIMARY KEY,
+  precio_total FLOAT,
+  fecha DATE,
+  metodo_de_pago VARCHAR(45),
+  descuento FLOAT,
+  cliente_id INT,
+  usuario_id INT,
+  FOREIGN KEY (cliente_id) REFERENCES cliente(id),
+  FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
+
+-- Crejar la tabla `detalle_venta`
+CREATE TABLE detalle_venta (
+  cantidad INT,
+  venta_id INT,
+  producto_id INT,
+  FOREIGN KEY (venta_id) REFERENCES venta(id),
+  FOREIGN KEY (producto_id) REFERENCES producto(id)
+);
+
+-- Insertar datos de ejemplo en la tabla `categoria`
+INSERT INTO dbo.categoria (id, nombre, esta_activo) VALUES (1, 'Peluches', 'Activa');
+
+-- Insertar datos de ejemplo en la tabla `subcategoria`
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (1, 'Chiquitos', 1, 'Activa');
+
+-- Insertar datos de ejemplo en la tabla `producto`
+INSERT INTO dbo.producto (id, nombre, descripción, precio, codigo, img, proovedor, subcategoria_id, categoria_id, talle) VALUES (1, 'Muñeco generico', 'es un muñeco generico', 10000, '2345234567', 'imagen.jpg', 'Bandai', 1, 1, 'No tiene');
+
+-- Insertar datos de ejemplo en la tabla `usuario`
+INSERT INTO dbo.usuario (id, nombre, apellido, mail, telefono, direccion, dni, contraseña, rol) VALUES (1, 'Gianni', 'Baldizzone', 'gianni@gmail.com', '1145678907', 'Acoyte 420', '44891361', 'gianni123', 1);
+INSERT INTO usuario (id, nombre, apellido, mail, telefono, direccion, dni, contraseña, rol) VALUES (2, 'Victoria', 'Troiano', 'vic@gmail.com', '1123456789', 'Billinghurst 234', '44567432', 'vic345', 2);
