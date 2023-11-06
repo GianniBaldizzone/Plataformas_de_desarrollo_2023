@@ -1,5 +1,6 @@
 ﻿using EjemploABM.Controladores;
 using EjemploABM.Modelo;
+using MaterialSkin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Resources.ResXFileRef;
 
 namespace EjemploABM
 {
@@ -20,6 +22,7 @@ namespace EjemploABM
         
         string situacion;
         int id_editar;
+        string nombrefoto;
 
         public FormProducto()
         {
@@ -53,9 +56,95 @@ namespace EjemploABM
                 }
             
         }
-        
-            public void CargarCategoriasEnComboBoxCrear()
+
+
+        private void btn_crear_Click_1(object sender, EventArgs e)
+        {
+            if (situacion == "creacion")
             {
+                crear();
+            }
+            if (situacion == "edicion")
+            {
+                
+            }
+
+        }
+
+
+        private void crear()
+        {
+            if (string.IsNullOrEmpty(txt_nombre.Text) || string.IsNullOrEmpty(txt_descripcion.Text) || string.IsNullOrEmpty(txt_precio.Text) || string.IsNullOrEmpty(txt_codigo.Text) || string.IsNullOrEmpty(txt_cantidad.Text) || string.IsNullOrEmpty(txt_proveedor.Text) || comboBoxTalle.SelectedItem == null || nombrefoto == null)
+            {
+                MessageBox.Show("Por favor, complete todos los campos y seleccione un rol antes de crear un usuario.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
+            string talle = "";
+            if (comboBoxTalle.SelectedItem.ToString() == "S")
+            {
+                talle = "S";
+            }
+            else if (comboBoxTalle.SelectedItem.ToString() == "M")
+            {
+
+                talle = "M";
+            }
+            else if (comboBoxTalle.SelectedItem.ToString() == "L")
+            {
+                talle = "L";
+            }
+            else if (comboBoxTalle.SelectedItem.ToString() == "XL")
+            {
+                talle = "XL";
+            }
+            else {
+                talle = "No tiene";
+            }
+
+            int catId = (int)comboBoxCat.SelectedValue;
+            if (catId == null || catId == 0)
+            {
+                MessageBox.Show("ID categoria: " + catId, "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+            int subId = (int)comboBoxSub.SelectedValue;
+
+            float precio;
+            if (float.TryParse(txt_precio.Text, out precio))
+            {
+                // La conversión del precio fue exitosa.
+
+                int cantidad;
+                if (int.TryParse(txt_cantidad.Text, out cantidad))
+                {
+                    // La conversión de la cantidad fue exitosa, puedes crear el objeto Producto.
+                    
+                    Producto produ = new Producto(0, txt_nombre.Text, txt_descripcion.Text, precio, txt_codigo.Text, cantidad, nombrefoto, talle, txt_proveedor.Text, catId, subId);
+                    if (Producto_Controller.crearProducto(produ))
+                    {
+                        this.DialogResult = DialogResult.OK;
+                    }
+                }
+                else
+                {
+                    // Manejar el caso en el que no se pudo realizar la conversión de cantidad.
+                    MessageBox.Show("El valor de la cantidad no es válido.");
+                }
+            }
+            else
+            {
+                // Manejar el caso en el que no se pudo realizar la conversión de precio.
+                MessageBox.Show("El valor del precio no es válido.");
+            }
+            
+            
+            
+            
+        }
+        public void CargarCategoriasEnComboBoxCrear()
+        {
                 comboBoxCat.DisplayMember = "Nombre"; // Establece la propiedad que se mostrará en el ComboBox
                 comboBoxCat.ValueMember = "Id"; // Establece la propiedad que se usará como valor interno
                 comboBoxCat.DataSource = Categoria_Controller.ObtenerCategoriasActivas(); // Asigna la lista de categorías al ComboBox
@@ -111,7 +200,7 @@ namespace EjemploABM
 
             try
             {
-                string filePath = @"C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nombreProdStr + ".jpg";
+                string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nombreProdStr + ".jpg";
 
                 // Asegurarse de que el directorio de destino exista
                 if (!Directory.Exists(Path.GetDirectoryName(filePath)))
@@ -123,11 +212,14 @@ namespace EjemploABM
                 File.Save(filePath);
 
                 MessageBox.Show("Imagen guardada con éxito.");
+                nombrefoto = nombreProdStr + ".jpg";
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar la imagen: " + ex.Message);
             }
+
+            crear();
         }
 
 

@@ -64,5 +64,56 @@ namespace EjemploABM.ControlesDeUsuario
 
             }
         }
+
+
+
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Trace.WriteLine("estoy andando");
+            Debug.WriteLine("Celda seleccionada: " + e.ColumnIndex + ", " + e.RowIndex);
+
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                //EDITAMOS
+                Debug.WriteLine("Valor de la celda: " + guna2DataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                int id = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                Trace.WriteLine("el id es: " + id);
+
+                Producto prod_editar = Producto_Controller.obtenerPorId(id);
+
+                //FormProducto formprod = new FormProducto(prod_editar);
+
+                //DialogResult dr = formprod.ShowDialog();
+
+                //if (dr == DialogResult.OK)
+                {
+                    Trace.WriteLine("OK - se edito");
+                    //ACTUALIZAR LA LISTA
+                    cargarProductos();
+
+                }
+            }
+            else if (senderGrid.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                Debug.WriteLine("Valor de la celda: " + guna2DataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                int id = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                Trace.WriteLine("el id es: " + id);
+                Producto prod_elim = Producto_Controller.obtenerPorId(id);
+                //FormEliminarProd formeliminarprod = new FormEliminarSub(prod_elim);
+                //DialogResult eliminar = formeliminarprod.ShowDialog();
+                //if (eliminar == DialogResult.OK)
+                {
+                    Trace.WriteLine("OK - se creo form eliminar");
+                    cargarProductos();
+
+                }
+            }
+
+
+        }
+
+      
     }
 }

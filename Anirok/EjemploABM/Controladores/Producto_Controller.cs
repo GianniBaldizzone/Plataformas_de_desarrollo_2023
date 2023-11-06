@@ -26,8 +26,9 @@ namespace EjemploABM.Controladores
                "@talle," +
                "@proveedor," +
                "@categoria_id," +
-               "@subcategoria_id"
-               ;
+               "@subcategoria_id" +
+               ")";
+            
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
             cmd.Parameters.AddWithValue("@id", obtenerMaxId() + 1);
