@@ -99,5 +99,16 @@ namespace EjemploABM
             Subcategoria_UC subcategoriaUC = new Subcategoria_UC();
             addUserControl(subcategoriaUC);
         }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
+        }
+
+        private void guna2PictureBox2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
