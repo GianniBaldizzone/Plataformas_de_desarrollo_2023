@@ -65,10 +65,10 @@ namespace EjemploABM.ControlesDeUsuario
             this.btn_add_cat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_cat.ForeColor = System.Drawing.Color.White;
             this.btn_add_cat.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_cat.Image")));
-            this.btn_add_cat.Location = new System.Drawing.Point(1298, 63);
-            this.btn_add_cat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_add_cat.Location = new System.Drawing.Point(1410, 80);
+            this.btn_add_cat.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.btn_add_cat.Name = "btn_add_cat";
-            this.btn_add_cat.Size = new System.Drawing.Size(165, 30);
+            this.btn_add_cat.Size = new System.Drawing.Size(238, 59);
             this.btn_add_cat.TabIndex = 24;
             this.btn_add_cat.Text = "AGREGAR";
             this.btn_add_cat.Click += new System.EventHandler(this.btn_add_cat_Click);
@@ -116,7 +116,7 @@ namespace EjemploABM.ControlesDeUsuario
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(19, 114);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(25, 142);
             this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -131,7 +131,7 @@ namespace EjemploABM.ControlesDeUsuario
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 62;
             this.guna2DataGridView1.RowTemplate.Height = 28;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(1444, 272);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(1624, 340);
             this.guna2DataGridView1.TabIndex = 23;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -249,23 +249,23 @@ namespace EjemploABM.ControlesDeUsuario
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(25, 73);
+            this.label2.Location = new System.Drawing.Point(28, 91);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 20);
+            this.label2.Size = new System.Drawing.Size(116, 25);
             this.label2.TabIndex = 22;
             this.label2.Text = "Productos:";
             // 
             // Productos_UC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_add_cat);
             this.Controls.Add(this.guna2DataGridView1);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Productos_UC";
-            this.Size = new System.Drawing.Size(1490, 532);
+            this.Size = new System.Drawing.Size(1676, 665);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

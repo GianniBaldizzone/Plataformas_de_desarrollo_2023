@@ -222,6 +222,41 @@ namespace EjemploABM
             crear();
         }
 
+        private void btnCerrarVentana_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void lbl_nombre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_nombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_descripcion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_precio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_cantidad_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxCat_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 
