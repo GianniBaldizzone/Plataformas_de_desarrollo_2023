@@ -34,7 +34,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnCerrarVentana = new System.Windows.Forms.PictureBox();
             this.txt_id_cat = new System.Windows.Forms.Label();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarVentana)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_desactivar
@@ -44,13 +46,12 @@
             this.btn_desactivar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_desactivar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_desactivar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_desactivar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_desactivar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_desactivar.ForeColor = System.Drawing.Color.White;
-            this.btn_desactivar.Location = new System.Drawing.Point(148, 210);
-            this.btn_desactivar.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_desactivar.Location = new System.Drawing.Point(166, 328);
+            this.btn_desactivar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_desactivar.Name = "btn_desactivar";
-            this.btn_desactivar.Size = new System.Drawing.Size(168, 53);
+            this.btn_desactivar.Size = new System.Drawing.Size(202, 56);
             this.btn_desactivar.TabIndex = 46;
             this.btn_desactivar.Text = "DESACTIVAR";
             this.btn_desactivar.Click += new System.EventHandler(this.btn_desactivar_Click);
@@ -62,13 +63,13 @@
             this.btn_eliminar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_eliminar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_eliminar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_eliminar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_eliminar.FillColor = System.Drawing.Color.Red;
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminar.ForeColor = System.Drawing.Color.White;
-            this.btn_eliminar.Location = new System.Drawing.Point(366, 210);
-            this.btn_eliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_eliminar.Location = new System.Drawing.Point(433, 328);
+            this.btn_eliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(168, 53);
+            this.btn_eliminar.Size = new System.Drawing.Size(202, 56);
             this.btn_eliminar.TabIndex = 47;
             this.btn_eliminar.Text = "ELIMINAR";
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
@@ -77,10 +78,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(70, 76);
+            this.label2.Location = new System.Drawing.Point(67, 60);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(543, 25);
+            this.label2.Size = new System.Drawing.Size(657, 29);
             this.label2.TabIndex = 48;
             this.label2.Text = "¿Desea desactivar logicamente o eliminar la categoria?";
             // 
@@ -89,10 +90,10 @@
             this.btnCerrarVentana.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrarVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrarVentana.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarVentana.Image")));
-            this.btnCerrarVentana.Location = new System.Drawing.Point(671, 0);
-            this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCerrarVentana.Location = new System.Drawing.Point(749, 0);
+            this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCerrarVentana.Name = "btnCerrarVentana";
-            this.btnCerrarVentana.Size = new System.Drawing.Size(46, 43);
+            this.btnCerrarVentana.Size = new System.Drawing.Size(52, 54);
             this.btnCerrarVentana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrarVentana.TabIndex = 49;
             this.btnCerrarVentana.TabStop = false;
@@ -101,17 +102,33 @@
             // txt_id_cat
             // 
             this.txt_id_cat.AutoSize = true;
-            this.txt_id_cat.Location = new System.Drawing.Point(334, 139);
+            this.txt_id_cat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.txt_id_cat.ForeColor = System.Drawing.Color.Firebrick;
+            this.txt_id_cat.Location = new System.Drawing.Point(384, 101);
             this.txt_id_cat.Name = "txt_id_cat";
-            this.txt_id_cat.Size = new System.Drawing.Size(20, 16);
+            this.txt_id_cat.Size = new System.Drawing.Size(36, 26);
             this.txt_id_cat.TabIndex = 50;
             this.txt_id_cat.Text = "ID";
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(300, 131);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(192, 170);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 51;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // FormEliminarAdminCat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 349);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.txt_id_cat);
             this.Controls.Add(this.btnCerrarVentana);
             this.Controls.Add(this.label2);
@@ -119,11 +136,13 @@
             this.Controls.Add(this.btn_desactivar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormEliminarAdminCat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.FormEliminarAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarVentana)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +154,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox btnCerrarVentana;
         private System.Windows.Forms.Label txt_id_cat;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

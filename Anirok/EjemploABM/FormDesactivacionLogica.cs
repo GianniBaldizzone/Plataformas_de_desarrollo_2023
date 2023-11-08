@@ -54,5 +54,15 @@ namespace EjemploABM
             ComboBoxCat.ValueMember = "Id"; // Establece la propiedad que se usará como valor interno
             ComboBoxCat.DataSource = categorias; // Asigna la lista de categorías al ComboBox
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBoxCat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
