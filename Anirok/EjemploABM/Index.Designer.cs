@@ -91,7 +91,7 @@ namespace EjemploABM
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.BackColor = System.Drawing.Color.Black;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(1795, 0);
+            this.btnMinimizar.Location = new System.Drawing.Point(1769, 0);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(52, 54);
@@ -105,7 +105,7 @@ namespace EjemploABM
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1844, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(1818, 0);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(52, 54);
@@ -119,10 +119,10 @@ namespace EjemploABM
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(604, 26);
+            this.pictureBox1.Location = new System.Drawing.Point(504, 26);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(930, 185);
+            this.pictureBox1.Size = new System.Drawing.Size(904, 185);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
@@ -159,7 +159,7 @@ namespace EjemploABM
             this.guna2Button7.ForeColor = System.Drawing.Color.White;
             this.guna2Button7.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button7.Image")));
             this.guna2Button7.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button7.Location = new System.Drawing.Point(1066, 361);
+            this.guna2Button7.Location = new System.Drawing.Point(962, 361);
             this.guna2Button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button7.Name = "guna2Button7";
             this.guna2Button7.Size = new System.Drawing.Size(238, 58);
@@ -178,7 +178,7 @@ namespace EjemploABM
             this.guna2Button9.ForeColor = System.Drawing.Color.White;
             this.guna2Button9.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button9.Image")));
             this.guna2Button9.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button9.Location = new System.Drawing.Point(808, 361);
+            this.guna2Button9.Location = new System.Drawing.Point(704, 361);
             this.guna2Button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button9.Name = "guna2Button9";
             this.guna2Button9.Size = new System.Drawing.Size(238, 58);
@@ -198,7 +198,7 @@ namespace EjemploABM
             this.guna2Button5.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button5.Image")));
             this.guna2Button5.ImageOffset = new System.Drawing.Point(3, 0);
             this.guna2Button5.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button5.Location = new System.Drawing.Point(1328, 287);
+            this.guna2Button5.Location = new System.Drawing.Point(1224, 287);
             this.guna2Button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.Size = new System.Drawing.Size(238, 58);
@@ -219,7 +219,7 @@ namespace EjemploABM
             this.btn_cats.Image = ((System.Drawing.Image)(resources.GetObject("btn_cats.Image")));
             this.btn_cats.ImageOffset = new System.Drawing.Point(3, 0);
             this.btn_cats.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_cats.Location = new System.Drawing.Point(1066, 287);
+            this.btn_cats.Location = new System.Drawing.Point(962, 287);
             this.btn_cats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_cats.Name = "btn_cats";
             this.btn_cats.Size = new System.Drawing.Size(238, 58);
@@ -238,7 +238,7 @@ namespace EjemploABM
             this.btn_prods.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_prods.ForeColor = System.Drawing.Color.White;
             this.btn_prods.Image = ((System.Drawing.Image)(resources.GetObject("btn_prods.Image")));
-            this.btn_prods.Location = new System.Drawing.Point(808, 287);
+            this.btn_prods.Location = new System.Drawing.Point(704, 287);
             this.btn_prods.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_prods.Name = "btn_prods";
             this.btn_prods.Size = new System.Drawing.Size(238, 58);
@@ -257,7 +257,7 @@ namespace EjemploABM
             this.guna2Button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button8.ForeColor = System.Drawing.Color.White;
             this.guna2Button8.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button8.Image")));
-            this.guna2Button8.Location = new System.Drawing.Point(548, 287);
+            this.guna2Button8.Location = new System.Drawing.Point(444, 287);
             this.guna2Button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button8.Name = "guna2Button8";
             this.guna2Button8.Size = new System.Drawing.Size(238, 58);
@@ -275,7 +275,7 @@ namespace EjemploABM
             this.btn_users.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_users.ForeColor = System.Drawing.Color.White;
             this.btn_users.Image = ((System.Drawing.Image)(resources.GetObject("btn_users.Image")));
-            this.btn_users.Location = new System.Drawing.Point(936, 215);
+            this.btn_users.Location = new System.Drawing.Point(832, 215);
             this.btn_users.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_users.Name = "btn_users";
             this.btn_users.Size = new System.Drawing.Size(238, 58);
@@ -287,6 +287,7 @@ namespace EjemploABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoScrollMinSize = new System.Drawing.Size(1340, 30);
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
