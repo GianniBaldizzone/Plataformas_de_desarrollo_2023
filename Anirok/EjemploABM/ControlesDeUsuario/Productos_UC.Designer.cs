@@ -135,7 +135,8 @@ namespace EjemploABM.ControlesDeUsuario
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 62;
             this.guna2DataGridView1.RowTemplate.Height = 28;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(1624, 340);
+            this.guna2DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.guna2DataGridView1.Size = new System.Drawing.Size(1890, 340);
             this.guna2DataGridView1.TabIndex = 23;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -278,13 +279,14 @@ namespace EjemploABM.ControlesDeUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btn_add_cat);
             this.Controls.Add(this.guna2DataGridView1);
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Productos_UC";
-            this.Size = new System.Drawing.Size(1676, 665);
+            this.Size = new System.Drawing.Size(1676, 639);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

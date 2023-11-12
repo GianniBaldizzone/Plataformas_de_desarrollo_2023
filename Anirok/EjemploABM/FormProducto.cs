@@ -114,8 +114,8 @@ namespace EjemploABM
                     try
                     {
                         // Asignar el nombre de la foto antes de intentar crear el producto
-                        string nombreProdStr = Producto_Controller.obtenerMaxId().ToString();
-                        nombrefoto = nombreProdStr + ".jpg";
+                        int nombreProdStr = Producto_Controller.obtenerMaxId();
+                        nombrefoto = (nombreProdStr+1) + ".jpg";
 
                         Producto produ = new Producto(0, txt_nombre.Text, txt_descripcion.Text, precio, txt_codigo.Text, nombrefoto, txt_proveedor.Text, subId, catId, talle, cantidad);
 
