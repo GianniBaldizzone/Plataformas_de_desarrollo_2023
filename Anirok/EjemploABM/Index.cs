@@ -110,5 +110,10 @@ namespace EjemploABM
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void lb_nombre_logueado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

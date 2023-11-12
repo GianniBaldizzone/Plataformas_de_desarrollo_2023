@@ -15,20 +15,20 @@ namespace EjemploABM.Controladores
         {
             //Darlo de alta en la BBDD
 
-            string query = "insert into dbo.producto values" +
-               "(@id, " +
-               "@nombre, " +
-               "@descripcion," +
-               "@precio," +
-               "@codigo," +
-               "@stock," +
-               "@img," +
-               "@talle," +
-               "@proveedor," +
-               "@categoria_id," +
-               "@subcategoria_id" +
-               ")";
-            
+            string query = "INSERT INTO dbo.producto VALUES" +
+   "(@id, " +
+   "@nombre, " +
+   "@descripcion, " +
+   "@precio, " +
+   "@codigo, " +
+   "@img, " +
+   "@proovedor, " +
+   "@subcategoria_id, " +
+   "@categoria_id, " +
+   "@talle, " +
+   "@stock" +  // Sin coma aquí
+   ");";
+
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
             cmd.Parameters.AddWithValue("@id", obtenerMaxId() + 1);
@@ -36,12 +36,12 @@ namespace EjemploABM.Controladores
             cmd.Parameters.AddWithValue("@descripcion", prod.Descripcion);
             cmd.Parameters.AddWithValue("@precio", prod.Precio);
             cmd.Parameters.AddWithValue("@codigo", prod.codigo);
-            cmd.Parameters.AddWithValue("@stock", prod.Stock);
             cmd.Parameters.AddWithValue("@img", prod.Img);
-            cmd.Parameters.AddWithValue("@talle", prod.Talle);
-            cmd.Parameters.AddWithValue("@proveedor", prod.Proveedor);
-            cmd.Parameters.AddWithValue("@categoria_id", prod.CategoriaId);
+            cmd.Parameters.AddWithValue("@proovedor", prod.Proveedor);
             cmd.Parameters.AddWithValue("@subcategoria_id", prod.SubcategoriaId);
+            cmd.Parameters.AddWithValue("@categoria_id", prod.CategoriaId);
+            cmd.Parameters.AddWithValue("@talle", prod.Talle);
+            cmd.Parameters.AddWithValue("@stock", prod.Stock);
 
 
 
@@ -97,7 +97,7 @@ namespace EjemploABM.Controladores
         public static List<Producto> obtenerProductos()
         {
             List<Producto> list = new List<Producto>();
-            string query = "SELECT id, nombre, descripción, precio, codigo, stock, img, talle, proovedor, categoria_id, subcategoria_id FROM dbo.producto;";
+            string query = "SELECT id, nombre, descripción, precio, codigo, img, proovedor, subcategoria_id, categoria_id, talle, stock  FROM dbo.producto;";
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
 
@@ -108,7 +108,7 @@ namespace EjemploABM.Controladores
 
                 while (reader.Read())
                 {
-                    list.Add(new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDouble(3), reader.GetString(4), reader.GetInt32(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetInt32(9), reader.GetInt32(10)));
+                    list.Add(new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDouble(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(7), reader.GetInt32(8), reader.GetString(9), reader.GetInt32(10) ));
 
                     Trace.WriteLine("Producto encontrada, nombre: " + reader.GetString(1));
                 }
@@ -143,7 +143,7 @@ namespace EjemploABM.Controladores
 
                 while (reader.Read())
                 {
-                    sub = new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetFloat(3), reader.GetString(4), reader.GetInt32(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetInt32(9), reader.GetInt32(9));
+                    sub = new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDouble(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(7), reader.GetInt32(8), reader.GetString(9), reader.GetInt32(10));
                     Trace.WriteLine("Prod encontrada, nombre: " + reader.GetString(1));
                 }
 

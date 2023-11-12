@@ -121,7 +121,19 @@ namespace EjemploABM
                 {
                     // La conversión de la cantidad fue exitosa, puedes crear el objeto Producto.
                     
-                    Producto produ = new Producto(0, txt_nombre.Text, txt_descripcion.Text, precio, txt_codigo.Text, cantidad, nombrefoto, talle, txt_proveedor.Text, catId, subId);
+                    Producto produ = new Producto(0, txt_nombre.Text, txt_descripcion.Text, precio, txt_codigo.Text, nombrefoto, txt_proveedor.Text, subId, catId, talle ,cantidad);
+                    MessageBox.Show(
+    "Nombre: " + txt_nombre.Text +
+    "\nDescripción: " + txt_descripcion.Text +
+    "\nPrecio: " + precio +
+    "\nCódigo: " + txt_codigo.Text +
+    "\nCantidad: " + cantidad +
+    "\nFoto: " + nombrefoto +
+    "\nTalle: " + talle +
+    "\nProveedor: " + txt_proveedor.Text +
+    "\nCategoría ID: " + catId +
+    "\nSubcategoría ID: " + subId
+);
                     if (Producto_Controller.crearProducto(produ))
                     {
                         this.DialogResult = DialogResult.OK;
