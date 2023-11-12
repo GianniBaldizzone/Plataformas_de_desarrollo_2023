@@ -41,7 +41,7 @@ namespace EjemploABM
             string nombreImagen = prod.Img;
 
             // Construir la ruta completa de la imagen
-            string rutaImagen = Path.Combine(@"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img", nombreImagen);
+            string rutaImagen = Path.Combine(@"C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\", nombreImagen);
 
             // Verificar si el archivo de la imagen existe antes de asignarlo
             if (File.Exists(rutaImagen))
@@ -64,6 +64,11 @@ namespace EjemploABM
         private void btnCerrarVentana_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void txt_precio_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -22,15 +22,15 @@ CREATE TABLE producto (
   nombre VARCHAR(45),
   descripción VARCHAR(45),
   precio FLOAT,
-  codigo VARCHAR(45),
-  stock int,	
+  codigo VARCHAR(45),	
   img VARCHAR(45),
   proovedor VARCHAR(45),
   subcategoria_id INT,
   categoria_id INT,
-  talle VARCHAR(45),
   FOREIGN KEY (subcategoria_id) REFERENCES subcategoria(id),
-  FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+  FOREIGN KEY (categoria_id) REFERENCES categoria(id),
+  talle VARCHAR(45),
+  stock int
 );
 
 -- Crear la tabla `cliente`
@@ -86,7 +86,7 @@ INSERT INTO dbo.categoria (id, nombre, esta_activo) VALUES (1, 'Peluches', 'Acti
 INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (1, 'Chiquitos', 1, 'Activa');
 
 -- Insertar datos de ejemplo en la tabla `producto`
-INSERT INTO dbo.producto (id, nombre, descripción, precio, codigo, img, proovedor, subcategoria_id, categoria_id, talle) VALUES (1, 'Muñeco generico', 'es un muñeco generico', 10000, '2345234567', 'imagen.jpg', 'Bandai', 1, 1, 'No tiene');
+INSERT INTO dbo.producto (id, nombre, descripción, precio, codigo, img, proovedor, subcategoria_id, categoria_id, talle, stock) VALUES (1, 'Muñeco generico', 'es un muñeco generico', 10000, '2345234567', 'imagen.jpg', 'Bandai', 1, 1, 'No tiene', 10);
 
 -- Insertar datos de ejemplo en la tabla `usuario`
 INSERT INTO dbo.usuario (id, nombre, apellido, mail, telefono, direccion, dni, contraseña, rol) VALUES (1, 'Gianni', 'Baldizzone', 'gianni@gmail.com', '1145678907', 'Acoyte 420', '44891361', 'gianni123', 1);

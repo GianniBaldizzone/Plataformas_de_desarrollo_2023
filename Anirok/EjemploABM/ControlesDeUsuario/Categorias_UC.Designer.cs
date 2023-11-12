@@ -106,6 +106,7 @@ namespace EjemploABM.ControlesDeUsuario
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 62;
             this.guna2DataGridView1.RowTemplate.Height = 28;
+            this.guna2DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.guna2DataGridView1.Size = new System.Drawing.Size(655, 340);
             this.guna2DataGridView1.TabIndex = 1;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;

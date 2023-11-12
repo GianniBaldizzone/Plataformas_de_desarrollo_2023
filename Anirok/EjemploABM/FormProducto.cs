@@ -122,8 +122,10 @@ namespace EjemploABM
                         // Intentar crear el producto
                         if (Producto_Controller.crearProducto(produ))
                         {
+
+                            this.DialogResult = DialogResult.OK;
                             // Guardar la imagen solo si el producto se ha creado con éxito
-                            string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nombrefoto;
+                            string filePath = @"C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nombrefoto;
 
                             // Asegurarse de que el directorio de destino exista
                             if (!Directory.Exists(Path.GetDirectoryName(filePath)))
