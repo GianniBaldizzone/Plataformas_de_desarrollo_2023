@@ -110,6 +110,21 @@ namespace EjemploABM.ControlesDeUsuario
 
                 }
             }
+            else if (senderGrid.Columns[e.ColumnIndex].Name == "Ver")
+            {
+                Debug.WriteLine("Valor de la celda: " + guna2DataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                int id = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                Trace.WriteLine("el id es: " + id);
+                Producto prod_elim = Producto_Controller.obtenerPorId(id);
+                FormVerProd formverprod = new FormVerProd(prod_elim);
+                DialogResult ver = formverprod.ShowDialog();
+                if (ver == DialogResult.OK)
+                {
+                    Trace.WriteLine("OK - se creo form eliminar");
+                    cargarProductos();
+
+                }
+            }
 
 
         }
