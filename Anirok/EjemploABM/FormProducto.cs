@@ -1,10 +1,12 @@
 ﻿using EjemploABM.Controladores;
+using EjemploABM.ControlesDeUsuario;
 using EjemploABM.Modelo;
 using MaterialSkin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -72,89 +74,105 @@ namespace EjemploABM
         }
 
 
+
         private void crear()
         {
-            if (string.IsNullOrEmpty(txt_nombre.Text) || string.IsNullOrEmpty(txt_descripcion.Text) || string.IsNullOrEmpty(txt_precio.Text) || string.IsNullOrEmpty(txt_codigo.Text) || string.IsNullOrEmpty(txt_cantidad.Text) || string.IsNullOrEmpty(txt_proveedor.Text) || comboBoxTalle.SelectedItem == null || nombrefoto == null)
+            if (string.IsNullOrWhiteSpace(txt_nombre.Text) ||
+                string.IsNullOrWhiteSpace(txt_descripcion.Text) ||
+                string.IsNullOrWhiteSpace(txt_precio.Text) ||
+                string.IsNullOrWhiteSpace(txt_codigo.Text) ||
+                string.IsNullOrWhiteSpace(txt_cantidad.Text) ||
+                string.IsNullOrWhiteSpace(txt_proveedor.Text) ||
+                comboBoxTalle.SelectedItem == null)
             {
                 MessageBox.Show("Por favor, complete todos los campos y seleccione un rol antes de crear un usuario.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
-            string talle = "";
-            if (comboBoxTalle.SelectedItem.ToString() == "S")
-            {
-                talle = "S";
-            }
-            else if (comboBoxTalle.SelectedItem.ToString() == "M")
-            {
 
-                talle = "M";
-            }
-            else if (comboBoxTalle.SelectedItem.ToString() == "L")
+            string talle = comboBoxTalle.SelectedItem?.ToString() ?? "No tiene";
+
+            int catId;
+            if (!int.TryParse(comboBoxCat.SelectedValue?.ToString(), out catId) || catId == 0)
             {
-                talle = "L";
-            }
-            else if (comboBoxTalle.SelectedItem.ToString() == "XL")
-            {
-                talle = "XL";
-            }
-            else {
-                talle = "No tiene";
+                MessageBox.Show("ID categoría no válido.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            int catId = (int)comboBoxCat.SelectedValue;
-            if (catId == null || catId == 0)
+            int subId;
+            if (!int.TryParse(comboBoxSub.SelectedValue?.ToString(), out subId))
             {
-                MessageBox.Show("ID categoria: " + catId, "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                MessageBox.Show("ID subcategoría nulo debido a que no existen subcategorias de esa categoria", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-
-            int subId = (int)comboBoxSub.SelectedValue;
 
             float precio;
             if (float.TryParse(txt_precio.Text, out precio))
             {
-                // La conversión del precio fue exitosa.
-
                 int cantidad;
                 if (int.TryParse(txt_cantidad.Text, out cantidad))
                 {
-                    // La conversión de la cantidad fue exitosa, puedes crear el objeto Producto.
-                    
-                    Producto produ = new Producto(0, txt_nombre.Text, txt_descripcion.Text, precio, txt_codigo.Text, nombrefoto, txt_proveedor.Text, subId, catId, talle ,cantidad);
-                    MessageBox.Show(
-    "Nombre: " + txt_nombre.Text +
-    "\nDescripción: " + txt_descripcion.Text +
-    "\nPrecio: " + precio +
-    "\nCódigo: " + txt_codigo.Text +
-    "\nCantidad: " + cantidad +
-    "\nFoto: " + nombrefoto +
-    "\nTalle: " + talle +
-    "\nProveedor: " + txt_proveedor.Text +
-    "\nCategoría ID: " + catId +
-    "\nSubcategoría ID: " + subId
-);
-                    if (Producto_Controller.crearProducto(produ))
+                    try
                     {
-                        this.DialogResult = DialogResult.OK;
+                        // Asignar el nombre de la foto antes de intentar crear el producto
+                        string nombreProdStr = Producto_Controller.obtenerMaxId().ToString();
+                        nombrefoto = nombreProdStr + ".jpg";
+
+                        Producto produ = new Producto(0, txt_nombre.Text, txt_descripcion.Text, precio, txt_codigo.Text, nombrefoto, txt_proveedor.Text, subId, catId, talle, cantidad);
+
+                        // Intentar crear el producto
+                        if (Producto_Controller.crearProducto(produ))
+                        {
+                            // Guardar la imagen solo si el producto se ha creado con éxito
+                            string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nombrefoto;
+
+                            // Asegurarse de que el directorio de destino exista
+                            if (!Directory.Exists(Path.GetDirectoryName(filePath)))
+                            {
+                                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                            }
+
+                            // Guardar la imagen en el directorio de destino
+                            File.Save(filePath);
+
+                            MessageBox.Show("Producto y imagen guardados con éxito.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al crear el producto.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al crear el producto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    // Manejar el caso en el que no se pudo realizar la conversión de cantidad.
-                    MessageBox.Show("El valor de la cantidad no es válido.");
+                    MessageBox.Show("El valor de la cantidad no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                // Manejar el caso en el que no se pudo realizar la conversión de precio.
-                MessageBox.Show("El valor del precio no es válido.");
+                MessageBox.Show("El valor del precio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-            
-            
-            
         }
+
+        private void MostrarDetallesProducto(Producto producto)
+        {
+            MessageBox.Show(
+                "Nombre: " + producto.Nombre +
+                "\nDescripción: " + producto.Descripcion +
+                "\nPrecio: " + producto.Precio +
+                "\nCódigo: " + producto.codigo +
+                "\nCantidad: " + producto.Stock +
+                "\nFoto: " + producto.Img +
+                "\nTalle: " + producto.Talle +
+                "\nProveedor: " + producto.Proveedor +
+                "\nCategoría ID: " + producto.CategoriaId +
+                "\nSubcategoría ID: " + producto.SubcategoriaId
+            );
+        }
+
         public void CargarCategoriasEnComboBoxCrear()
         {
                 comboBoxCat.DisplayMember = "Nombre"; // Establece la propiedad que se mostrará en el ComboBox
@@ -192,45 +210,6 @@ namespace EjemploABM
 
         private void btn_confirmar_Click(object sender, EventArgs e)
         {
-            // Verificar si se ha seleccionado una imagen
-            if (File == null)
-            {
-                MessageBox.Show("Debes seleccionar una imagen antes de guardarla.");
-                return; // Salir de la función si no hay imagen seleccionada
-            }
-
-            int nombreProd;
-            nombreProd = Producto_Controller.obtenerMaxId();
-            string nombreProdStr = nombreProd.ToString();
-
-            // Verificar si el nombre del producto es válido
-            if (string.IsNullOrEmpty(nombreProdStr))
-            {
-                MessageBox.Show("El nombre del producto no es válido.");
-                return; // Salir de la función si el nombre del producto no es válido
-            }
-
-            try
-            {
-                string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nombreProdStr + ".jpg";
-
-                // Asegurarse de que el directorio de destino exista
-                if (!Directory.Exists(Path.GetDirectoryName(filePath)))
-                {
-                    Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-                }
-
-                // Guardar la imagen en el directorio de destino
-                File.Save(filePath);
-
-                MessageBox.Show("Imagen guardada con éxito.");
-                nombrefoto = nombreProdStr + ".jpg";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al guardar la imagen: " + ex.Message);
-            }
-
             crear();
         }
 
