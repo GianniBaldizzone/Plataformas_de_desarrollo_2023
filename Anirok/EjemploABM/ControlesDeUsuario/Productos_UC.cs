@@ -17,13 +17,16 @@ namespace EjemploABM.ControlesDeUsuario
     {
 
         List<Producto> productos;
+        int elementosPorPagina = 7;
+        int paginaActual = 1;
+        int totalDePaginas;
         public Productos_UC()
         {
             InitializeComponent();
             cargarProductos();
         }
 
-        private void cargarProductos()
+        /*private void cargarProductos()
         {
             productos = Producto_Controller.obtenerProductos();
             guna2DataGridView1.Rows.Clear();
@@ -49,7 +52,7 @@ namespace EjemploABM.ControlesDeUsuario
                 guna2DataGridView1.Rows[rowIndex].Cells[13].Value = "Eliminar";
 
             }
-        }
+        }*/
 
         private void btn_add_cat_Click(object sender, EventArgs e)
         {
@@ -129,6 +132,66 @@ namespace EjemploABM.ControlesDeUsuario
 
         }
 
-      
+
+
+
+
+
+        private void cargarProductos()
+        {
+            productos = Producto_Controller.obtenerProductos();
+
+            int totalDePaginas = (int)Math.Ceiling((double)productos.Count / elementosPorPagina);
+            int inicio = (paginaActual - 1) * elementosPorPagina;
+            int fin = Math.Min(inicio + elementosPorPagina, productos.Count);
+
+            
+            guna2DataGridView1.Rows.Clear();
+
+            for (int i = inicio; i < fin; i++)
+            {
+                Producto prod = productos[i];
+                int rowIndex = guna2DataGridView1.Rows.Add();
+
+                guna2DataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[2].Value = prod.Descripcion.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[3].Value = prod.Precio.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[4].Value = prod.codigo.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[5].Value = prod.Stock.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[6].Value = prod.Img.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[7].Value = prod.Talle.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[8].Value = prod.Proveedor.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[9].Value = prod.CategoriaId.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[10].Value = prod.SubcategoriaId.ToString();
+
+                guna2DataGridView1.Rows[rowIndex].Cells[11].Value = "Ver";
+                guna2DataGridView1.Rows[rowIndex].Cells[12].Value = "Editar";
+                guna2DataGridView1.Rows[rowIndex].Cells[13].Value = "Eliminar";
+            }
+
+            // Mostrar la información de la paginación en el label
+            lblPaginaActual.Text = $"Página {paginaActual} de {totalDePaginas}";
+        }
+
+        private void btn_anterior_Click(object sender, EventArgs e)
+        {
+            if (paginaActual > 1)
+            {
+                paginaActual--;
+                cargarProductos();
+            }
+        }
+
+        private void btn_siguiente_Click(object sender, EventArgs e)
+        {
+            if ((paginaActual * elementosPorPagina) < productos.Count)
+            {
+                paginaActual++;
+                cargarProductos();
+            }
+        }
     }
+
 }
+
