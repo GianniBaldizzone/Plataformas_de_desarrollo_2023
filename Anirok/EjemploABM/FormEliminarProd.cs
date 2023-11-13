@@ -33,7 +33,7 @@ namespace EjemploABM
             InitializeComponent();
             id_eliminar = prod_eliminar.Id;
             txt_id_prod.Text = id_eliminar.ToString();
-            string nombreImagen = (prod_eliminar.Img.ToString() + ".jpg");
+            string nombreImagen = (prod_eliminar.Id.ToString() + ".jpg");
 
             // Construir la ruta completa de la imagen
             string rutaImagen = Path.Combine(@"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\", nombreImagen);

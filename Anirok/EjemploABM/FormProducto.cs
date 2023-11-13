@@ -115,7 +115,7 @@ namespace EjemploABM
                     {
                         // Asignar el nombre de la foto antes de intentar crear el producto
                         int nombreProdStr = Producto_Controller.obtenerMaxId();
-                        nombrefoto = (nombreProdStr+1) + ".jpg";
+                        string nombrefoto = (nombreProdStr+1).ToString() + ".jpg";
 
                         Producto produ = new Producto(0, txt_nombre.Text, txt_descripcion.Text, precio, txt_codigo.Text, nombrefoto, txt_proveedor.Text, subId, catId, talle, cantidad);
 
@@ -125,7 +125,7 @@ namespace EjemploABM
 
                             this.DialogResult = DialogResult.OK;
                             // Guardar la imagen solo si el producto se ha creado con éxito
-                            string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img" + nombrefoto;
+                            string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nombrefoto;
 
                             // Asegurarse de que el directorio de destino exista
                             if (!Directory.Exists(Path.GetDirectoryName(filePath)))
