@@ -61,9 +61,9 @@
             // 
             this.lbl_nombre.AutoSize = true;
             this.lbl_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_nombre.Location = new System.Drawing.Point(67, 124);
+            this.lbl_nombre.Location = new System.Drawing.Point(60, 99);
             this.lbl_nombre.Name = "lbl_nombre";
-            this.lbl_nombre.Size = new System.Drawing.Size(87, 25);
+            this.lbl_nombre.Size = new System.Drawing.Size(74, 20);
             this.lbl_nombre.TabIndex = 4;
             this.lbl_nombre.Text = "Nombre";
             this.lbl_nombre.Click += new System.EventHandler(this.lbl_nombre_Click);
@@ -72,9 +72,9 @@
             // 
             this.lbl_descripcion.AutoSize = true;
             this.lbl_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_descripcion.Location = new System.Drawing.Point(22, 191);
+            this.lbl_descripcion.Location = new System.Drawing.Point(20, 153);
             this.lbl_descripcion.Name = "lbl_descripcion";
-            this.lbl_descripcion.Size = new System.Drawing.Size(132, 25);
+            this.lbl_descripcion.Size = new System.Drawing.Size(116, 20);
             this.lbl_descripcion.TabIndex = 5;
             this.lbl_descripcion.Text = "Descripción:";
             // 
@@ -82,9 +82,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(67, 262);
+            this.label3.Location = new System.Drawing.Point(60, 210);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 25);
+            this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Precio:";
             // 
@@ -92,9 +92,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(73, 401);
+            this.label4.Location = new System.Drawing.Point(65, 321);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 25);
+            this.label4.Size = new System.Drawing.Size(62, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Stock:";
             // 
@@ -102,9 +102,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(67, 334);
+            this.label5.Location = new System.Drawing.Point(60, 267);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 25);
+            this.label5.Size = new System.Drawing.Size(73, 20);
             this.label5.TabIndex = 8;
             this.label5.Text = "Codigo:";
             // 
@@ -118,10 +118,9 @@
             this.btn_cargar_img.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btn_cargar_img.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cargar_img.ForeColor = System.Drawing.Color.White;
-            this.btn_cargar_img.Location = new System.Drawing.Point(481, 111);
-            this.btn_cargar_img.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_cargar_img.Location = new System.Drawing.Point(428, 89);
             this.btn_cargar_img.Name = "btn_cargar_img";
-            this.btn_cargar_img.Size = new System.Drawing.Size(220, 38);
+            this.btn_cargar_img.Size = new System.Drawing.Size(196, 30);
             this.btn_cargar_img.TabIndex = 10;
             this.btn_cargar_img.Text = "Cargar imagen";
             this.btn_cargar_img.Click += new System.EventHandler(this.btn_cargar_img_Click);
@@ -138,19 +137,18 @@
             this.comboBoxTalle.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.comboBoxTalle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.comboBoxTalle.ItemHeight = 30;
-            this.comboBoxTalle.Location = new System.Drawing.Point(554, 180);
-            this.comboBoxTalle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBoxTalle.Location = new System.Drawing.Point(492, 144);
             this.comboBoxTalle.Name = "comboBoxTalle";
-            this.comboBoxTalle.Size = new System.Drawing.Size(198, 36);
+            this.comboBoxTalle.Size = new System.Drawing.Size(176, 36);
             this.comboBoxTalle.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(473, 191);
+            this.label6.Location = new System.Drawing.Point(420, 153);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 25);
+            this.label6.Size = new System.Drawing.Size(56, 20);
             this.label6.TabIndex = 12;
             this.label6.Text = "Talle:";
             // 
@@ -158,9 +156,9 @@
             // 
             this.lbl_proveedor.AutoSize = true;
             this.lbl_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_proveedor.Location = new System.Drawing.Point(426, 261);
+            this.lbl_proveedor.Location = new System.Drawing.Point(379, 209);
             this.lbl_proveedor.Name = "lbl_proveedor";
-            this.lbl_proveedor.Size = new System.Drawing.Size(118, 25);
+            this.lbl_proveedor.Size = new System.Drawing.Size(100, 20);
             this.lbl_proveedor.TabIndex = 15;
             this.lbl_proveedor.Text = "Proveedor:";
             // 
@@ -168,9 +166,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(433, 331);
+            this.label8.Location = new System.Drawing.Point(385, 265);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(113, 25);
+            this.label8.Size = new System.Drawing.Size(96, 20);
             this.label8.TabIndex = 16;
             this.label8.Text = "Categoria:";
             // 
@@ -178,9 +176,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(396, 396);
+            this.label1.Location = new System.Drawing.Point(352, 317);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 25);
+            this.label1.Size = new System.Drawing.Size(125, 20);
             this.label1.TabIndex = 18;
             this.label1.Text = "Subcategoria:";
             // 
@@ -194,10 +192,10 @@
             this.btn_confirmar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_confirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_confirmar.ForeColor = System.Drawing.Color.White;
-            this.btn_confirmar.Location = new System.Drawing.Point(476, 465);
-            this.btn_confirmar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_confirmar.Location = new System.Drawing.Point(423, 372);
+            this.btn_confirmar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_confirmar.Name = "btn_confirmar";
-            this.btn_confirmar.Size = new System.Drawing.Size(189, 66);
+            this.btn_confirmar.Size = new System.Drawing.Size(168, 53);
             this.btn_confirmar.TabIndex = 47;
             this.btn_confirmar.Text = "CONFIRMAR";
             this.btn_confirmar.Click += new System.EventHandler(this.btn_confirmar_Click);
@@ -209,10 +207,9 @@
             this.guna2PictureBox1.Cursor = System.Windows.Forms.Cursors.No;
             this.guna2PictureBox1.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(770, 113);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(684, 90);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(338, 313);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(300, 250);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 48;
             this.guna2PictureBox1.TabStop = false;
@@ -221,10 +218,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(477, 41);
+            this.label2.Location = new System.Drawing.Point(424, 33);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(188, 29);
+            this.label2.Size = new System.Drawing.Size(156, 25);
             this.label2.TabIndex = 49;
             this.label2.Text = "Crear producto";
             // 
@@ -233,10 +230,10 @@
             this.btnCerrarVentana.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrarVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrarVentana.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarVentana.Image")));
-            this.btnCerrarVentana.Location = new System.Drawing.Point(1077, -1);
-            this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCerrarVentana.Location = new System.Drawing.Point(957, -1);
+            this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrarVentana.Name = "btnCerrarVentana";
-            this.btnCerrarVentana.Size = new System.Drawing.Size(52, 54);
+            this.btnCerrarVentana.Size = new System.Drawing.Size(46, 43);
             this.btnCerrarVentana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrarVentana.TabIndex = 50;
             this.btnCerrarVentana.TabStop = false;
@@ -255,13 +252,13 @@
             this.txt_nombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_nombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_nombre.Location = new System.Drawing.Point(164, 118);
-            this.txt_nombre.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_nombre.Location = new System.Drawing.Point(146, 94);
+            this.txt_nombre.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.PasswordChar = '\0';
             this.txt_nombre.PlaceholderText = "";
             this.txt_nombre.SelectedText = "";
-            this.txt_nombre.Size = new System.Drawing.Size(198, 31);
+            this.txt_nombre.Size = new System.Drawing.Size(176, 25);
             this.txt_nombre.TabIndex = 51;
             this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
             // 
@@ -278,13 +275,13 @@
             this.txt_descripcion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_descripcion.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_descripcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_descripcion.Location = new System.Drawing.Point(164, 185);
-            this.txt_descripcion.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_descripcion.Location = new System.Drawing.Point(146, 148);
+            this.txt_descripcion.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_descripcion.Name = "txt_descripcion";
             this.txt_descripcion.PasswordChar = '\0';
             this.txt_descripcion.PlaceholderText = "";
             this.txt_descripcion.SelectedText = "";
-            this.txt_descripcion.Size = new System.Drawing.Size(198, 31);
+            this.txt_descripcion.Size = new System.Drawing.Size(176, 25);
             this.txt_descripcion.TabIndex = 52;
             // 
             // txt_precio
@@ -300,13 +297,13 @@
             this.txt_precio.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_precio.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_precio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_precio.Location = new System.Drawing.Point(164, 256);
-            this.txt_precio.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_precio.Location = new System.Drawing.Point(146, 205);
+            this.txt_precio.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_precio.Name = "txt_precio";
             this.txt_precio.PasswordChar = '\0';
             this.txt_precio.PlaceholderText = "";
             this.txt_precio.SelectedText = "";
-            this.txt_precio.Size = new System.Drawing.Size(198, 31);
+            this.txt_precio.Size = new System.Drawing.Size(176, 25);
             this.txt_precio.TabIndex = 53;
             // 
             // txt_codigo
@@ -322,13 +319,13 @@
             this.txt_codigo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_codigo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_codigo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_codigo.Location = new System.Drawing.Point(164, 328);
-            this.txt_codigo.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_codigo.Location = new System.Drawing.Point(146, 262);
+            this.txt_codigo.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_codigo.Name = "txt_codigo";
             this.txt_codigo.PasswordChar = '\0';
             this.txt_codigo.PlaceholderText = "";
             this.txt_codigo.SelectedText = "";
-            this.txt_codigo.Size = new System.Drawing.Size(198, 31);
+            this.txt_codigo.Size = new System.Drawing.Size(176, 25);
             this.txt_codigo.TabIndex = 54;
             // 
             // txt_cantidad
@@ -338,10 +335,10 @@
             this.txt_cantidad.BorderRadius = 5;
             this.txt_cantidad.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_cantidad.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_cantidad.Location = new System.Drawing.Point(164, 389);
-            this.txt_cantidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_cantidad.Location = new System.Drawing.Point(146, 311);
+            this.txt_cantidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_cantidad.Name = "txt_cantidad";
-            this.txt_cantidad.Size = new System.Drawing.Size(198, 37);
+            this.txt_cantidad.Size = new System.Drawing.Size(176, 30);
             this.txt_cantidad.TabIndex = 55;
             this.txt_cantidad.UpDownButtonFillColor = System.Drawing.Color.Maroon;
             this.txt_cantidad.UpDownButtonForeColor = System.Drawing.Color.White;
@@ -359,13 +356,13 @@
             this.txt_proveedor.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_proveedor.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_proveedor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_proveedor.Location = new System.Drawing.Point(554, 256);
-            this.txt_proveedor.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_proveedor.Location = new System.Drawing.Point(492, 205);
+            this.txt_proveedor.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_proveedor.Name = "txt_proveedor";
             this.txt_proveedor.PasswordChar = '\0';
             this.txt_proveedor.PlaceholderText = "";
             this.txt_proveedor.SelectedText = "";
-            this.txt_proveedor.Size = new System.Drawing.Size(198, 31);
+            this.txt_proveedor.Size = new System.Drawing.Size(176, 25);
             this.txt_proveedor.TabIndex = 56;
             // 
             // comboBoxCat
@@ -380,10 +377,9 @@
             this.comboBoxCat.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.comboBoxCat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.comboBoxCat.ItemHeight = 30;
-            this.comboBoxCat.Location = new System.Drawing.Point(555, 323);
-            this.comboBoxCat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBoxCat.Location = new System.Drawing.Point(493, 258);
             this.comboBoxCat.Name = "comboBoxCat";
-            this.comboBoxCat.Size = new System.Drawing.Size(197, 36);
+            this.comboBoxCat.Size = new System.Drawing.Size(176, 36);
             this.comboBoxCat.TabIndex = 57;
             // 
             // comboBoxSub
@@ -398,18 +394,17 @@
             this.comboBoxSub.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.comboBoxSub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.comboBoxSub.ItemHeight = 30;
-            this.comboBoxSub.Location = new System.Drawing.Point(555, 385);
-            this.comboBoxSub.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBoxSub.Location = new System.Drawing.Point(493, 308);
             this.comboBoxSub.Name = "comboBoxSub";
-            this.comboBoxSub.Size = new System.Drawing.Size(197, 36);
+            this.comboBoxSub.Size = new System.Drawing.Size(176, 36);
             this.comboBoxSub.TabIndex = 58;
             // 
             // FormProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1127, 564);
+            this.ClientSize = new System.Drawing.Size(1002, 451);
             this.Controls.Add(this.comboBoxSub);
             this.Controls.Add(this.comboBoxCat);
             this.Controls.Add(this.txt_proveedor);
@@ -434,7 +429,6 @@
             this.Controls.Add(this.lbl_descripcion);
             this.Controls.Add(this.lbl_nombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";

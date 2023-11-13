@@ -66,6 +66,12 @@
     <Compile Include="ControlesDeUsuario\Categorias_UC.Designer.cs">
       <DependentUpon>Categorias_UC.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEliminarProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarProd.Designer.cs">
+      <DependentUpon>FormEliminarProd.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVerProd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarProd.resx">
+      <DependentUpon>FormEliminarProd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVerProd.resx">
       <DependentUpon>FormVerProd.cs</DependentUpon>

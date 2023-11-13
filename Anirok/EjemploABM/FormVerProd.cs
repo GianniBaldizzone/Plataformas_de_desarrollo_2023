@@ -38,10 +38,10 @@ namespace EjemploABM
             txt_talle.Text= prod.Talle.ToString();
             txt_stock.Text= prod.Stock.ToString();
 
-            string nombreImagen = prod.Img;
+            string nombreImagen = (prod.Img + ".jpg");
 
             // Construir la ruta completa de la imagen
-            string rutaImagen = Path.Combine(@"C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\", nombreImagen);
+            string rutaImagen = Path.Combine(@"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img", nombreImagen);
 
             // Verificar si el archivo de la imagen existe antes de asignarlo
             if (File.Exists(rutaImagen))

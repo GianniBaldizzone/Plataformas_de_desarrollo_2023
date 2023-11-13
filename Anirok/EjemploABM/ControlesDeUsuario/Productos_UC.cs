@@ -101,9 +101,9 @@ namespace EjemploABM.ControlesDeUsuario
                 int id = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                 Trace.WriteLine("el id es: " + id);
                 Producto prod_elim = Producto_Controller.obtenerPorId(id);
-                //FormEliminarProd formeliminarprod = new FormEliminarSub(prod_elim);
-                //DialogResult eliminar = formeliminarprod.ShowDialog();
-                //if (eliminar == DialogResult.OK)
+                FormEliminarProd formeliminarprod = new FormEliminarProd(prod_elim);
+                DialogResult eliminar = formeliminarprod.ShowDialog();
+                if (eliminar == DialogResult.OK)
                 {
                     Trace.WriteLine("OK - se creo form eliminar");
                     cargarProductos();
