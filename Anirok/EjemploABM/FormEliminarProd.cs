@@ -65,7 +65,7 @@ namespace EjemploABM
             this.Hide();
         }
 
-        
+
 
         private void ConfirmarEliminacion()
         {

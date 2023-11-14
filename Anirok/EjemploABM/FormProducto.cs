@@ -8,7 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
+using System.IO; // Asegúrate de tener esta línea
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,9 +42,50 @@ namespace EjemploABM
             situacion = "creacion";
         }
 
+        public FormProducto(Producto prod)
+        {
+            InitializeComponent();
+
+            id_editar = prod.Id;
+
+            // Asigna los valores del producto a los controles correspondientes
+            txt_nombre.Text = prod.Nombre;
+            txt_descripcion.Text = prod.Descripcion;
+            txt_precio.Text = prod.Precio.ToString();
+            txt_codigo.Text = prod.codigo;
+            txt_cantidad.Text = prod.Stock.ToString();
+            txt_proveedor.Text = prod.Proveedor;
+            nombrefoto = prod.Img;
+
+            // Selecciona la categoría y subcategoría correspondientes en los ComboBox
+            comboBoxTalle.Items.Clear();
+
+            comboBoxTalle.Items.Add("S");
+            comboBoxTalle.Items.Add("M");
+            comboBoxTalle.Items.Add("L");
+            comboBoxTalle.Items.Add("XL");
+            comboBoxTalle.Items.Add("No tiene");
+            CargarCategoriasEnComboBoxCrear();
+            comboBoxCat.SelectedIndexChanged += ComboBoxCat_SelectedIndexChanged;
+
+            comboBoxCat.SelectedValue = prod.CategoriaId;
+            comboBoxSub.SelectedValue = prod.SubcategoriaId;
+
+            // Selecciona el talle correspondiente en el ComboBox
+            comboBoxTalle.SelectedItem = prod.Talle;
+
+            string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + prod.Img;
+            
+                guna2PictureBox1.Image = Image.FromFile(filePath);
+
+            label2.Text = "Editar Producto";
+
+            situacion = "edicion";
+        }
+
 
         // SOBRECARGAR EL CONSTRUCTOR PARA INICIAR EL FORM CON LA INFO CARGADA, PARA EDITAR
-        
+
         private void btn_cargar_img_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -60,20 +101,96 @@ namespace EjemploABM
         }
 
 
-        private void btn_crear_Click_1(object sender, EventArgs e)
+
+
+        private void editar()
         {
-            if (situacion == "creacion")
+            if (id_editar <= 0)
             {
-                crear();
-            }
-            if (situacion == "edicion")
-            {
-                
+                MessageBox.Show("No se ha seleccionado ningún producto para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
+            if (string.IsNullOrWhiteSpace(txt_nombre.Text) ||
+                string.IsNullOrWhiteSpace(txt_descripcion.Text) ||
+                string.IsNullOrWhiteSpace(txt_precio.Text) ||
+                string.IsNullOrWhiteSpace(txt_codigo.Text) ||
+                string.IsNullOrWhiteSpace(txt_cantidad.Text) ||
+                string.IsNullOrWhiteSpace(txt_proveedor.Text) ||
+                comboBoxTalle.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, complete todos los campos y seleccione un rol antes de editar el producto.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string talle = comboBoxTalle.SelectedItem?.ToString() ?? "No tiene";
+
+            int catId;
+            if (!int.TryParse(comboBoxCat.SelectedValue?.ToString(), out catId) || catId == 0)
+            {
+                MessageBox.Show("ID categoría no válido.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int subId;
+            if (!int.TryParse(comboBoxSub.SelectedValue?.ToString(), out subId))
+            {
+                MessageBox.Show("ID subcategoría nulo debido a que no existen subcategorias de esa categoria", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            float precio;
+            if (float.TryParse(txt_precio.Text, out precio))
+            {
+                int cantidad;
+                if (int.TryParse(txt_cantidad.Text, out cantidad))
+                {
+                    try
+                    {
+                        // Actualizar la información del producto
+                        string nuevoNombreFoto = nombrefoto; // Por defecto, mantiene el nombre existente
+
+                        if (File != null) // Si se selecciona una nueva imagen
+                        {
+                           
+
+                            // Guardar la nueva imagen
+                            string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nombrefoto;
+                            if (!Directory.Exists(Path.GetDirectoryName(filePath)))
+                            {
+                                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                            }
+                            File.Save(filePath);
+                        }
+
+                        Producto productoActualizado = new Producto(id_editar, txt_nombre.Text, txt_descripcion.Text, precio, txt_codigo.Text, nuevoNombreFoto, txt_proveedor.Text, subId, catId, talle, cantidad);
+
+                        // Intentar actualizar el producto
+                        if (Producto_Controller.editarProducto(productoActualizado))
+                        {
+                            this.DialogResult = DialogResult.OK;
+                            MessageBox.Show("Producto actualizado con éxito.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al actualizar el producto.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al actualizar el producto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El valor de la cantidad no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("El valor del precio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
-
 
         private void crear()
         {
@@ -212,7 +329,14 @@ namespace EjemploABM
 
         private void btn_confirmar_Click(object sender, EventArgs e)
         {
-            crear();
+            if (situacion == "creacion")
+            {
+                crear();
+            }
+            if (situacion == "edicion")
+            {
+                editar();
+            }
         }
 
         private void btnCerrarVentana_Click(object sender, EventArgs e)

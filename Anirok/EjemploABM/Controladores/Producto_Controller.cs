@@ -167,21 +167,20 @@ namespace EjemploABM.Controladores
             //Darlo de alta en la BBDD
 
             string query = "UPDATE dbo.producto SET " +
-                "(@id, " +
-               "@nombre, " +
-               "@descripcion," +
-               "@precio," +
-               "@codigo," +
-               "@stock," +
-               "@img," +
-               "@talle," +
-               "@proveedor," +
-               "@categoriaid" +
-               "@subcategoria_id"
-               ;
+                               "nombre = @nombre, " +
+                               "descripción = @descripcion, " +
+                               "precio = @precio, " +
+                               "codigo = @codigo, " +
+                               "img = @img, " +
+                               "proovedor = @proovedor, " +
+                               "subcategoria_id = @subcategoria_id, " +
+                               "categoria_id = @categoria_id, " +
+                               "talle = @talle, " +
+                               "stock = @stock " +
+                               "WHERE id = @id;";
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
-            cmd.Parameters.AddWithValue("@id", obtenerMaxId() + 1);
+            cmd.Parameters.AddWithValue("@id", prod.Id);
             cmd.Parameters.AddWithValue("@nombre", prod.Nombre);
             cmd.Parameters.AddWithValue("@descripcion", prod.Descripcion);
             cmd.Parameters.AddWithValue("@precio", prod.Precio);
@@ -189,7 +188,7 @@ namespace EjemploABM.Controladores
             cmd.Parameters.AddWithValue("@stock", prod.Stock);
             cmd.Parameters.AddWithValue("@img", prod.Img);
             cmd.Parameters.AddWithValue("@talle", prod.Talle);
-            cmd.Parameters.AddWithValue("@proveedor", prod.Proveedor);
+            cmd.Parameters.AddWithValue("@proovedor", prod.Proveedor);
             cmd.Parameters.AddWithValue("@categoria_id", prod.CategoriaId);
             cmd.Parameters.AddWithValue("@subcategoria_id", prod.SubcategoriaId);
             ;

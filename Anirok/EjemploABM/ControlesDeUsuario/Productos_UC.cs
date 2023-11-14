@@ -86,11 +86,11 @@ namespace EjemploABM.ControlesDeUsuario
 
                 Producto prod_editar = Producto_Controller.obtenerPorId(id);
 
-                //FormProducto formprod = new FormProducto(prod_editar);
+                FormProducto formprod = new FormProducto(prod_editar);
 
-                //DialogResult dr = formprod.ShowDialog();
+                DialogResult dr = formprod.ShowDialog();
 
-                //if (dr == DialogResult.OK)
+                if (dr == DialogResult.OK)
                 {
                     Trace.WriteLine("OK - se edito");
                     //ACTUALIZAR LA LISTA
