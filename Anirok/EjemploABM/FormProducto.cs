@@ -89,15 +89,21 @@ namespace EjemploABM
         private void btn_cargar_img_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-                
-                ofd.Filter = "*JPG(*.JPG)|*.jpg";
 
-                if (ofd.ShowDialog() == DialogResult.OK)
+            ofd.Filter = "*JPG(*.JPG)|*.jpg";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                // Liberar recursos de la imagen actual antes de cargar la nueva
+                if (guna2PictureBox1.Image != null)
                 {
-                    File = Image.FromFile(ofd.FileName);
-                guna2PictureBox1.Image = File;
+                    guna2PictureBox1.Image.Dispose();
                 }
-            
+
+                // Cargar la nueva imagen
+                File = Image.FromFile(ofd.FileName);
+                guna2PictureBox1.Image = File;
+            }
         }
 
 
