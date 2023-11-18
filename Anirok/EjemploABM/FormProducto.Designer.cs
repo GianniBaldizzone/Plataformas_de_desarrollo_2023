@@ -193,7 +193,7 @@
             this.btn_confirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_confirmar.ForeColor = System.Drawing.Color.White;
             this.btn_confirmar.Location = new System.Drawing.Point(423, 372);
-            this.btn_confirmar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_confirmar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_confirmar.Name = "btn_confirmar";
             this.btn_confirmar.Size = new System.Drawing.Size(168, 53);
             this.btn_confirmar.TabIndex = 47;
@@ -231,7 +231,7 @@
             this.btnCerrarVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrarVentana.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarVentana.Image")));
             this.btnCerrarVentana.Location = new System.Drawing.Point(957, -1);
-            this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrarVentana.Name = "btnCerrarVentana";
             this.btnCerrarVentana.Size = new System.Drawing.Size(46, 43);
             this.btnCerrarVentana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -336,7 +336,7 @@
             this.txt_cantidad.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_cantidad.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_cantidad.Location = new System.Drawing.Point(146, 311);
-            this.txt_cantidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_cantidad.Margin = new System.Windows.Forms.Padding(4);
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(176, 30);
             this.txt_cantidad.TabIndex = 55;

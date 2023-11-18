@@ -21,7 +21,7 @@ namespace EjemploABM
     public partial class FormProducto : Form
     {
         Image File;
-        
+
         string situacion;
         int id_editar;
         string nombrefoto;
@@ -75,14 +75,13 @@ namespace EjemploABM
             comboBoxTalle.SelectedItem = prod.Talle;
 
             string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + prod.Img;
-            
-                guna2PictureBox1.Image = Image.FromFile(filePath);
+
+            guna2PictureBox1.Image = Image.FromFile(filePath);
 
             label2.Text = "Editar Producto";
 
             situacion = "edicion";
         }
-
 
         // SOBRECARGAR EL CONSTRUCTOR PARA INICIAR EL FORM CON LA INFO CARGADA, PARA EDITAR
 
@@ -105,9 +104,6 @@ namespace EjemploABM
                 guna2PictureBox1.Image = File;
             }
         }
-
-
-
 
         private void editar()
         {
@@ -158,14 +154,19 @@ namespace EjemploABM
 
                         if (File != null) // Si se selecciona una nueva imagen
                         {
-                           
+                            // Guardar la nueva imagen con un nuevo nombre
+                            nuevoNombreFoto = Producto_Controller.obtenerMaxId() + ".jpg";
 
-                            // Guardar la nueva imagen
-                            string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nombrefoto;
+                            // Guardar la nueva imagen en el directorio de destino
+                            string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nuevoNombreFoto;
+
+                            // Asegurarse de que el directorio de destino exista
                             if (!Directory.Exists(Path.GetDirectoryName(filePath)))
                             {
                                 Directory.CreateDirectory(Path.GetDirectoryName(filePath));
                             }
+
+                            // Guardar la nueva imagen en el directorio de destino
                             File.Save(filePath);
                         }
 
@@ -238,15 +239,13 @@ namespace EjemploABM
                     {
                         // Asignar el nombre de la foto antes de intentar crear el producto
                         int nombreProdStr = Producto_Controller.obtenerMaxId();
-                        string nombrefoto = (nombreProdStr+1).ToString() + ".jpg";
-
-                        Producto produ = new Producto(0, txt_nombre.Text, txt_descripcion.Text, precio, txt_codigo.Text, nombrefoto, txt_proveedor.Text, subId, catId, talle, cantidad);
+                        string nombrefoto = (nombreProdStr + 1).ToString() + ".jpg";
 
                         // Intentar crear el producto
-                        if (Producto_Controller.crearProducto(produ))
+                        if (Producto_Controller.crearProducto(new Producto(0, txt_nombre.Text, txt_descripcion.Text, precio, txt_codigo.Text, nombrefoto, txt_proveedor.Text, subId, catId, talle, cantidad)))
                         {
-
                             this.DialogResult = DialogResult.OK;
+
                             // Guardar la imagen solo si el producto se ha creado con éxito
                             string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nombrefoto;
 
@@ -300,11 +299,11 @@ namespace EjemploABM
 
         public void CargarCategoriasEnComboBoxCrear()
         {
-                comboBoxCat.DisplayMember = "Nombre"; // Establece la propiedad que se mostrará en el ComboBox
-                comboBoxCat.ValueMember = "Id"; // Establece la propiedad que se usará como valor interno
-                comboBoxCat.DataSource = Categoria_Controller.ObtenerCategoriasActivas(); // Asigna la lista de categorías al ComboBox
-                comboBoxCat.SelectedIndex = -1; // Establece la selección actual en vacío (ningún elemento seleccionado)
-            }
+            comboBoxCat.DisplayMember = "Nombre"; // Establece la propiedad que se mostrará en el ComboBox
+            comboBoxCat.ValueMember = "Id"; // Establece la propiedad que se usará como valor interno
+            comboBoxCat.DataSource = Categoria_Controller.ObtenerCategoriasActivas(); // Asigna la lista de categorías al ComboBox
+            comboBoxCat.SelectedIndex = -1; // Establece la selección actual en vacío (ningún elemento seleccionado)
+        }
 
         private void ComboBoxCat_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -379,7 +378,8 @@ namespace EjemploABM
         {
 
         }
-
+    }
+}
 
 
 
@@ -392,5 +392,4 @@ namespace EjemploABM
         //comboBoxSub.DataSource = (); // Asigna la lista de subcategorías al ComboBox
         //comboBoxCat.SelectedIndex = -1; // Establece la selección actual en vacío (ningún elemento seleccionado)
         //}
-    }
-}
+
