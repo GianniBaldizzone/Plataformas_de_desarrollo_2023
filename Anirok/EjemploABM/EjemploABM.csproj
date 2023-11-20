@@ -169,9 +169,11 @@
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Categoria.cs" />
+    <Compile Include="Modelo\Class1.cs" />
     <Compile Include="Modelo\Subcategoria.cs" />
     <Compile Include="Modelo\Producto.cs" />
     <Compile Include="Modelo\Usuario.cs" />
+    <Compile Include="Modelo\Venta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ControlesDeUsuario\Categorias_UC.resx">
