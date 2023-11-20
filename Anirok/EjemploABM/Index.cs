@@ -115,5 +115,11 @@ namespace EjemploABM
         {
 
         }
+
+        private void guna2Button8_Click(object sender, EventArgs e)
+        {
+            FormVenta form = new FormVenta();
+            form.Show();
+        }
     }
 }

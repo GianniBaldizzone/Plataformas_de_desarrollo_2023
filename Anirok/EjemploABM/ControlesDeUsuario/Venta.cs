@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EjemploABM.ControlesDeUsuario
 {
-    public partial class UserControl1 : UserControl
+    public partial class Venta : UserControl
     {
-        public UserControl1()
+        public Venta()
         {
             InitializeComponent();
         }

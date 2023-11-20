@@ -1,6 +1,6 @@
 ﻿namespace EjemploABM.ControlesDeUsuario
 {
-    partial class UserControl1
+    partial class Venta
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
