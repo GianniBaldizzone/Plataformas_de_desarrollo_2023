@@ -12,6 +12,7 @@ namespace EjemploABM
     public partial class FormVenta : Form
     {
         private List<Producto> productosDisponibles;
+        private List<Producto> productosEnCarrito;
         private int elementosPorPagina = 7;
         private int paginaActual = 1;
         private int totalDePaginas;
@@ -21,6 +22,9 @@ namespace EjemploABM
             InitializeComponent();
             CargarProductos();
             txtBusqueda.TextChanged += TxtBusqueda_TextChanged;
+            productosEnCarrito = new List<Producto>();
+            dataGridViewCarrito.CellContentClick += dataGridViewCarrito_CellContentClick;
+            dataGridViewDisponibles.CellContentClick += dataGridViewDisponibles_CellContentClick_1;
         }
 
         private void TxtBusqueda_TextChanged(object sender, EventArgs e)
@@ -50,8 +54,16 @@ namespace EjemploABM
                     dataGridViewDisponibles.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
                     dataGridViewDisponibles.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
                     dataGridViewDisponibles.Rows[rowIndex].Cells[2].Value = prod.Precio.ToString();
-                    dataGridViewDisponibles.Rows[rowIndex].Cells[3].Value = "Ver";
-                    dataGridViewDisponibles.Rows[rowIndex].Cells[4].Value = "Agregar";
+
+                    // Verificar si el producto ya está en el carrito y cambiar el botón en consecuencia
+                    if (productosEnCarrito.Any(p => p.Id == prod.Id))
+                    {
+                        dataGridViewDisponibles.Rows[rowIndex].Cells[4].Value = "Quitar";
+                    }
+                    else
+                    {
+                        dataGridViewDisponibles.Rows[rowIndex].Cells[4].Value = "Agregar";
+                    }
                 }
 
                 lblPaginaActual.Text = $"Página {paginaActual} de {totalDePaginasFiltradas}";
@@ -62,25 +74,32 @@ namespace EjemploABM
         {
             productosDisponibles = Producto_Controller.obtenerProductos();
 
-            totalDePaginas = (int)Math.Ceiling((double)productosDisponibles.Count / elementosPorPagina);
-            int inicio = (paginaActual - 1) * elementosPorPagina;
-            int fin = Math.Min(inicio + elementosPorPagina, productosDisponibles.Count);
-
-            dataGridViewDisponibles.Rows.Clear();
-
-            for (int i = inicio; i < fin; i++)
+            if (productosDisponibles != null)
             {
-                Producto prod = productosDisponibles[i];
-                int rowIndex = dataGridViewDisponibles.Rows.Add();
+                totalDePaginas = (int)Math.Ceiling((double)productosDisponibles.Count / elementosPorPagina);
+                int inicio = (paginaActual - 1) * elementosPorPagina;
+                int fin = Math.Min(inicio + elementosPorPagina, productosDisponibles.Count);
 
-                dataGridViewDisponibles.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
-                dataGridViewDisponibles.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
-                dataGridViewDisponibles.Rows[rowIndex].Cells[2].Value = prod.Precio.ToString();
-                dataGridViewDisponibles.Rows[rowIndex].Cells[3].Value = "Ver";
-                dataGridViewDisponibles.Rows[rowIndex].Cells[4].Value = "Agregar";
+                dataGridViewDisponibles.Rows.Clear();
+
+                for (int i = inicio; i < fin; i++)
+                {
+                    Producto prod = productosDisponibles[i];
+                    int rowIndex = dataGridViewDisponibles.Rows.Add();
+
+                    dataGridViewDisponibles.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
+                    dataGridViewDisponibles.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
+                    dataGridViewDisponibles.Rows[rowIndex].Cells[2].Value = prod.Precio.ToString();
+                    dataGridViewDisponibles.Rows[rowIndex].Cells[3].Value = "Ver";
+                    dataGridViewDisponibles.Rows[rowIndex].Cells[4].Value = "Agregar";
+                }
+
+                lblPaginaActual.Text = $"Página {paginaActual} de {totalDePaginas}";
             }
-
-            lblPaginaActual.Text = $"Página {paginaActual} de {totalDePaginas}";
+            else
+            {
+                MessageBox.Show("No se pudieron cargar los productos. La lista es nula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_anterior_Click_1(object sender, EventArgs e)
@@ -101,55 +120,93 @@ namespace EjemploABM
             }
         }
 
-       
-
-        private void dataGridViewDisponibles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewDisponibles_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            Trace.WriteLine("estoy andando");
-            Debug.WriteLine("Celda seleccionada: " + e.ColumnIndex + ", " + e.RowIndex);
-
-            var senderGrid = (DataGridView)sender;
-            if (senderGrid.Columns[e.ColumnIndex].Name == "Ver")
+            if (e.ColumnIndex == dataGridViewDisponibles.Columns["Agregar"].Index && e.RowIndex >= 0)
             {
-                int id = int.Parse(dataGridViewDisponibles.Rows[e.RowIndex].Cells[0].Value.ToString());
-                Trace.WriteLine("el id es: " + id);
+                int id = Convert.ToInt32(dataGridViewDisponibles.Rows[e.RowIndex].Cells["Id"].Value);
+                Producto producto = Producto_Controller.obtenerPorId(id);
 
-                Producto prod_editar = Producto_Controller.obtenerPorId(id);
-
-                FormVerProd formver = new FormVerProd(prod_editar);
-
-                DialogResult dr = formver.ShowDialog();
-
-                if (dr == DialogResult.OK)
+                // Verificar si el producto ya está en el carrito
+                if (!productosEnCarrito.Any(p => p.Id == producto.Id))
                 {
-                    Trace.WriteLine("OK - se edito");
+                    // Agregar el producto al carrito
+                    AgregarProductoAlCarrito(producto);
+
+                    // Actualizar la vista de productos disponibles
                     CargarProductos();
                 }
             }
-            else if (senderGrid.Columns[e.ColumnIndex].Name == "Agregar")
+
+            else if (e.ColumnIndex == dataGridViewDisponibles.Columns["Ver"].Index && e.RowIndex >= 0)
+                {
+                    int id2 = int.Parse(dataGridViewDisponibles.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    Trace.WriteLine("el id es: " + id2);
+                    Producto prod_elim = Producto_Controller.obtenerPorId(id2);
+                    FormVerProd formverprod = new FormVerProd(prod_elim);
+                    DialogResult ver = formverprod.ShowDialog();
+                }
+            }
+
+
+        private void dataGridViewCarrito_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridViewCarrito.Columns["Quitar"].Index && e.RowIndex >= 0)
             {
-                int id = int.Parse(dataGridViewDisponibles.Rows[e.RowIndex].Cells[0].Value.ToString());
-                Trace.WriteLine("el id es: " + id);
+                int id = Convert.ToInt32(dataGridViewCarrito.Rows[e.RowIndex].Cells[0].Value);
+                Producto producto = productosEnCarrito.FirstOrDefault(p => p.Id == id);
 
-                Producto prod_agregar = Producto_Controller.obtenerPorId(id);
-
-                // Agregar el producto al DataGridView del carrito
-                AgregarProductoAlCarrito(prod_agregar);
+                if (producto != null)
+                {
+                    // Quitar el producto del carrito
+                    QuitarProductoDelCarrito(producto);
+                }
             }
         }
 
         private void AgregarProductoAlCarrito(Producto producto)
         {
+            productosEnCarrito.Add(producto);
+
             int rowIndex = dataGridViewCarrito.Rows.Add();
 
-            dataGridViewDisponibles.Rows[rowIndex].Cells[0].Value = producto.Id.ToString();
-            dataGridViewDisponibles.Rows[rowIndex].Cells[1].Value = producto.Nombre.ToString();
-            dataGridViewDisponibles.Rows[rowIndex].Cells[2].Value = producto.Precio.ToString();
-            dataGridViewDisponibles.Rows[rowIndex].Cells[3].Value = "Ver";
-            dataGridViewDisponibles.Rows[rowIndex].Cells[4].Value = "Quitar";
+            dataGridViewCarrito.Rows[rowIndex].Cells[0].Value = producto.Id.ToString();
+            dataGridViewCarrito.Rows[rowIndex].Cells[1].Value = producto.Nombre.ToString();
+            dataGridViewCarrito.Rows[rowIndex].Cells[2].Value = producto.Precio.ToString();
+            dataGridViewCarrito.Rows[rowIndex].Cells[3].Value = "Ver";
+            dataGridViewCarrito.Rows[rowIndex].Cells[4].Value = "Quitar";
+
+            // Actualizar el botón en el DataGridView de productos disponibles
+            ActualizarBotonEnProductosDisponibles(producto.Id, "Quitar");
         }
 
-       
+        private void QuitarProductoDelCarrito(Producto producto)
+        {
+            productosEnCarrito.Remove(producto);
+
+            // Puedes implementar la lógica para quitar la fila del DataGridView del carrito.
+            // Aquí estoy simplemente removiendo la primera fila que coincide con el Id del producto.
+            var row = dataGridViewCarrito.Rows.Cast<DataGridViewRow>()
+                .FirstOrDefault(r => Convert.ToInt32(r.Cells[0].Value) == producto.Id);
+
+            if (row != null)
+            {
+                dataGridViewCarrito.Rows.Remove(row);
+            }
+
+            // Actualizar el botón en el DataGridView de productos disponibles
+            ActualizarBotonEnProductosDisponibles(producto.Id, "Agregar");
+        }
+
+        private void ActualizarBotonEnProductosDisponibles(int productId, string buttonText)
+        {
+            var row = dataGridViewDisponibles.Rows.Cast<DataGridViewRow>()
+                .FirstOrDefault(r => Convert.ToInt32(r.Cells["Id"].Value) == productId);
+
+            if (row != null)
+            {
+                row.Cells["Agregar"].Value = buttonText;
+            }
+        }
     }
 }
-
