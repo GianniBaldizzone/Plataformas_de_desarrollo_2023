@@ -79,14 +79,95 @@ CREATE TABLE detalle_venta (
   FOREIGN KEY (producto_id) REFERENCES producto(id)
 );
 
--- Insertar datos de ejemplo en la tabla `categoria`
-INSERT INTO dbo.categoria (id, nombre, esta_activo) VALUES (1, 'Peluches', 'Activa');
+INSERT INTO dbo.categoria (id, nombre, esta_activo) VALUES (1, 'Mochilas', 'Activa');
+INSERT INTO dbo.categoria (id, nombre, esta_activo) VALUES (2, 'Set Materos', 'Activa');
+INSERT INTO dbo.categoria (id, nombre, esta_activo) VALUES (3, 'Bufandas', 'Activa');
+INSERT INTO dbo.categoria (id, nombre, esta_activo) VALUES (4, 'Cartucheras', 'Activa');
+INSERT INTO dbo.categoria (id, nombre, esta_activo) VALUES (5, 'Comics', 'Activa');
+INSERT INTO dbo.categoria (id, nombre, esta_activo) VALUES (6, 'Figuras', 'Activa');
+INSERT INTO dbo.categoria (id, nombre, esta_activo) VALUES (7, 'Peluches', 'Activa');
 
 -- Insertar datos de ejemplo en la tabla `subcategoria`
+-- Insertar datos de ejemplo en la tabla `subcategoria`
 INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (1, 'Chiquitos', 1, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (2, 'Grandes', 1, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (3, 'No tiene', 1, 'Activa');
+
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (4, 'Con Mate', 2, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (5, 'Sin Mate', 2, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (6, 'No tiene', 2, 'Activa');
+
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (7, 'Largas', 3, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (8, 'Cortas', 3, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (9, 'No tiene', 3, 'Activa');
+
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (10, 'Estuches', 4, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (11, 'No tiene', 4, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (12, 'No tiene', 4, 'Activa');
+
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (13, 'Marvel', 5, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (14, 'DC', 5, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (15, 'No tiene', 5, 'Activa');
+
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (16, 'Personajes', 6, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (17, 'Animales', 6, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (18, 'No tiene', 6, 'Activa');
+
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (19, 'Chiquitos', 7, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (20, 'Grandes', 7, 'Activa');
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES (21, 'No tiene', 7, 'Activa');
+
 
 -- Insertar datos de ejemplo en la tabla `producto`
-INSERT INTO dbo.producto (id, nombre, descripción, precio, codigo, img, proovedor, subcategoria_id, categoria_id, talle, stock) VALUES (1, 'Muñeco generico', 'es un muñeco generico', 10000, '2345234567', 'imagen.jpg', 'Bandai', 1, 1, 'No tiene', 10);
+INSERT INTO dbo.producto (id, nombre, descripción, precio, codigo, img, proovedor, subcategoria_id, categoria_id, talle, stock) VALUES 
+(1, 'Mochila Stitch', 'es un muñeco generico', 10000, '2345234567', '1.jpg', 'Bandai', 1, 1, 'No tiene', 10),
+(2, 'Mochila Pikachu', 'es un muñeco generico', 12000, '2345234568', '2.jpg', 'Bandai', 1, 1, 'No tiene', 15),
+(3, 'Mochila Bob esponja', 'es un muñeco generico', 8000, '2345234569', '3.jpg', 'Bandai', 1, 1, 'No tiene', 20),
+(4, 'Mochila Batman', 'es un muñeco generico', 15000, '2345234570', '4.jpg', 'Bandai', 1, 1, 'No tiene', 12),
+(5, 'Mochila Marvel', 'es un muñeco generico', 9000, '2345234571', '5.jpg', 'Bandai', 1, 1, 'No tiene', 8),
+(6, 'Mochila Star wars', 'es un muñeco generico', 11000, '2345234572', '6.jpg', 'Bandai', 1, 1, 'No tiene', 25),
+(7, 'Mochila HP', 'es un muñeco generico', 13000, '2345234573', '7.jpg', 'Bandai', 1, 1, 'No tiene', 18),
+(8, 'Mochila Marvel', 'es un muñeco generico', 10000, '2345234574', '8.jpg', 'Bandai', 1, 1, 'No tiene', 10),
+(9, 'Mochila Akatsuki', 'es un muñeco generico', 12000, '2345234575', '9.jpg', 'Bandai', 1, 1, 'No tiene', 15),
+(10, 'Set matero Mandalorian', 'es un muñeco generico', 8000, '2345234576', '10.jpg', 'Set Mania', 4, 2, 'No tiene', 20),
+(11, 'Set matero Breaking Bad', 'es un muñeco generico', 15000, '2345234577', '11.jpg', 'Set Mania', 4, 2, 'No tiene', 12),
+(12, 'Set matero Penniwiese', 'es un muñeco generico', 9000, '2345234578', '12.jpg', 'Set Mania', 4, 2, 'No tiene', 8),
+(13, 'Set matero Akatsuki', 'es un muñeco generico', 11000, '2345234579', '13.jpg', 'Set Mania', 4, 2, 'No tiene', 25),
+(14, 'Bufanda Huflepuff', 'es un muñeco generico', 13000, '2345234580', '14.jpg', 'Bandai', 7, 3, 'No tiene', 18),
+(15, 'Bufanda Ravenclaw letras', 'es un muñeco generico', 10000, '2345234581', '15.jpg', 'Bandai', 7, 3, 'No tiene', 10),
+(16, 'Bufanda Ravenclaw linea', 'es un muñeco generico', 12000, '2345234582', '16.jpg', 'Bandai', 7, 3, 'No tiene', 15),
+(17, 'Cartuchera Banana fish', 'es un muñeco generico', 13000, '2345234587', '21.jpg', 'Bandai', 10, 4, 'No tiene', 18),
+(18, 'Cartuchera Batman', 'es un muñeco generico', 10000, '2345234588', '22.jpg', 'Bandai', 10, 4, 'No tiene', 10),
+(19, 'Cartuchera Chainsaw', 'es un muñeco generico', 12000, '2345234589', '23.jpg', 'Bandai', 10, 4, 'No tiene', 15),
+(20, 'Cartuchera Goku', 'es un muñeco generico', 8000, '2345234590', '24.jpg', 'Bandai', 10, 4, 'No tiene', 20),
+(21, 'Cartuchera Spy family', 'es un muñeco generico', 15000, '2345234591', '25.jpg', 'Bandai', 10, 4, 'No tiene', 12),
+(22, 'Cartuchera Star wars', 'es un muñeco generico', 9000, '2345234592', '26.jpg', 'Bandai', 10, 4, 'No tiene', 8),
+(23, 'Cartuchera stitch', 'es un muñeco generico', 11000, '2345234593', '27.jpg', 'Bandai', 10, 4, 'No tiene', 25),
+(24, 'Comic Marvel', 'es un muñeco generico', 8000, '2345234583', '17.jpg', 'Bandai', 13, 5, 'No tiene', 20),
+(25, 'Comic umbrella', 'es un muñeco generico', 15000, '2345234584', '18.jpg', 'Bandai', 15, 5, 'No tiene', 12),
+(26, 'Comic Star Wars', 'es un muñeco generico', 9000, '2345234585', '19.jpg', 'Bandai', 15, 5, 'No tiene', 8),
+(27, 'Comic TWD', 'es un muñeco generico', 11000, '2345234586', '20.jpg', 'Bandai', 15, 5, 'No tiene', 25),
+(28, 'Nine', 'es un muñeco generico', 13000, '2345234594', '28.jpg', 'Bandai', 16, 6, 'No tiene', 18),
+(29, 'Chopper', 'es un muñeco generico', 10000, '2345234595', '29.jpg', 'Bandai', 16, 6, 'No tiene', 10),
+(30, 'Gohan', 'es un muñeco generico', 12000, '2345234596', '30.jpg', 'Bandai', 16, 6, 'No tiene', 15),
+(31, 'Kakashi normal', 'es un muñeco generico', 8000, '2345234597', '31.jpg', 'Bandai', 16, 6, 'No tiene', 20),
+(32, 'Kakashi chidori', 'es un muñeco generico', 15000, '2345234598', '32.jpg', 'Bandai', 16, 6, 'No tiene', 12),
+(33, 'Vegeta osaru', 'es un muñeco generico', 9000, '2345234599', '33.jpg', 'Bandai', 16, 6, 'No tiene', 8),
+(34, 'Vegito blue', 'es un muñeco generico', 11000, '2345234600', '34.jpg', 'Bandai', 16, 6, 'No tiene', 25),
+(35, 'Goku nube', 'es un muñeco generico', 13000, '2345234601', '35.jpg', 'Bandai', 16, 6, 'No tiene', 18),
+(36, 'Blastoise', 'es un muñeco generico', 10000, '2345234602', '36.jpg', 'Bandai', 19, 7, 'No tiene', 10),
+(37, 'Kirby', 'es un muñeco generico', 12000, '2345234603', '37.jpg', 'Bandai', 19, 7, 'No tiene', 15),
+(38, 'Umbreon', 'es un muñeco generico', 8000, '2345234604', '38.jpg', 'Bandai', 19, 7, 'No tiene', 20),
+(39, 'Gengar', 'es un muñeco generico', 15000, '2345234605', '39.jpg', 'Bandai', 19, 7, 'No tiene', 12),
+(40, 'Squirtle', 'es un muñeco generico', 9000, '2345234606', '40.jpg', 'Bandai', 19, 7, 'No tiene', 8),
+(41, 'Vaporeon', 'es un muñeco generico', 11000, '2345234607', '41.jpg', 'Bandai', 19, 7, 'No tiene', 25),
+(42, 'Pichu', 'es un muñeco generico', 13000, '2345234608', '42.jpg', 'Bandai', 19, 7, 'No tiene', 18),
+(43, 'Charmander', 'es un muñeco generico', 10000, '2345234609', '43.jpg', 'Bandai', 19, 7, 'No tiene', 10),
+(44, 'Vulpix Alola', 'es un muñeco generico', 10000, '2345234609', '44.jpg', 'Bandai', 19, 7, 'No tiene', 10),
+(45, 'Eevee', 'es un muñeco generico', 10000, '2345234609', '45.jpg', 'Bandai', 19, 7, 'No tiene', 10),
+(46, 'Pikachu', 'es un muñeco generico', 10000, '2345234609', '46.jpg', 'Bandai', 19, 7, 'No tiene', 10),
+(47, 'Gengar', 'es un muñeco generico', 10000, '2345234609', '47.jpg', 'Bandai', 19, 7, 'No tiene', 10),
+(48, 'Bulbasaur', 'es un muñeco generico', 10000, '2345234609', '48.jpg', 'Bandai', 19, 7, 'No tiene', 10);
 
 -- Insertar datos de ejemplo en la tabla `usuario`
 INSERT INTO dbo.usuario (id, nombre, apellido, mail, telefono, direccion, dni, contraseña, rol) VALUES (1, 'Gianni', 'Baldizzone', 'gianni@gmail.com', '1145678907', 'Acoyte 420', '44891361', 'gianni123', 1);

@@ -157,44 +157,65 @@ namespace EjemploABM
 
         private void dataGridViewCarrito_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < dataGridViewCarrito.Rows.Count && e.ColumnIndex >= 0)
+            try
             {
-                if (dataGridViewCarrito.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                    dataGridViewCarrito.Columns[e.ColumnIndex].Name == "Quitar")
+                // Verifica que se haya hecho clic en una celda válida
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
                 {
+                    // Obtiene el valor de la celda "Id"
                     int id = Convert.ToInt32(dataGridViewCarrito.Rows[e.RowIndex].Cells[0].Value);
+
+                    // Busca el producto en la lista del carrito
                     Producto producto = productosEnCarrito.FirstOrDefault(p => p.Id == id);
 
                     if (producto != null)
                     {
-                        // Quitar el producto del carrito
-                        QuitarProductoDelCarrito(producto);
+                        // Verifica si se hizo clic en el botón "Quitar"
+                        if (dataGridViewCarrito.Columns[e.ColumnIndex].Name == "Quitar")
+                        {
+                            // Quitar el producto del carrito
+                            QuitarProductoDelCarrito(producto);
+                        }
+                        else if (dataGridViewCarrito.Columns[e.ColumnIndex].Name == "Ver")
+                        {
+                            // Aquí puedes implementar la lógica para mostrar detalles del producto si es necesario
+                            // Por ejemplo, puedes abrir un formulario de detalles del producto.
+                        }
+
+                        // Actualiza el DataGridView del carrito
+                        CargarProductosEnCarrito();
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al intentar quitar o ver el producto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void QuitarProductoDelCarrito(Producto producto)
         {
-            // Busca el producto en el carrito
-            Producto productoEnCarrito = productosEnCarrito.FirstOrDefault(p => p.Id == producto.Id);
+            // Crea una copia de la lista actual para evitar modificaciones concurrentes
+            List<Producto> productosAEliminar = new List<Producto>(productosEnCarrito);
 
-            if (productoEnCarrito != null)
+            // Encuentra y elimina el producto de la lista
+            Producto productoAEliminar = productosAEliminar.FirstOrDefault(p => p.Id == producto.Id);
+
+            if (productoAEliminar != null)
             {
-                // Remueve el producto de la lista del carrito
-                productosEnCarrito.Remove(productoEnCarrito);
+                productosEnCarrito.Remove(productoAEliminar);
 
                 // Actualiza el botón en el DataGridView de productos disponibles
-                ActualizarBotonEnProductosDisponibles(productoEnCarrito.Id, "Agregar");
+                ActualizarBotonEnProductosDisponibles(producto.Id, "Agregar");
 
                 // Actualiza el subtotal
-                subtotal -= Convert.ToDecimal(productoEnCarrito.Precio);
+                subtotal -= Convert.ToDecimal(producto.Precio);
                 txt_subtotal.Text = $"Subtotal: {subtotal:C}";
 
                 // Actualiza el total final teniendo en cuenta el descuento
                 ActualizarTotalFinal();
 
-                // Vuelve a cargar la lista de productos en el carrito en el DataGridView
+                // Actualiza el DataGridView del carrito
                 CargarProductosEnCarrito();
             }
         }
@@ -344,7 +365,8 @@ namespace EjemploABM
         }
 
 
-        private void btn_noeliminar_Click(object sender, EventArgs e)
+
+        private void btn_noeliminar_Click_1(object sender, EventArgs e)
         {
             try
             {
