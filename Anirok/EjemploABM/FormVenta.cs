@@ -208,5 +208,99 @@ namespace EjemploABM
                 row.Cells["Agregar"].Value = buttonText;
             }
         }
+
+        // Método para mostrar la información del cliente encontrado en los controles de interfaz
+       
+
+
+
+        
+
+        private void guna2Button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtén la información ingresada por el usuario
+                string nombre = txt_nombre.Text;
+                string apellido = txt_apellido.Text;
+                string mail = txt_mail.Text;
+                string telefono = txt_telefono.Text;
+                string direccion = txt_direccion.Text;
+                string dni = txt_dni_is.Text;
+
+                // Crea el cliente
+                Cliente nuevoCliente = new Cliente(0, nombre, apellido, mail, telefono, direccion, dni);
+
+                // Guarda el nuevo cliente en la base de datos
+                Cliente_Controller.crearCliente(nuevoCliente);
+
+                // Muestra un mensaje de éxito
+                MessageBox.Show("Cliente creado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                // Muestra un mensaje de error si algo sale mal
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
+
+        private void MostrarClienteEncontrado(Cliente cliente)
+        {
+            // Limpia los campos antes de mostrar el nuevo cliente
+            LimpiarCampos();
+
+            if (cliente != null)
+            {
+                // Actualiza los TextBox con la información del cliente
+                txt_nombre.Text = cliente.Nombre;
+                txt_apellido.Text = cliente.Apellido;
+                txt_mail.Text = cliente.Mail;
+                txt_telefono.Text = cliente.Telefono;
+                txt_direccion.Text = cliente.Direccion;
+                txt_dni.Text = cliente.Dni;
+            }
+        }
+
+        private void LimpiarCampos()
+        {
+            // Limpia todos los TextBox
+            txt_nombre.Text = string.Empty;
+            txt_apellido.Text = string.Empty;
+            txt_mail.Text = string.Empty;
+            txt_telefono.Text = string.Empty;
+            txt_direccion.Text = string.Empty;
+            txt_dni.Text = string.Empty;
+        }
+
+        private void btn_noeliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtén el DNI ingresado por el usuario
+                string dni = txtDni.Text;
+
+                // Validar que el campo DNI no esté vacío
+                if (string.IsNullOrWhiteSpace(dni))
+                {
+                    MessageBox.Show("Por favor, ingrese un DNI válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Busca el cliente por DNI
+                Cliente clienteEncontrado = Cliente_Controller.buscarPorDni(dni);
+
+                // Actualiza los controles de interfaz con la información del cliente encontrado
+                MostrarClienteEncontrado(clienteEncontrado);
+            }
+            catch (Exception ex)
+            {
+                // Muestra un mensaje de error si algo sale mal
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
-}
+    }
+
+ 

@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\Categoria_Controller.cs" />
+    <Compile Include="Controladores\Cliente_Controller.cs" />
     <Compile Include="Controladores\Producto_Controller.cs" />
     <Compile Include="Controladores\Subcategoria_Controller.cs" />
     <Compile Include="Controladores\DB_Controller.cs" />
@@ -205,7 +206,8 @@
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Categoria.cs" />
-    <Compile Include="Modelo\Class1.cs" />
+    <Compile Include="Modelo\Cliente.cs" />
+    <Compile Include="Modelo\DetalleVenta.cs" />
     <Compile Include="Modelo\Subcategoria.cs" />
     <Compile Include="Modelo\Producto.cs" />
     <Compile Include="Modelo\Usuario.cs" />
