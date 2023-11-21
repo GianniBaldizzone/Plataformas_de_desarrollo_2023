@@ -76,9 +76,11 @@
             this.btn_anterior = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.btn_noeliminar = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCerrarVentana = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisponibles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCarrito)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarVentana)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2CirclePictureBox1
@@ -731,11 +733,26 @@
             this.btn_noeliminar.Text = "Buscar";
             this.btn_noeliminar.Click += new System.EventHandler(this.btn_noeliminar_Click_1);
             // 
+            // btnCerrarVentana
+            // 
+            this.btnCerrarVentana.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrarVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCerrarVentana.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarVentana.Image")));
+            this.btnCerrarVentana.Location = new System.Drawing.Point(1573, 0);
+            this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCerrarVentana.Name = "btnCerrarVentana";
+            this.btnCerrarVentana.Size = new System.Drawing.Size(46, 43);
+            this.btnCerrarVentana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrarVentana.TabIndex = 88;
+            this.btnCerrarVentana.TabStop = false;
+            this.btnCerrarVentana.Click += new System.EventHandler(this.btnCerrarVentana_Click);
+            // 
             // FormVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1618, 817);
+            this.Controls.Add(this.btnCerrarVentana);
             this.Controls.Add(this.btn_noeliminar);
             this.Controls.Add(this.guna2Button8);
             this.Controls.Add(this.label8);
@@ -774,6 +791,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisponibles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCarrito)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarVentana)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -820,5 +838,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewButtonColumn Quitar;
+        private System.Windows.Forms.PictureBox btnCerrarVentana;
     }
 }

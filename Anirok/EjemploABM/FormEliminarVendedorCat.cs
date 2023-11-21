@@ -37,19 +37,44 @@ namespace EjemploABM
         }
 
 
-        private void btn_cambiar_Click(object sender, EventArgs e)
-        {
-            Categoria cat_eliminar = Categoria_Controller.obtenerPorId(id_eliminar);
-            FormDesactivacionLogica formdesactivar = new FormDesactivacionLogica(cat_eliminar);
-            //this.Hide();
-            DialogResult eliminar;
-            eliminar = formdesactivar.ShowDialog();
+        
 
-            if (eliminar == DialogResult.OK)
-            {
-                this.DialogResult = DialogResult.OK;
-            }
+        private void btn_freezar_categoria_Click(object sender, EventArgs e)
+        {
             this.Close();
+        }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            // Obtener el ID de la categoría que se va a desactivar
+            int idCategoria = id_eliminar; // Debes implementar este método según cómo obtienes el ID de la categoría seleccionada
+
+            // Verificar si se seleccionó una categoría
+            if (idCategoria > 0)
+            {
+                try
+                {
+                    // Intentar desactivar la categoría
+                    if (Categoria_Controller.DesactivarCategoria(idCategoria))
+                    {
+                        MessageBox.Show("Categoría desactivada correctamente.");
+                        // Actualizar la lista de categorías en tu DataGridView u otra lógica de presentación
+                        DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al desactivar la categoría.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una categoría antes de eliminar.");
+            }
         }
     }
     }

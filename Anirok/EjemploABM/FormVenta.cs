@@ -392,6 +392,11 @@ namespace EjemploABM
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnCerrarVentana_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

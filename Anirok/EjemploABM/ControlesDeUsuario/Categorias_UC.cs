@@ -2,55 +2,65 @@
 using EjemploABM.Modelo;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EjemploABM.ControlesDeUsuario
 {
     public partial class Categorias_UC : UserControl
     {
-        List<Categoria> categorias;
+        private const int ElementosPorPagina = 10;
+        private int paginaActual = 1;
+        private List<Categoria> categorias;
 
         public Categorias_UC()
         {
             InitializeComponent();
-            cargarCategorias();
-
+            CargarCategorias();
         }
 
-
-        private void cargarCategorias()
+        private void CargarCategorias()
         {
-            categorias = Categoria_Controller.obtenerCategorias();
+            categorias = Categoria_Controller.ObtenerCategorias();
+            ActualizarVista();
+        }
+
+        private void ActualizarVista()
+        {
             guna2DataGridView1.Rows.Clear();
-            foreach (Categoria cat in categorias)
+
+            int inicio = (paginaActual - 1) * 7; // Máximo de 7 filas por página
+            int fin = Math.Min(inicio + 7, categorias.Count);
+
+            for (int i = inicio; i < fin; i++)
             {
                 int rowIndex = guna2DataGridView1.Rows.Add();
 
-                guna2DataGridView1.Rows[rowIndex].Cells[0].Value = cat.Id.ToString();
-                guna2DataGridView1.Rows[rowIndex].Cells[1].Value = cat.Nombre.ToString();
-                guna2DataGridView1.Rows[rowIndex].Cells[2].Value = cat.IsActive.ToString();
-               
-
-
+                guna2DataGridView1.Rows[rowIndex].Cells[0].Value = categorias[i].Id.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[1].Value = categorias[i].Nombre.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[2].Value = categorias[i].IsActive.ToString();
                 guna2DataGridView1.Rows[rowIndex].Cells[3].Value = "Editar";
                 guna2DataGridView1.Rows[rowIndex].Cells[4].Value = "Eliminar";
-
             }
+
+            int totalDePaginasFiltradas = CalcularTotalDePaginasFiltradas(); // Reemplaza con tu lógica para calcular el total de páginas filtradas
+
+            lblPaginaActual.Text = $"Página {paginaActual} de {totalDePaginasFiltradas}";
+        }
+
+        private int CalcularTotalDePaginasFiltradas()
+        {
+            // Aquí debes incluir la lógica para calcular el total de páginas
+            // considerando los filtros aplicados a tus datos.
+            // Puedes adaptar esta lógica según tus necesidades.
+
+            int totalDePaginasFiltradas = (int)Math.Ceiling((double)categorias.Count / 7); // Ejemplo básico
+
+            return totalDePaginasFiltradas;
         }
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Trace.WriteLine("estoy andando");
-            Debug.WriteLine("Celda seleccionada: " + e.ColumnIndex + ", " + e.RowIndex);
-
             var senderGrid = (DataGridView)sender;
             if (senderGrid.Columns[e.ColumnIndex].Name == "Editar")
             {
@@ -69,8 +79,7 @@ namespace EjemploABM.ControlesDeUsuario
                 {
                     Trace.WriteLine("OK - se edito");
                     //ACTUALIZAR LA LISTA
-                    cargarCategorias();
-
+                    CargarCategorias();
                 }
             }
             else if (senderGrid.Columns[e.ColumnIndex].Name == "Eliminar")
@@ -81,14 +90,9 @@ namespace EjemploABM.ControlesDeUsuario
                 Categoria cat_eliminar = Categoria_Controller.obtenerPorId(id);
 
                 DialogResult eliminar;
-                if (Program.logueado.Rol == 1)
+                if (Program.logueado.Rol == 1 || Program.logueado.Rol == 2)
                 {
                     FormEliminarAdminCat formeliminarcat = new FormEliminarAdminCat(cat_eliminar);
-                    eliminar = formeliminarcat.ShowDialog();
-                }
-                else if (Program.logueado.Rol == 2)
-                {
-                    FormEliminarVendedorCat formeliminarcat = new FormEliminarVendedorCat(cat_eliminar);
                     eliminar = formeliminarcat.ShowDialog();
                 }
                 else
@@ -100,14 +104,10 @@ namespace EjemploABM.ControlesDeUsuario
                 if (eliminar == DialogResult.OK)
                 {
                     Trace.WriteLine("OK - se creó el formulario para eliminar");
-                    cargarCategorias();
+                    CargarCategorias();
                 }
             }
-
         }
-
-
-        //CREAR CATEGORIA
 
         private void btn_add_cat_Click(object sender, EventArgs e)
         {
@@ -117,15 +117,36 @@ namespace EjemploABM.ControlesDeUsuario
             if (dr == DialogResult.OK)
             {
                 Trace.WriteLine("OK - se creo");
-                //ACTUALIZAR LA LISTA
-                cargarCategorias();
-
+                CargarCategorias();
             }
         }
 
         private void Categorias_UC_Load(object sender, EventArgs e)
         {
+            // Código de carga, si es necesario
+        }
 
+        private void btn_siguiente_Click(object sender, EventArgs e)
+        {
+            int totalPaginas = (int)Math.Ceiling((double)categorias.Count / 7); // Máximo de 7 filas por página
+            Debug.WriteLine($"Página actual: {paginaActual}, Total de páginas: {totalPaginas}");
+
+            if (paginaActual < totalPaginas)
+            {
+                paginaActual++;
+                ActualizarVista();
+            }
+        }
+
+        private void btn_anterior_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine($"Página actual: {paginaActual}");
+
+            if (paginaActual > 1)
+            {
+                paginaActual--;
+                ActualizarVista();
+            }
         }
     }
 }
