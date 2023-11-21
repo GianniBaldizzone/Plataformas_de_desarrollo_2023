@@ -61,16 +61,10 @@ namespace EjemploABM
                     dataGridViewDisponibles.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
                     dataGridViewDisponibles.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
                     dataGridViewDisponibles.Rows[rowIndex].Cells[2].Value = prod.Precio.ToString();
+                    dataGridViewDisponibles.Rows[rowIndex].Cells[3].Value = "Ver";
+                    dataGridViewDisponibles.Rows[rowIndex].Cells[4].Value = "Agregar";
 
-                    // Verificar si el producto ya está en el carrito y cambiar el botón en consecuencia
-                    if (productosEnCarrito.Any(p => p.Id == prod.Id))
-                    {
-                        dataGridViewDisponibles.Rows[rowIndex].Cells[4].Value = "Quitar";
-                    }
-                    else
-                    {
-                        dataGridViewDisponibles.Rows[rowIndex].Cells[4].Value = "Agregar";
-                    }
+
                 }
 
                 lblPaginaActual.Text = $"Página {paginaActual} de {totalDePaginasFiltradas}";
@@ -176,11 +170,7 @@ namespace EjemploABM
                             // Quitar el producto del carrito
                             QuitarProductoDelCarrito(producto);
                         }
-                        else if (dataGridViewCarrito.Columns[e.ColumnIndex].Name == "Ver")
-                        {
-                            // Aquí puedes implementar la lógica para mostrar detalles del producto si es necesario
-                            // Por ejemplo, puedes abrir un formulario de detalles del producto.
-                        }
+                        
 
                         // Actualiza el DataGridView del carrito
                         CargarProductosEnCarrito();
@@ -394,6 +384,16 @@ namespace EjemploABM
         }
 
         private void btnCerrarVentana_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FormVenta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
