@@ -16,6 +16,8 @@ namespace EjemploABM
         private int elementosPorPagina = 7;
         private int paginaActual = 1;
         private int totalDePaginas;
+        private decimal subtotal = 0;
+        private decimal descuento = 0;
 
         public FormVenta()
         {
@@ -23,8 +25,13 @@ namespace EjemploABM
             CargarProductos();
             txtBusqueda.TextChanged += TxtBusqueda_TextChanged;
             productosEnCarrito = new List<Producto>();
-            dataGridViewCarrito.CellContentClick += dataGridViewCarrito_CellContentClick;
+            dataGridViewCarrito.CellContentClick += dataGridViewCarrito_CellClick;
             dataGridViewDisponibles.CellContentClick += dataGridViewDisponibles_CellContentClick_1;
+            txt_descuento.TextChanged += txtDescuento_TextChanged;
+
+            // Asegúrate de que estos controles estén creados en tu formulario
+            txt_subtotal.Text = $"Subtotal: {subtotal:C}";
+            txt_total.Text = $"Total: {subtotal:C}";
         }
 
         private void TxtBusqueda_TextChanged(object sender, EventArgs e)
@@ -139,30 +146,76 @@ namespace EjemploABM
             }
 
             else if (e.ColumnIndex == dataGridViewDisponibles.Columns["Ver"].Index && e.RowIndex >= 0)
-                {
-                    int id2 = int.Parse(dataGridViewDisponibles.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    Trace.WriteLine("el id es: " + id2);
-                    Producto prod_elim = Producto_Controller.obtenerPorId(id2);
-                    FormVerProd formverprod = new FormVerProd(prod_elim);
-                    DialogResult ver = formverprod.ShowDialog();
-                }
-            }
-
-
-        private void dataGridViewCarrito_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dataGridViewCarrito.Columns["Quitar"].Index && e.RowIndex >= 0)
             {
-                int id = Convert.ToInt32(dataGridViewCarrito.Rows[e.RowIndex].Cells[0].Value);
-                Producto producto = productosEnCarrito.FirstOrDefault(p => p.Id == id);
+                int id2 = int.Parse(dataGridViewDisponibles.Rows[e.RowIndex].Cells[0].Value.ToString());
+                Trace.WriteLine("el id es: " + id2);
+                Producto prod_elim = Producto_Controller.obtenerPorId(id2);
+                FormVerProd formverprod = new FormVerProd(prod_elim);
+                DialogResult ver = formverprod.ShowDialog();
+            }
+        }
 
-                if (producto != null)
+        private void dataGridViewCarrito_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridViewCarrito.Rows.Count && e.ColumnIndex >= 0)
+            {
+                if (dataGridViewCarrito.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                    dataGridViewCarrito.Columns[e.ColumnIndex].Name == "Quitar")
                 {
-                    // Quitar el producto del carrito
-                    QuitarProductoDelCarrito(producto);
+                    int id = Convert.ToInt32(dataGridViewCarrito.Rows[e.RowIndex].Cells[0].Value);
+                    Producto producto = productosEnCarrito.FirstOrDefault(p => p.Id == id);
+
+                    if (producto != null)
+                    {
+                        // Quitar el producto del carrito
+                        QuitarProductoDelCarrito(producto);
+                    }
                 }
             }
         }
+
+        private void QuitarProductoDelCarrito(Producto producto)
+        {
+            // Busca el producto en el carrito
+            Producto productoEnCarrito = productosEnCarrito.FirstOrDefault(p => p.Id == producto.Id);
+
+            if (productoEnCarrito != null)
+            {
+                // Remueve el producto de la lista del carrito
+                productosEnCarrito.Remove(productoEnCarrito);
+
+                // Actualiza el botón en el DataGridView de productos disponibles
+                ActualizarBotonEnProductosDisponibles(productoEnCarrito.Id, "Agregar");
+
+                // Actualiza el subtotal
+                subtotal -= Convert.ToDecimal(productoEnCarrito.Precio);
+                txt_subtotal.Text = $"Subtotal: {subtotal:C}";
+
+                // Actualiza el total final teniendo en cuenta el descuento
+                ActualizarTotalFinal();
+
+                // Vuelve a cargar la lista de productos en el carrito en el DataGridView
+                CargarProductosEnCarrito();
+            }
+        }
+
+        private void CargarProductosEnCarrito()
+        {
+            // Limpia el DataGridView del carrito
+            dataGridViewCarrito.Rows.Clear();
+
+            // Agrega los productos actuales en el carrito al DataGridView
+            foreach (Producto producto in productosEnCarrito)
+            {
+                int rowIndex = dataGridViewCarrito.Rows.Add();
+                dataGridViewCarrito.Rows[rowIndex].Cells[0].Value = producto.Id.ToString();
+                dataGridViewCarrito.Rows[rowIndex].Cells[1].Value = producto.Nombre.ToString();
+                dataGridViewCarrito.Rows[rowIndex].Cells[2].Value = producto.Precio.ToString();
+                dataGridViewCarrito.Rows[rowIndex].Cells[3].Value = "Ver";
+                dataGridViewCarrito.Rows[rowIndex].Cells[4].Value = "Quitar";
+            }
+        }
+
 
         private void AgregarProductoAlCarrito(Producto producto)
         {
@@ -173,30 +226,20 @@ namespace EjemploABM
             dataGridViewCarrito.Rows[rowIndex].Cells[0].Value = producto.Id.ToString();
             dataGridViewCarrito.Rows[rowIndex].Cells[1].Value = producto.Nombre.ToString();
             dataGridViewCarrito.Rows[rowIndex].Cells[2].Value = producto.Precio.ToString();
-            dataGridViewCarrito.Rows[rowIndex].Cells[3].Value = "Ver";
-            dataGridViewCarrito.Rows[rowIndex].Cells[4].Value = "Quitar";
+            dataGridViewCarrito.Rows[rowIndex].Cells[3].Value = "Quitar";
 
             // Actualizar el botón en el DataGridView de productos disponibles
             ActualizarBotonEnProductosDisponibles(producto.Id, "Quitar");
+
+            // Actualizar el subtotal
+            subtotal += Convert.ToDecimal(producto.Precio);
+            txt_subtotal.Text = $"Subtotal: {subtotal:C}";
+
+            // Actualizar el total final teniendo en cuenta el descuento
+            ActualizarTotalFinal();
         }
 
-        private void QuitarProductoDelCarrito(Producto producto)
-        {
-            productosEnCarrito.Remove(producto);
-
-            // Puedes implementar la lógica para quitar la fila del DataGridView del carrito.
-            // Aquí estoy simplemente removiendo la primera fila que coincide con el Id del producto.
-            var row = dataGridViewCarrito.Rows.Cast<DataGridViewRow>()
-                .FirstOrDefault(r => Convert.ToInt32(r.Cells[0].Value) == producto.Id);
-
-            if (row != null)
-            {
-                dataGridViewCarrito.Rows.Remove(row);
-            }
-
-            // Actualizar el botón en el DataGridView de productos disponibles
-            ActualizarBotonEnProductosDisponibles(producto.Id, "Agregar");
-        }
+        
 
         private void ActualizarBotonEnProductosDisponibles(int productId, string buttonText)
         {
@@ -209,12 +252,68 @@ namespace EjemploABM
             }
         }
 
-        // Método para mostrar la información del cliente encontrado en los controles de interfaz
-       
 
 
+        private void MostrarClienteEncontrado(Cliente cliente)
+        {
+            // Limpia los campos antes de mostrar el nuevo cliente
+            LimpiarCampos();
 
-        
+            if (cliente != null)
+            {
+                // Actualiza los TextBox con la información del cliente
+                txt_nombre.Text = cliente.Nombre;
+                txt_apellido.Text = cliente.Apellido;
+                txt_mail.Text = cliente.Mail;
+                txt_telefono.Text = cliente.Telefono;
+                txt_direccion.Text = cliente.Direccion;
+                txt_dni_is.Text = cliente.Dni;
+            }
+            else
+            {
+                // Muestra un mensaje si el cliente no fue encontrado
+                MessageBox.Show("No se encontró un cliente con ese DNI en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void LimpiarCampos()
+        {
+            // Limpia todos los TextBox
+            txt_nombre.Text = string.Empty;
+            txt_apellido.Text = string.Empty;
+            txt_mail.Text = string.Empty;
+            txt_telefono.Text = string.Empty;
+            txt_direccion.Text = string.Empty;
+            txt_dni_is.Text = string.Empty;
+        }
+
+        private void txtDescuento_TextChanged(object sender, EventArgs e)
+        {
+            // Manejador de eventos para el cambio en el descuento
+            // Validar que el descuento ingresado sea un valor numérico
+            if (decimal.TryParse(txt_descuento.Text, out decimal nuevoDescuento))
+            {
+                // Actualizar el descuento
+                descuento = nuevoDescuento;
+
+                // Actualizar el total final teniendo en cuenta el nuevo descuento
+                ActualizarTotalFinal();
+            }
+            else
+            {
+                // Mostrar un mensaje de error si el descuento no es un valor numérico
+                MessageBox.Show("Por favor, ingrese un valor numérico válido para el descuento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ActualizarTotalFinal()
+        {
+            // Calcular el total final restando el descuento del subtotal
+            decimal totalFinal = subtotal - descuento;
+
+            // Actualizar el label del total final
+            txt_total.Text = $"Total: {totalFinal:C}";
+        }
 
         private void guna2Button8_Click(object sender, EventArgs e)
         {
@@ -244,35 +343,6 @@ namespace EjemploABM
             }
         }
 
-        
-
-        private void MostrarClienteEncontrado(Cliente cliente)
-        {
-            // Limpia los campos antes de mostrar el nuevo cliente
-            LimpiarCampos();
-
-            if (cliente != null)
-            {
-                // Actualiza los TextBox con la información del cliente
-                txt_nombre.Text = cliente.Nombre;
-                txt_apellido.Text = cliente.Apellido;
-                txt_mail.Text = cliente.Mail;
-                txt_telefono.Text = cliente.Telefono;
-                txt_direccion.Text = cliente.Direccion;
-                txt_dni.Text = cliente.Dni;
-            }
-        }
-
-        private void LimpiarCampos()
-        {
-            // Limpia todos los TextBox
-            txt_nombre.Text = string.Empty;
-            txt_apellido.Text = string.Empty;
-            txt_mail.Text = string.Empty;
-            txt_telefono.Text = string.Empty;
-            txt_direccion.Text = string.Empty;
-            txt_dni.Text = string.Empty;
-        }
 
         private void btn_noeliminar_Click(object sender, EventArgs e)
         {
@@ -301,6 +371,5 @@ namespace EjemploABM
             }
         }
     }
-    }
+}
 
- 
