@@ -2,46 +2,54 @@
 using EjemploABM.Modelo;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EjemploABM.ControlesDeUsuario
 {
     public partial class Subcategoria_UC : UserControl
     {
-        List<Subcategoria> subcategorias;
+        private const int ElementosPorPagina = 7;
+        private int paginaActual = 1;
+        private List<Subcategoria> subcategorias;
+
         public Subcategoria_UC()
         {
             InitializeComponent();
-            cargarSubcategorias();
+            CargarSubcategorias();
         }
 
-        private void cargarSubcategorias()
+        private void CargarSubcategorias()
         {
             subcategorias = Subcategoria_Controller.obtenerSubcategorias();
+            ActualizarVista();
+        }
+
+        private void ActualizarVista()
+        {
             guna2DataGridView1.Rows.Clear();
-            foreach (Subcategoria sub in subcategorias)
+
+            int inicio = (paginaActual - 1) * ElementosPorPagina;
+            int fin = Math.Min(inicio + ElementosPorPagina, subcategorias.Count);
+
+            for (int i = inicio; i < fin; i++)
             {
                 int rowIndex = guna2DataGridView1.Rows.Add();
 
-                guna2DataGridView1.Rows[rowIndex].Cells[0].Value = sub.Id.ToString();
-                guna2DataGridView1.Rows[rowIndex].Cells[1].Value = sub.Nombre.ToString();
-                guna2DataGridView1.Rows[rowIndex].Cells[2].Value = sub.categoria_id.ToString();
-                guna2DataGridView1.Rows[rowIndex].Cells[3].Value = sub.IsActive.ToString();
-                
-
-
-
+                guna2DataGridView1.Rows[rowIndex].Cells[0].Value = subcategorias[i].Id.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[1].Value = subcategorias[i].Nombre.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[2].Value = subcategorias[i].categoria_id.ToString();
+                guna2DataGridView1.Rows[rowIndex].Cells[3].Value = subcategorias[i].IsActive.ToString();
                 guna2DataGridView1.Rows[rowIndex].Cells[4].Value = "Editar";
                 guna2DataGridView1.Rows[rowIndex].Cells[5].Value = "Eliminar";
-
             }
+
+            lblPaginaActual.Text = $"Página {paginaActual} de {CalcularTotalDePaginas()}";
+        }
+
+        private int CalcularTotalDePaginas()
+        {
+            return (int)Math.Ceiling((double)subcategorias.Count / ElementosPorPagina);
         }
 
         private void btn_add_cat_Click_1(object sender, EventArgs e)
@@ -52,21 +60,15 @@ namespace EjemploABM.ControlesDeUsuario
             if (dr == DialogResult.OK)
             {
                 Trace.WriteLine("OK - se creo");
-                //ACTUALIZAR LA LISTA
-                cargarSubcategorias();
-
+                CargarSubcategorias();
             }
         }
 
         private void guna2DataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            Trace.WriteLine("estoy andando");
-            Debug.WriteLine("Celda seleccionada: " + e.ColumnIndex + ", " + e.RowIndex);
-
             var senderGrid = (DataGridView)sender;
             if (senderGrid.Columns[e.ColumnIndex].Name == "Editar")
             {
-                //EDITAMOS
                 Debug.WriteLine("Valor de la celda: " + guna2DataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
                 int id = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                 Trace.WriteLine("el id es: " + id);
@@ -80,9 +82,7 @@ namespace EjemploABM.ControlesDeUsuario
                 if (dr == DialogResult.OK)
                 {
                     Trace.WriteLine("OK - se edito");
-                    //ACTUALIZAR LA LISTA
-                    cargarSubcategorias();
-
+                    CargarSubcategorias();
                 }
             }
             else if (senderGrid.Columns[e.ColumnIndex].Name == "Eliminar")
@@ -96,12 +96,29 @@ namespace EjemploABM.ControlesDeUsuario
                 if (eliminar == DialogResult.OK)
                 {
                     Trace.WriteLine("OK - se creo form eliminar");
-                    cargarSubcategorias();
-
+                    CargarSubcategorias();
                 }
             }
+        }
 
+        private void btn_siguiente_Click_1(object sender, EventArgs e)
+        {
+            int totalPaginas = CalcularTotalDePaginas();
+            if (paginaActual < totalPaginas)
+            {
+                paginaActual++;
+                ActualizarVista();
+            }
+        }
 
+        private void btn_anterior_Click_1(object sender, EventArgs e)
+        {
+            if (paginaActual > 1)
+            {
+                paginaActual--;
+                ActualizarVista();
+            }
         }
     }
 }
+
