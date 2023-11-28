@@ -386,7 +386,7 @@ namespace EjemploABM
         {
             try
             {
-                string folderPath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\pdf_ventas";
+                string folderPath = @"C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\pdf_ventas";
 
                 // Verifica si la carpeta existe, créala si no existe
                 if (!Directory.Exists(folderPath))
@@ -397,7 +397,7 @@ namespace EjemploABM
                 string filePath = Path.Combine(folderPath, $"Cliente_{Cliente_Controller.obtenerMaxId()}.pdf");
 
                 // Ruta del archivo del logo
-                string logoPath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\logo.png";
+                string logoPath = @"C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\logo.png";
 
                 // Utiliza bloques using para garantizar la liberación adecuada de recursos
                 using (var stream = new FileStream(filePath, FileMode.Create))
