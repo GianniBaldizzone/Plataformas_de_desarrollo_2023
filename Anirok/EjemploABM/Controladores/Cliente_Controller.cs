@@ -237,6 +237,32 @@ namespace EjemploABM.Controladores
 
             return cliente;
         }
+
+
+
+
+        public static bool ExisteClienteConDNI(string dni)
+        {
+            string query = "SELECT COUNT(*) FROM cliente WHERE dni = @dni;";
+
+            SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
+            cmd.Parameters.AddWithValue("@dni", dni);
+
+            try
+            {
+                DB_Controller.connection.Open();
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0; // Returns true if there is at least one client with the provided DNI
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al verificar la existencia del cliente: " + ex.Message);
+            }
+            finally
+            {
+                DB_Controller.connection.Close();
+            }
+        }
     }
     }
 

@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using EjemploABM.Controladores;
 using EjemploABM.Modelo;
 using Guna.UI2.WinForms;
+using iText.Kernel.Pdf;
+using iText.Layout.Element;
+using iText.Layout;
+
 
 namespace EjemploABM
 {
@@ -338,6 +343,21 @@ namespace EjemploABM
                 string direccion = txt_direccion.Text;
                 string dni = txt_dni_is.Text;
 
+                // Validar que la información no sea nula o vacía
+                if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) || string.IsNullOrEmpty(mail) ||
+                    string.IsNullOrEmpty(telefono) || string.IsNullOrEmpty(direccion) || string.IsNullOrEmpty(dni))
+                {
+                    MessageBox.Show("Por favor, completa todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Sale del método si hay campos vacíos
+                }
+
+                // Validar que el DNI no exista previamente
+                if (Cliente_Controller.ExisteClienteConDNI(dni))
+                {
+                    MessageBox.Show("Ya existe un cliente con el mismo DNI.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Sale del método si ya existe un cliente con el mismo DNI
+                }
+
                 // Crea el cliente
                 Cliente nuevoCliente = new Cliente(0, nombre, apellido, mail, telefono, direccion, dni);
 
@@ -346,6 +366,7 @@ namespace EjemploABM
 
                 // Muestra un mensaje de éxito
                 MessageBox.Show("Cliente creado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GenerarPDFCliente(nuevoCliente);
             }
             catch (Exception ex)
             {
@@ -354,7 +375,45 @@ namespace EjemploABM
             }
         }
 
+        private static void GenerarPDFCliente(Cliente cliente)
+        {
+            try
+            {
+                string folderPath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\pdf_ventas";
 
+                // Verifica si la carpeta existe, créala si no existe
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                string filePath = Path.Combine(folderPath, $"Cliente_{cliente.Id}.pdf");
+
+                // Utiliza bloques using para garantizar la liberación adecuada de recursos
+                using (var writer = new PdfWriter(filePath))
+                {
+                    using (var pdf = new PdfDocument(writer))
+                    {
+                        var document = new Document(pdf);
+
+                        // Agrega información del cliente al PDF
+                        document.Add(new Paragraph($"ID: {cliente.Id}"));
+                        document.Add(new Paragraph($"Nombre: {cliente.Nombre}"));
+                        document.Add(new Paragraph($"Apellido: {cliente.Apellido}"));
+                        document.Add(new Paragraph($"Mail: {cliente.Mail}"));
+                        document.Add(new Paragraph($"Teléfono: {cliente.Telefono}"));
+                        document.Add(new Paragraph($"Dirección: {cliente.Direccion}"));
+                        document.Add(new Paragraph($"DNI: {cliente.Dni}"));
+                    }
+
+                    Console.WriteLine($"PDF generado: {filePath}");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al generar el PDF del cliente: " + ex.Message);
+            }
+        }
 
         private void btn_noeliminar_Click_1(object sender, EventArgs e)
         {
