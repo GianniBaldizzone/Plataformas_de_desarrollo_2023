@@ -366,8 +366,13 @@ namespace EjemploABM
                 Cliente_Controller.crearCliente(nuevoCliente);
 
                 // Muestra un mensaje de éxito
-                MessageBox.Show("Cliente creado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                GenerarPDFCliente(nuevoCliente);
+                MessageBox.Show("Cliente creado con éxito. La venta se ha generado y el PDF se ha creado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Genera el PDF
+                GenerarPDFCliente(nuevoCliente, productosEnCarrito);
+
+                // Cierra el formulario
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -376,7 +381,8 @@ namespace EjemploABM
             }
         }
 
-        private static void GenerarPDFCliente(Cliente cliente)
+
+        private static void GenerarPDFCliente(Cliente cliente, List<Producto> productosEnCarrito)
         {
             try
             {
@@ -389,6 +395,9 @@ namespace EjemploABM
                 }
 
                 string filePath = Path.Combine(folderPath, $"Cliente_{Cliente_Controller.obtenerMaxId()}.pdf");
+
+                // Ruta del archivo del logo
+                string logoPath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\logo.png";
 
                 // Utiliza bloques using para garantizar la liberación adecuada de recursos
                 using (var stream = new FileStream(filePath, FileMode.Create))
@@ -409,24 +418,30 @@ namespace EjemploABM
                     table.WidthPercentage = 80;
                     table.SetWidths(new float[] { 1, 3 });
 
-                    // Agregamos una celda para la imagen (si tienes un logo, puedes reemplazarlo)
-                    PdfPCell cell = new PdfPCell(new Phrase(""));
-                    cell.Colspan = 1;
-                    cell.HorizontalAlignment = 1; // 0=Left, 1=Center, 2=Right
-                    table.AddCell(cell);
+                    // Agregamos una celda para la imagen del logo
+                    PdfPCell cellLogo = new PdfPCell();
+                    cellLogo.Colspan = 1;
+                    cellLogo.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                    // Agregar la imagen del logo al PDF
+                    iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(logoPath);
+                    logo.ScaleToFit(100f, 100f); // Ajusta el tamaño según tus necesidades
+                    cellLogo.AddElement(logo);
+
+                    table.AddCell(cellLogo);
 
                     // Agregamos una celda para la información del cliente
-                    cell = new PdfPCell();
-                    cell.Colspan = 1;
-                    cell.AddElement(new Paragraph($"Factura para: {cliente.Nombre} {cliente.Apellido}"));
-                    cell.AddElement(new Paragraph($"ID del Cliente: {cliente.Id}"));
-                    cell.AddElement(new Paragraph($"DNI: {cliente.Dni}"));
-                    cell.AddElement(new Paragraph($"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}"));
-                    cell.AddElement(new Paragraph($"Teléfono: {cliente.Telefono}"));
-                    cell.AddElement(new Paragraph($"Dirección: {cliente.Direccion}"));
-                    cell.AddElement(new Paragraph($"Mail: {cliente.Mail}"));
-                    cell.HorizontalAlignment = 0; // Alineación a la izquierda
-                    table.AddCell(cell);
+                    PdfPCell cellInfo = new PdfPCell();
+                    cellInfo.Colspan = 1;
+                    cellInfo.AddElement(new Paragraph($"Factura para: {cliente.Nombre} {cliente.Apellido}"));
+                    cellInfo.AddElement(new Paragraph($"ID del Cliente: {cliente.Id}"));
+                    cellInfo.AddElement(new Paragraph($"DNI: {cliente.Dni}"));
+                    cellInfo.AddElement(new Paragraph($"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}"));
+                    cellInfo.AddElement(new Paragraph($"Teléfono: {cliente.Telefono}"));
+                    cellInfo.AddElement(new Paragraph($"Dirección: {cliente.Direccion}"));
+                    cellInfo.AddElement(new Paragraph($"Mail: {cliente.Mail}"));
+                    cellInfo.HorizontalAlignment = 0; // Alineación a la izquierda
+                    table.AddCell(cellInfo);
 
                     // Agregamos la tabla al documento
                     pdfDoc.Add(table);
@@ -445,11 +460,14 @@ namespace EjemploABM
                     detallesTable.AddCell("Precio Unitario");
                     detallesTable.AddCell("Importe");
 
-                    // Ejemplo de un detalle (puedes personalizar según tus necesidades)
-                    detallesTable.AddCell("1");
-                    detallesTable.AddCell("Producto de ejemplo");
-                    detallesTable.AddCell("$10.00");
-                    detallesTable.AddCell("$10.00");
+                    // Agregamos los productos del carrito a la tabla de detalles
+                    foreach (Producto producto in productosEnCarrito)
+                    {
+                        detallesTable.AddCell("1"); // Cantidad (puedes ajustar según necesites)
+                        detallesTable.AddCell(producto.Nombre); // Descripción
+                        detallesTable.AddCell($"${producto.Precio:F2}"); // Precio Unitario
+                        detallesTable.AddCell($"${producto.Precio:F2}"); // Importe
+                    }
 
                     // Agregamos la tabla de detalles al documento
                     pdfDoc.Add(detallesTable);
@@ -457,8 +475,11 @@ namespace EjemploABM
                     // Añadimos un espacio en blanco
                     pdfDoc.Add(new Paragraph(" "));
 
-                    // Agregamos el total
-                    pdfDoc.Add(new Paragraph($"Total: $10.00"));
+                    // Calculamos el total sumando los precios de los productos del carrito
+                    double total = productosEnCarrito.Sum(p => p.Precio);
+
+                    // Añadimos el total al documento
+                    pdfDoc.Add(new Paragraph($"Total: ${total:F2}"));
 
                     // Cerramos el documento
                     pdfDoc.Close();
@@ -471,6 +492,8 @@ namespace EjemploABM
                 throw new Exception("Error al generar el PDF del cliente: " + ex.Message);
             }
         }
+
+
 
         private void btn_noeliminar_Click_1(object sender, EventArgs e)
         {
