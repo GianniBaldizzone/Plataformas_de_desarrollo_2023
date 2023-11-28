@@ -203,3 +203,7 @@ C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploA
 C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\System.ValueTuple.xml
+C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\itextsharp.dll
+C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\itextsharp.xml

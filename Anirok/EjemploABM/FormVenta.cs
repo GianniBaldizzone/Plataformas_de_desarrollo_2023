@@ -6,10 +6,11 @@ using System.Linq;
 using System.Windows.Forms;
 using EjemploABM.Controladores;
 using EjemploABM.Modelo;
-using Guna.UI2.WinForms;
-using iText.Kernel.Pdf;
-using iText.Layout.Element;
-using iText.Layout;
+
+using iTextSharp.text;
+using System.IO;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 
 
 namespace EjemploABM
@@ -387,24 +388,80 @@ namespace EjemploABM
                     Directory.CreateDirectory(folderPath);
                 }
 
-                string filePath = Path.Combine(folderPath, $"Cliente_{cliente.Id}.pdf");
+                string filePath = Path.Combine(folderPath, $"Cliente_{Cliente_Controller.obtenerMaxId()}.pdf");
 
                 // Utiliza bloques using para garantizar la liberación adecuada de recursos
-                using (var writer = new PdfWriter(filePath))
+                using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    using (var pdf = new PdfDocument(writer))
-                    {
-                        var document = new Document(pdf);
+                    // Creamos un nuevo documento PDF
+                    Document pdfDoc = new Document();
 
-                        // Agrega información del cliente al PDF
-                        document.Add(new Paragraph($"ID: {cliente.Id}"));
-                        document.Add(new Paragraph($"Nombre: {cliente.Nombre}"));
-                        document.Add(new Paragraph($"Apellido: {cliente.Apellido}"));
-                        document.Add(new Paragraph($"Mail: {cliente.Mail}"));
-                        document.Add(new Paragraph($"Teléfono: {cliente.Telefono}"));
-                        document.Add(new Paragraph($"Dirección: {cliente.Direccion}"));
-                        document.Add(new Paragraph($"DNI: {cliente.Dni}"));
-                    }
+                    // Creamos el escritor PDF y asociamos el documento con el stream
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+
+                    // Abrimos el documento para escritura
+                    pdfDoc.Open();
+
+                    // Agregamos contenido al documento
+
+                    // Agregamos una tabla para organizar la información
+                    PdfPTable table = new PdfPTable(2);
+                    table.WidthPercentage = 80;
+                    table.SetWidths(new float[] { 1, 3 });
+
+                    // Agregamos una celda para la imagen (si tienes un logo, puedes reemplazarlo)
+                    PdfPCell cell = new PdfPCell(new Phrase(""));
+                    cell.Colspan = 1;
+                    cell.HorizontalAlignment = 1; // 0=Left, 1=Center, 2=Right
+                    table.AddCell(cell);
+
+                    // Agregamos una celda para la información del cliente
+                    cell = new PdfPCell();
+                    cell.Colspan = 1;
+                    cell.AddElement(new Paragraph($"Factura para: {cliente.Nombre} {cliente.Apellido}"));
+                    cell.AddElement(new Paragraph($"ID del Cliente: {cliente.Id}"));
+                    cell.AddElement(new Paragraph($"DNI: {cliente.Dni}"));
+                    cell.AddElement(new Paragraph($"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}"));
+                    cell.AddElement(new Paragraph($"Teléfono: {cliente.Telefono}"));
+                    cell.AddElement(new Paragraph($"Dirección: {cliente.Direccion}"));
+                    cell.AddElement(new Paragraph($"Mail: {cliente.Mail}"));
+                    cell.HorizontalAlignment = 0; // Alineación a la izquierda
+                    table.AddCell(cell);
+
+                    // Agregamos la tabla al documento
+                    pdfDoc.Add(table);
+
+                    // Añadimos un espacio en blanco
+                    pdfDoc.Add(new Paragraph(" "));
+
+                    // Añadimos una tabla para los detalles (puedes personalizar según tus necesidades)
+                    PdfPTable detallesTable = new PdfPTable(4);
+                    detallesTable.WidthPercentage = 80;
+                    detallesTable.SetWidths(new float[] { 1, 3, 1, 1 });
+
+                    // Encabezado de la tabla de detalles
+                    detallesTable.AddCell("Cantidad");
+                    detallesTable.AddCell("Descripción");
+                    detallesTable.AddCell("Precio Unitario");
+                    detallesTable.AddCell("Importe");
+
+                    // Ejemplo de un detalle (puedes personalizar según tus necesidades)
+                    detallesTable.AddCell("1");
+                    detallesTable.AddCell("Producto de ejemplo");
+                    detallesTable.AddCell("$10.00");
+                    detallesTable.AddCell("$10.00");
+
+                    // Agregamos la tabla de detalles al documento
+                    pdfDoc.Add(detallesTable);
+
+                    // Añadimos un espacio en blanco
+                    pdfDoc.Add(new Paragraph(" "));
+
+                    // Agregamos el total
+                    pdfDoc.Add(new Paragraph($"Total: $10.00"));
+
+                    // Cerramos el documento
+                    pdfDoc.Close();
 
                     Console.WriteLine($"PDF generado: {filePath}");
                 }
