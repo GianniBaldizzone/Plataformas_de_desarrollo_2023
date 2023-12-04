@@ -181,11 +181,11 @@
     <Compile Include="ControlesDeUsuario\Categorias_UC.Designer.cs">
       <DependentUpon>Categorias_UC.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlesDeUsuario\Venta.cs">
+    <Compile Include="ControlesDeUsuario\Venta_UC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ControlesDeUsuario\Venta.Designer.cs">
-      <DependentUpon>Venta.cs</DependentUpon>
+    <Compile Include="ControlesDeUsuario\Venta_UC.Designer.cs">
+      <DependentUpon>Venta_UC.cs</DependentUpon>
     </Compile>
     <Compile Include="FormVenta.cs">
       <SubType>Form</SubType>
@@ -313,11 +313,11 @@
     <EmbeddedResource Include="ControlesDeUsuario\Subcategoria_UC.resx">
       <DependentUpon>Subcategoria_UC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlesDeUsuario\Venta.resx">
-      <DependentUpon>Venta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ControlesDeUsuario\Usuarios_UC.resx">
       <DependentUpon>Usuarios_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlesDeUsuario\Venta_UC.resx">
+      <DependentUpon>Venta_UC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

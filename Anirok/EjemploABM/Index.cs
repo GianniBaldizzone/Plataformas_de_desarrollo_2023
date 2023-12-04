@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EjemploABM.ControlesDeUsuario;
+using EjemploABM.Modelo;
 
 namespace EjemploABM
 {
@@ -120,6 +121,12 @@ namespace EjemploABM
         {
             FormVenta form = new FormVenta();
             form.Show();
+        }
+
+        private void guna2Button9_Click(object sender, EventArgs e)
+        {
+            Ventas_UC venta = new Ventas_UC();
+            addUserControl(venta);
         }
     }
 }

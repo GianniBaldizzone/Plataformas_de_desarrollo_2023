@@ -66,7 +66,7 @@ namespace EjemploABM
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Location = new System.Drawing.Point(68, 366);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.MaximumSize = new System.Drawing.Size(1536, 414);
             this.panel1.MinimumSize = new System.Drawing.Size(1536, 414);
             this.panel1.Name = "panel1";
@@ -145,6 +145,7 @@ namespace EjemploABM
             this.guna2Button9.Size = new System.Drawing.Size(212, 46);
             this.guna2Button9.TabIndex = 20;
             this.guna2Button9.Text = "VER VENTAS";
+            this.guna2Button9.Click += new System.EventHandler(this.guna2Button9_Click);
             // 
             // guna2Button5
             // 
@@ -314,7 +315,7 @@ namespace EjemploABM
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1636, 864);
             this.MinimumSize = new System.Drawing.Size(1191, 420);
             this.Name = "Index";

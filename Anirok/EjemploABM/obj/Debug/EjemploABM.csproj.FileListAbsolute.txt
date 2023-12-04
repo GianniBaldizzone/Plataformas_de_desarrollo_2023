@@ -111,7 +111,6 @@ C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM
 C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormVerProd.resources
 C:\Users\victo\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormVerProd.resources
 C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormEliminarProd.resources
-C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.ControlesDeUsuario.Venta.resources
 C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormVenta.resources
 C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\Syncfusion.Grid.Base.dll
 C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\Syncfusion.Grid.Windows.dll
@@ -263,3 +262,4 @@ C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploAB
 C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\System.ValueTuple.xml
+C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.ControlesDeUsuario.Ventas_UC.resources
