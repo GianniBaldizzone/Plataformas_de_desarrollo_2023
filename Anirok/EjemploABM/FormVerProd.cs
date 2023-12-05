@@ -27,7 +27,7 @@ namespace EjemploABM
         public FormVerProd(Producto prod)
         {
             InitializeComponent();
-            id_ver = prod.Id;   
+            txt_id.Text = prod.Id.ToString();   
             txt_nombre.Text= prod.Nombre.ToString();
             txt_descripcion.Text= prod.Descripcion.ToString();
             txt_precio.Text= prod.Precio.ToString();

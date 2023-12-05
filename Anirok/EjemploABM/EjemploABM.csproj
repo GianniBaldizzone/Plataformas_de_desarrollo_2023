@@ -187,6 +187,12 @@
     <Compile Include="ControlesDeUsuario\Venta_UC.Designer.cs">
       <DependentUpon>Venta_UC.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVentaCantidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVentaCantidad.Designer.cs">
+      <DependentUpon>FormVentaCantidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVentaCantidad.resx">
+      <DependentUpon>FormVentaCantidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVenta.resx">
       <DependentUpon>FormVenta.cs</DependentUpon>

@@ -24,6 +24,7 @@ namespace EjemploABM
         private int totalDePaginas;
         private decimal subtotal = 0;
         private decimal descuento = 0;
+        private decimal total = 0;
 
         public FormVenta()
         {
@@ -36,8 +37,11 @@ namespace EjemploABM
             txt_descuento.TextChanged += txtDescuento_TextChanged;
 
             // Asegúrate de que estos controles estén creados en tu formulario
-            txt_subtotal.Text = $"Subtotal: {subtotal:C}";
-            txt_total.Text = $"Total: {subtotal:C}";
+            // Actualizar el label del total final
+            txt_total.Text = $"Total: {total:N2}";
+
+            // Actualizar el label del descuento
+            txt_descuento.Text = $"{descuento:N2}";
         }
 
         private void TxtBusqueda_TextChanged(object sender, EventArgs e)
@@ -131,23 +135,22 @@ namespace EjemploABM
         {
             if (e.ColumnIndex == dataGridViewDisponibles.Columns["Agregar"].Index && e.RowIndex >= 0)
             {
-                int id = Convert.ToInt32(dataGridViewDisponibles.Rows[e.RowIndex].Cells["Id"].Value);
-                Producto producto = Producto_Controller.obtenerPorId(id);
+                int id2 = Convert.ToInt32(dataGridViewDisponibles.Rows[e.RowIndex].Cells[0].Value);
+                Producto prod_elim = Producto_Controller.obtenerPorId(id2);
 
                 // Verificar si el producto ya está en el carrito
-                if (!productosEnCarrito.Any(p => p.Id == producto.Id))
+                if (!productosEnCarrito.Any(p => p.Id == prod_elim.Id))
                 {
                     // Agregar el producto al carrito
-                    AgregarProductoAlCarrito(producto);
+                    AgregarProductoAlCarrito(prod_elim);
 
                     // Actualizar la vista de productos disponibles
                     CargarProductos();
                 }
             }
-
             else if (e.ColumnIndex == dataGridViewDisponibles.Columns["Ver"].Index && e.RowIndex >= 0)
             {
-                int id2 = int.Parse(dataGridViewDisponibles.Rows[e.RowIndex].Cells[0].Value.ToString());
+                int id2 = Convert.ToInt32(dataGridViewDisponibles.Rows[e.RowIndex].Cells[0].Value);
                 Trace.WriteLine("el id es: " + id2);
                 Producto prod_elim = Producto_Controller.obtenerPorId(id2);
                 FormVerProd formverprod = new FormVerProd(prod_elim);
@@ -236,27 +239,63 @@ namespace EjemploABM
 
         private void AgregarProductoAlCarrito(Producto producto)
         {
-            productosEnCarrito.Add(producto);
+            if (producto.Stock <= 0)
+            {
+                MessageBox.Show("No hay suficiente stock disponible para este producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            int rowIndex = dataGridViewCarrito.Rows.Add();
+            // Abrir el formulario FormVentaCantidad
+            using (FormVentaCantidad formCantidad = new FormVentaCantidad())
+            {
+                // Configurar el máximo de cantidad permitida según el stock disponible
+                formCantidad.MaxCantidad = producto.Stock;
 
-            dataGridViewCarrito.Rows[rowIndex].Cells[0].Value = producto.Id.ToString();
-            dataGridViewCarrito.Rows[rowIndex].Cells[1].Value = producto.Nombre.ToString();
-            dataGridViewCarrito.Rows[rowIndex].Cells[2].Value = producto.Precio.ToString();
-            dataGridViewCarrito.Rows[rowIndex].Cells[3].Value = "Quitar";
+                // Mostrar el formulario como un cuadro de diálogo modal
+                DialogResult result = formCantidad.ShowDialog();
 
-            // Actualizar el botón en el DataGridView de productos disponibles
-            ActualizarBotonEnProductosDisponibles(producto.Id, "Quitar");
+                // Verificar si el usuario hizo clic en Confirmar en el formulario FormVentaCantidad
+                if (result == DialogResult.OK)
+                {
+                    // Obtener la cantidad ingresada por el usuario
+                    int cantidadSeleccionada = formCantidad.CantidadSeleccionada;
 
-            // Actualizar el subtotal
-            subtotal += Convert.ToDecimal(producto.Precio);
-            txt_subtotal.Text = $"Subtotal: {subtotal:C}";
+                    // Verificar si la cantidad seleccionada supera el stock disponible
+                    if (cantidadSeleccionada <= 0 || cantidadSeleccionada > producto.Stock)
+                    {
+                        MessageBox.Show("La cantidad seleccionada no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
-            // Actualizar el total final teniendo en cuenta el descuento
-            ActualizarTotalFinal();
+                    // Resto del código para agregar el producto al carrito con la cantidad seleccionada
+                    producto.CantidadSeleccionada = cantidadSeleccionada;
+
+                    // Agregar el producto al carrito
+                    productosEnCarrito.Add(producto);
+
+                    int rowIndex = dataGridViewCarrito.Rows.Add();
+
+                    dataGridViewCarrito.Rows[rowIndex].Cells[0].Value = producto.Id.ToString();
+                    dataGridViewCarrito.Rows[rowIndex].Cells[1].Value = producto.Nombre.ToString();
+                    dataGridViewCarrito.Rows[rowIndex].Cells[2].Value = producto.Precio.ToString();
+
+                    // Agregar la cantidad al DataGridView
+                    dataGridViewCarrito.Rows[rowIndex].Cells[3].Value = cantidadSeleccionada.ToString();
+
+                    // Actualizar el botón en el DataGridView de productos disponibles
+                    ActualizarBotonEnProductosDisponibles(producto.Id, "Quitar");
+
+                    // Calcular el subtotal con la cantidad ingresada
+                    subtotal += Convert.ToDecimal(producto.Precio) * cantidadSeleccionada;
+                    txt_subtotal.Text = $"Subtotal: {subtotal:C}";
+
+                    // Actualizar el total final teniendo en cuenta el descuento
+                    ActualizarTotalFinal();
+                }
+            }
         }
 
-        
+
 
         private void ActualizarBotonEnProductosDisponibles(int productId, string buttonText)
         {
@@ -284,7 +323,7 @@ namespace EjemploABM
                 txt_mail.Text = cliente.Mail;
                 txt_telefono.Text = cliente.Telefono;
                 txt_direccion.Text = cliente.Direccion;
-                txt_dni_is.Text = cliente.Dni;
+                
             }
             else
             {
@@ -301,7 +340,7 @@ namespace EjemploABM
             txt_mail.Text = string.Empty;
             txt_telefono.Text = string.Empty;
             txt_direccion.Text = string.Empty;
-            txt_dni_is.Text = string.Empty;
+            
         }
 
         private void txtDescuento_TextChanged(object sender, EventArgs e)
@@ -342,7 +381,7 @@ namespace EjemploABM
                 string mail = txt_mail.Text;
                 string telefono = txt_telefono.Text;
                 string direccion = txt_direccion.Text;
-                string dni = txt_dni_is.Text;
+                string dni = txtDni.Text;
 
                 // Validar que la información no sea nula o vacía
                 if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) || string.IsNullOrEmpty(mail) ||
@@ -382,11 +421,13 @@ namespace EjemploABM
         }
 
 
+
+
         private static void GenerarPDFCliente(Cliente cliente, List<Producto> productosEnCarrito)
         {
             try
             {
-                string folderPath = @"C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\pdf_ventas";
+                string folderPath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\pdf_ventas";
 
                 // Verifica si la carpeta existe, créala si no existe
                 if (!Directory.Exists(folderPath))
@@ -397,7 +438,7 @@ namespace EjemploABM
                 string filePath = Path.Combine(folderPath, $"Cliente_{Cliente_Controller.obtenerMaxId()}.pdf");
 
                 // Ruta del archivo del logo
-                string logoPath = @"C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\logo.png";
+                string logoPath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\logo.png";
 
                 // Utiliza bloques using para garantizar la liberación adecuada de recursos
                 using (var stream = new FileStream(filePath, FileMode.Create))
@@ -450,23 +491,28 @@ namespace EjemploABM
                     pdfDoc.Add(new Paragraph(" "));
 
                     // Añadimos una tabla para los detalles (puedes personalizar según tus necesidades)
-                    PdfPTable detallesTable = new PdfPTable(4);
+                    PdfPTable detallesTable = new PdfPTable(5);
                     detallesTable.WidthPercentage = 80;
-                    detallesTable.SetWidths(new float[] { 1, 3, 1, 1 });
+                    detallesTable.SetWidths(new float[] { 1, 3, 1, 1, 1 });
 
                     // Encabezado de la tabla de detalles
                     detallesTable.AddCell("Cantidad");
                     detallesTable.AddCell("Descripción");
                     detallesTable.AddCell("Precio Unitario");
-                    detallesTable.AddCell("Importe");
+                    detallesTable.AddCell("Importe por Cantidad");
+                    detallesTable.AddCell("Importe Total");
 
                     // Agregamos los productos del carrito a la tabla de detalles
                     foreach (Producto producto in productosEnCarrito)
                     {
-                        detallesTable.AddCell("1"); // Cantidad (puedes ajustar según necesites)
+                        double precioTotalPorCantidad = producto.Precio * producto.CantidadSeleccionada;
+                        double precioTotal = precioTotalPorCantidad;
+
+                        detallesTable.AddCell(producto.CantidadSeleccionada.ToString()); // Cantidad
                         detallesTable.AddCell(producto.Nombre); // Descripción
                         detallesTable.AddCell($"${producto.Precio:F2}"); // Precio Unitario
-                        detallesTable.AddCell($"${producto.Precio:F2}"); // Importe
+                        detallesTable.AddCell($"${precioTotalPorCantidad:F2}"); // Importe por Cantidad
+                        detallesTable.AddCell($"${precioTotal:F2}"); // Importe Total
                     }
 
                     // Agregamos la tabla de detalles al documento
@@ -476,7 +522,7 @@ namespace EjemploABM
                     pdfDoc.Add(new Paragraph(" "));
 
                     // Calculamos el total sumando los precios de los productos del carrito
-                    double total = productosEnCarrito.Sum(p => p.Precio);
+                    double total = productosEnCarrito.Sum(p => p.Precio * p.CantidadSeleccionada);
 
                     // Añadimos el total al documento
                     pdfDoc.Add(new Paragraph($"Total: ${total:F2}"));
@@ -512,8 +558,19 @@ namespace EjemploABM
                 // Busca el cliente por DNI
                 Cliente clienteEncontrado = Cliente_Controller.buscarPorDni(dni);
 
-                // Actualiza los controles de interfaz con la información del cliente encontrado
-                MostrarClienteEncontrado(clienteEncontrado);
+                // Verifica si se encontró un cliente
+                if (clienteEncontrado != null)
+                {
+                    // Actualiza los controles de interfaz con la información del cliente encontrado
+                    MostrarClienteEncontrado(clienteEncontrado);
+                }
+                else
+                {
+                    // Muestra un mensaje indicando que no se encontró ningún cliente
+                    MessageBox.Show("No se encontró ningún cliente con el DNI proporcionado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Puedes agregar lógica adicional aquí, como limpiar los controles de interfaz, etc.
+                }
             }
             catch (Exception ex)
             {
