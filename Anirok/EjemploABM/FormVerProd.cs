@@ -33,8 +33,8 @@ namespace EjemploABM
             txt_precio.Text= prod.Precio.ToString();
             txt_codigo.Text= prod.codigo.ToString();
             txt_proveedor.Text = prod.Proveedor.ToString();
-            txt_subcategoria.Text = prod.SubcategoriaId.ToString();
-            txt_categoria.Text= prod.CategoriaId.ToString();
+            txt_subcategoria.Text = Subcategoria_Controller.obtenerSubcategoriaPorId(prod.SubcategoriaId);
+            txt_categoria.Text= Categoria_Controller.obtenerCategoriaPorId(prod.CategoriaId);
             txt_talle.Text= prod.Talle.ToString();
             txt_stock.Text= prod.Stock.ToString();
 

@@ -240,15 +240,43 @@ namespace EjemploABM.Controladores
             }
         }
 
-            
+        public static string obtenerSubcategoriaPorId(int id)
+        {
+            //Darlo de alta en la BBDD
+            string nombre = "";
+            string query = "select nombre from subcategoria where id = @id_subcategoria ";
 
-            
+            SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
+            cmd.Parameters.AddWithValue("@id_subcategoria", id);
+
+
+            try
+            {
+                DB_Controller.connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    nombre = reader.GetString(0);
+                }
+
+                reader.Close();
+                DB_Controller.connection.Close();
+                return nombre;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+
+
         }
 
 
 
 
     }
+}
 
 
 
