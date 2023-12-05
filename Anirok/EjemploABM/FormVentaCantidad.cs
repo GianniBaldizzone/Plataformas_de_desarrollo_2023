@@ -1,12 +1,4 @@
-﻿using EjemploABM.Modelo;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace EjemploABM
@@ -24,9 +16,19 @@ namespace EjemploABM
             }
         }
 
-        public FormVentaCantidad()
+        // Agregar una propiedad para almacenar el stock del producto
+        public int StockProducto { get; private set; }
+
+        // Modificar el constructor para recibir el stock del producto
+        public FormVentaCantidad(int stockProducto)
         {
             InitializeComponent();
+
+            // Almacena el stock del producto
+            StockProducto = stockProducto;
+
+            // Establece el máximo del control NumericUpDown basado en el stock del producto
+            txtCantidad.Maximum = stockProducto;
         }
 
         private void btnCerrarVentana_Click(object sender, EventArgs e)
@@ -34,19 +36,15 @@ namespace EjemploABM
             this.Close();
         }
 
-
-
-        
-
         private void btn_confirmar_Click(object sender, EventArgs e)
         {
             // Obtener la cantidad ingresada por el usuario desde el control NumericUpDown
             CantidadSeleccionada = (int)txtCantidad.Value;
 
-            // Validar que se haya seleccionado al menos una unidad
-            if (CantidadSeleccionada <= 0)
+            // Validar que la cantidad sea mayor a cero y no supere el stock del producto
+            if (CantidadSeleccionada <= 0 || CantidadSeleccionada > StockProducto)
             {
-                MessageBox.Show("Debe seleccionar al menos una unidad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar una cantidad válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

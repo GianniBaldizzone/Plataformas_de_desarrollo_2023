@@ -245,12 +245,9 @@ namespace EjemploABM
                 return;
             }
 
-            // Abrir el formulario FormVentaCantidad
-            using (FormVentaCantidad formCantidad = new FormVentaCantidad())
+            // Abrir el formulario FormVentaCantidad pasando el stock del producto
+            using (FormVentaCantidad formCantidad = new FormVentaCantidad(producto.Stock))
             {
-                // Configurar el máximo de cantidad permitida según el stock disponible
-                formCantidad.MaxCantidad = producto.Stock;
-
                 // Mostrar el formulario como un cuadro de diálogo modal
                 DialogResult result = formCantidad.ShowDialog();
 
