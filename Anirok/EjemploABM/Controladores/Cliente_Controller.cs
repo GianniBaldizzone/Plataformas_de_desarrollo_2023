@@ -208,31 +208,33 @@ namespace EjemploABM.Controladores
                 throw new ArgumentException("El campo DNI no puede estar vacío.");
             }
 
-            Cliente cliente = new Cliente();
+            Cliente cliente = null; // Inicializar a null
+
             string query = "SELECT * FROM cliente WHERE dni = @dni;";
 
-            SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
-            cmd.Parameters.AddWithValue("@dni", dni);
-
-            try
+            using (SqlCommand cmd = new SqlCommand(query, DB_Controller.connection))
             {
-                DB_Controller.connection.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
+                cmd.Parameters.AddWithValue("@dni", dni);
 
-                while (reader.Read())
+                try
                 {
-                    cliente = new Cliente(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6));
+                    DB_Controller.connection.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            cliente = new Cliente(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6));
+                        }
+                    }
                 }
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Hay un error en la query: " + ex.Message);
-            }
-            finally
-            {
-                DB_Controller.connection.Close();
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la query: " + ex.Message);
+                }
+                finally
+                {
+                    DB_Controller.connection.Close();
+                }
             }
 
             return cliente;
