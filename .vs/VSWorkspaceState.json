@@ -1,4 +1,9 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\Anirok",
+    "\\Anirok\\EjemploABM"
+  ],
+  "SelectedNode": "\\Anirok\\EjemploABM\\FormVenta.cs",
   "PreviewInSolutionExplorer": false
 }

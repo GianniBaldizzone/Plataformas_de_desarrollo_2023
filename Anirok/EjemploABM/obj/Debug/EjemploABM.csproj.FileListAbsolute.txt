@@ -142,7 +142,6 @@ C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploAB
 C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\Syncfusion.SpellChecker.Base.xml
 C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\Syncfusion.Tools.Base.xml
 C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\Syncfusion.Tools.Windows.xml
-C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.ControlesDeUsuario.Venta.resources
 C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormVenta.resources
 C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormEliminarProd.resources
 C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormVerProd.resources
@@ -264,3 +263,5 @@ C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploAB
 C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\bin\Debug\System.ValueTuple.xml
 C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.ControlesDeUsuario.Ventas_UC.resources
 C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormVentaCantidad.resources
+C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.ControlesDeUsuario.Ventas_UC.resources
+C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\obj\Debug\EjemploABM.FormVentaCantidad.resources

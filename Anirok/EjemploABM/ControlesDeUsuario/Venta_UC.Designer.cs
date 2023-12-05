@@ -53,9 +53,10 @@
             this.lblPaginaActual.AutoSize = true;
             this.lblPaginaActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPaginaActual.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblPaginaActual.Location = new System.Drawing.Point(522, 108);
+            this.lblPaginaActual.Location = new System.Drawing.Point(392, 88);
+            this.lblPaginaActual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPaginaActual.Name = "lblPaginaActual";
-            this.lblPaginaActual.Size = new System.Drawing.Size(111, 20);
+            this.lblPaginaActual.Size = new System.Drawing.Size(96, 17);
             this.lblPaginaActual.TabIndex = 72;
             this.lblPaginaActual.Text = "Página 0 de 0";
             // 
@@ -69,9 +70,10 @@
             this.btn_siguiente.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btn_siguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_siguiente.ForeColor = System.Drawing.Color.White;
-            this.btn_siguiente.Location = new System.Drawing.Point(692, 108);
+            this.btn_siguiente.Location = new System.Drawing.Point(519, 88);
+            this.btn_siguiente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_siguiente.Name = "btn_siguiente";
-            this.btn_siguiente.Size = new System.Drawing.Size(196, 30);
+            this.btn_siguiente.Size = new System.Drawing.Size(147, 24);
             this.btn_siguiente.TabIndex = 71;
             this.btn_siguiente.Text = "Siguiente";
             // 
@@ -85,9 +87,10 @@
             this.btn_anterior.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btn_anterior.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_anterior.ForeColor = System.Drawing.Color.White;
-            this.btn_anterior.Location = new System.Drawing.Point(257, 108);
+            this.btn_anterior.Location = new System.Drawing.Point(193, 88);
+            this.btn_anterior.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_anterior.Name = "btn_anterior";
-            this.btn_anterior.Size = new System.Drawing.Size(196, 30);
+            this.btn_anterior.Size = new System.Drawing.Size(147, 24);
             this.btn_anterior.TabIndex = 70;
             this.btn_anterior.Text = "Anterior";
             // 
@@ -102,10 +105,10 @@
             this.btn_add_cat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_cat.ForeColor = System.Drawing.Color.White;
             this.btn_add_cat.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_cat.Image")));
-            this.btn_add_cat.Location = new System.Drawing.Point(1106, 108);
-            this.btn_add_cat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_add_cat.Location = new System.Drawing.Point(830, 88);
+            this.btn_add_cat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_add_cat.Name = "btn_add_cat";
-            this.btn_add_cat.Size = new System.Drawing.Size(212, 47);
+            this.btn_add_cat.Size = new System.Drawing.Size(159, 38);
             this.btn_add_cat.TabIndex = 69;
             this.btn_add_cat.Text = "AGREGAR";
             // 
@@ -145,8 +148,8 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(299, 158);
-            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(115, 133);
+            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -161,7 +164,7 @@
             this.guna2DataGridView1.RowHeadersWidth = 62;
             this.guna2DataGridView1.RowTemplate.Height = 28;
             this.guna2DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(582, 272);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(626, 221);
             this.guna2DataGridView1.TabIndex = 68;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,16 +231,15 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-122, 117);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(-92, 95);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 20);
+            this.label1.Size = new System.Drawing.Size(91, 17);
             this.label1.TabIndex = 67;
             this.label1.Text = "Categorias:";
             // 
             // Ventas_UC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblPaginaActual);
             this.Controls.Add(this.btn_siguiente);
@@ -245,8 +247,9 @@
             this.Controls.Add(this.btn_add_cat);
             this.Controls.Add(this.guna2DataGridView1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Ventas_UC";
-            this.Size = new System.Drawing.Size(1385, 539);
+            this.Size = new System.Drawing.Size(1039, 438);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
