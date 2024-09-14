@@ -93,6 +93,9 @@ namespace EjemploABM
             this.Hide();
             Form1 form = new Form1();
             form.Show();
+            Program.logueado = null;
+            Program.URLimg = null;
+            Program.URLpdf = null;
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
