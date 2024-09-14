@@ -431,7 +431,7 @@ namespace EjemploABM
         {
             try
             {
-                string folderPath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\pdf_ventas";
+                string folderPath = @Program.URLpdf;
 
                 // Verifica si la carpeta existe, créala si no existe
                 if (!Directory.Exists(folderPath))
@@ -591,10 +591,7 @@ namespace EjemploABM
             this.Close();
         }
 
-        private void FormVenta_Load(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

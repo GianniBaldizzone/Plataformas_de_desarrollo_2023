@@ -128,5 +128,12 @@ namespace EjemploABM
             Ventas_UC venta = new Ventas_UC();
             addUserControl(venta);
         }
+
+        private void buttonurls_Click(object sender, EventArgs e)
+        {
+            
+            FormSetearUrls form = new FormSetearUrls();
+            form.Show();
+        }
     }
 }

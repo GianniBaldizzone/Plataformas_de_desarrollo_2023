@@ -41,7 +41,8 @@ namespace EjemploABM
             string nombreImagen = (prod.Id.ToString() + ".jpg");
 
             // Construir la ruta completa de la imagen
-            string rutaImagen = Path.Combine(@"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\", nombreImagen);
+            string rutaImagen = Path.Combine(Program.URLimg, nombreImagen);
+            Console.WriteLine(rutaImagen);
 
             // Verificar si el archivo de la imagen existe antes de asignarlo
             if (File.Exists(rutaImagen))

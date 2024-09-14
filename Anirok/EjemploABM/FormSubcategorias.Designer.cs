@@ -65,7 +65,7 @@
             this.btnCerrarVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrarVentana.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarVentana.Image")));
             this.btnCerrarVentana.Location = new System.Drawing.Point(620, -1);
-            this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrarVentana.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrarVentana.Name = "btnCerrarVentana";
             this.btnCerrarVentana.Size = new System.Drawing.Size(46, 43);
             this.btnCerrarVentana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -106,7 +106,7 @@
             this.btn_crear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_crear.ForeColor = System.Drawing.Color.White;
             this.btn_crear.Location = new System.Drawing.Point(236, 337);
-            this.btn_crear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_crear.Margin = new System.Windows.Forms.Padding(4);
             this.btn_crear.Name = "btn_crear";
             this.btn_crear.Size = new System.Drawing.Size(168, 53);
             this.btn_crear.TabIndex = 45;
@@ -194,6 +194,7 @@
             this.Name = "FormSubcategorias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+           
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarVentana)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

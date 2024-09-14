@@ -788,7 +788,7 @@
             this.Name = "FormVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.FormVenta_Load);
+           
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisponibles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCarrito)).EndInit();

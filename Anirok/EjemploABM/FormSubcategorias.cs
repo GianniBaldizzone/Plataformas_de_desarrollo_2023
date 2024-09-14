@@ -206,5 +206,7 @@ namespace EjemploABM.ControlesDeUsuario
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+       
     }
 }
