@@ -74,7 +74,7 @@ namespace EjemploABM
             // Selecciona el talle correspondiente en el ComboBox
             comboBoxTalle.SelectedItem = prod.Talle;
 
-            string filePath = @"C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + prod.Img;
+            string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + prod.Img;
 
             guna2PictureBox1.Image = Image.FromFile(filePath);
 
@@ -158,7 +158,7 @@ namespace EjemploABM
                             nuevoNombreFoto = Producto_Controller.obtenerMaxId() + ".jpg";
 
                             // Guardar la nueva imagen en el directorio de destino
-                            string filePath = @"C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nuevoNombreFoto;
+                            string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nuevoNombreFoto;
 
                             // Asegurarse de que el directorio de destino exista
                             if (!Directory.Exists(Path.GetDirectoryName(filePath)))
@@ -247,7 +247,7 @@ namespace EjemploABM
                             this.DialogResult = DialogResult.OK;
 
                             // Guardar la imagen solo si el producto se ha creado con éxito
-                            string filePath = @"C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + nombrefoto;
+                            string filePath = @"\C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img" + nombrefoto;
 
                             // Asegurarse de que el directorio de destino exista
                             if (!Directory.Exists(Path.GetDirectoryName(filePath)))
