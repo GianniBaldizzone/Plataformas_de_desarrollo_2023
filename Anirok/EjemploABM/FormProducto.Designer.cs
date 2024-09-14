@@ -34,7 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btn_cargar_img = new Guna.UI2.WinForms.Guna2Button();
             this.comboBoxTalle = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_proveedor = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@
             this.txt_proveedor = new Guna.UI2.WinForms.Guna2TextBox();
             this.comboBoxCat = new Guna.UI2.WinForms.Guna2ComboBox();
             this.comboBoxSub = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btn_cargar_img = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarVentana)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_cantidad)).BeginInit();
@@ -107,23 +107,6 @@
             this.label5.Size = new System.Drawing.Size(73, 20);
             this.label5.TabIndex = 8;
             this.label5.Text = "Codigo:";
-            // 
-            // btn_cargar_img
-            // 
-            this.btn_cargar_img.BorderRadius = 10;
-            this.btn_cargar_img.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_cargar_img.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_cargar_img.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_cargar_img.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_cargar_img.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_cargar_img.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cargar_img.ForeColor = System.Drawing.Color.White;
-            this.btn_cargar_img.Location = new System.Drawing.Point(428, 89);
-            this.btn_cargar_img.Name = "btn_cargar_img";
-            this.btn_cargar_img.Size = new System.Drawing.Size(196, 30);
-            this.btn_cargar_img.TabIndex = 10;
-            this.btn_cargar_img.Text = "Cargar imagen";
-            this.btn_cargar_img.Click += new System.EventHandler(this.btn_cargar_img_Click);
             // 
             // comboBoxTalle
             // 
@@ -399,6 +382,23 @@
             this.comboBoxSub.Size = new System.Drawing.Size(176, 36);
             this.comboBoxSub.TabIndex = 58;
             // 
+            // btn_cargar_img
+            // 
+            this.btn_cargar_img.BorderRadius = 10;
+            this.btn_cargar_img.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_cargar_img.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_cargar_img.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_cargar_img.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_cargar_img.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btn_cargar_img.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cargar_img.ForeColor = System.Drawing.Color.White;
+            this.btn_cargar_img.Location = new System.Drawing.Point(428, 89);
+            this.btn_cargar_img.Name = "btn_cargar_img";
+            this.btn_cargar_img.Size = new System.Drawing.Size(196, 30);
+            this.btn_cargar_img.TabIndex = 10;
+            this.btn_cargar_img.Text = "Cargar imagen";
+            this.btn_cargar_img.Click += new System.EventHandler(this.btn_cargar_img_Click);
+            // 
             // FormProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -446,7 +446,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2Button btn_cargar_img;
         private Guna.UI2.WinForms.Guna2ComboBox comboBoxTalle;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbl_proveedor;
@@ -464,5 +463,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txt_proveedor;
         private Guna.UI2.WinForms.Guna2ComboBox comboBoxCat;
         private Guna.UI2.WinForms.Guna2ComboBox comboBoxSub;
+        private Guna.UI2.WinForms.Guna2Button btn_cargar_img;
     }
 }

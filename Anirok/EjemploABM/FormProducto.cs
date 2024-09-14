@@ -47,6 +47,7 @@ namespace EjemploABM
             InitializeComponent();
 
             id_editar = prod.Id;
+            btn_cargar_img.Hide();
 
             // Asigna los valores del producto a los controles correspondientes
             txt_nombre.Text = prod.Nombre;
@@ -55,7 +56,7 @@ namespace EjemploABM
             txt_codigo.Text = prod.codigo;
             txt_cantidad.Text = prod.Stock.ToString();
             txt_proveedor.Text = prod.Proveedor;
-            nombrefoto = prod.Img;
+            nombrefoto = @"\" + prod.Img;
 
             // Selecciona la categoría y subcategoría correspondientes en los ComboBox
             comboBoxTalle.Items.Clear();
@@ -74,7 +75,7 @@ namespace EjemploABM
             // Selecciona el talle correspondiente en el ComboBox
             comboBoxTalle.SelectedItem = prod.Talle;
 
-            string filePath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img\" + prod.Img;
+            string filePath = Program.URLimg + nombrefoto;
 
             guna2PictureBox1.Image = Image.FromFile(filePath);
 
@@ -107,6 +108,7 @@ namespace EjemploABM
 
         private void editar()
         {
+            
             if (id_editar <= 0)
             {
                 MessageBox.Show("No se ha seleccionado ningún producto para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -247,7 +249,7 @@ namespace EjemploABM
                             this.DialogResult = DialogResult.OK;
 
                             // Guardar la imagen solo si el producto se ha creado con éxito
-                            string filePath = @"\C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img" + nombrefoto;
+                            string filePath = Program.URLimg + nombrefoto;
 
                             // Asegurarse de que el directorio de destino exista
                             if (!Directory.Exists(Path.GetDirectoryName(filePath)))
