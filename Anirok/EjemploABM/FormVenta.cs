@@ -25,6 +25,7 @@ namespace EjemploABM
         private decimal subtotal = 0;
         private decimal descuento = 0;
         private decimal total = 0;
+        private bool clienteExistente = false;
 
         public FormVenta()
         {
@@ -388,24 +389,30 @@ namespace EjemploABM
                     return; // Sale del método si hay campos vacíos
                 }
 
-                // Validar que el DNI no exista previamente
-                if (Cliente_Controller.ExisteClienteConDNI(dni))
+                // Si el cliente no existe, lo creamos
+                if (!clienteExistente)
                 {
-                    MessageBox.Show("Ya existe un cliente con el mismo DNI.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Sale del método si ya existe un cliente con el mismo DNI
+                    // Validar que el DNI no exista previamente (no es necesario en este caso porque ya lo validamos antes)
+                    if (Cliente_Controller.ExisteClienteConDNI(dni))
+                    {
+                        MessageBox.Show("Ya existe un cliente con el mismo DNI.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; // Sale del método si ya existe un cliente con el mismo DNI
+                    }
+
+                    // Crea el cliente
+                    Cliente nuevoCliente = new Cliente(0, nombre, apellido, mail, telefono, direccion, dni);
+
+                    // Guarda el nuevo cliente en la base de datos
+                    Cliente_Controller.crearCliente(nuevoCliente);
+
+                    MessageBox.Show("Cliente creado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                // Crea el cliente
-                Cliente nuevoCliente = new Cliente(0, nombre, apellido, mail, telefono, direccion, dni);
-
-                // Guarda el nuevo cliente en la base de datos
-                Cliente_Controller.crearCliente(nuevoCliente);
+                // Genera el PDF
+                GenerarPDFCliente(Cliente_Controller.buscarPorDni(dni), productosEnCarrito);
 
                 // Muestra un mensaje de éxito
-                MessageBox.Show("Cliente creado con éxito. La venta se ha generado y el PDF se ha creado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Genera el PDF
-                GenerarPDFCliente(nuevoCliente, productosEnCarrito);
+                MessageBox.Show("La venta se ha generado y el PDF se ha creado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Cierra el formulario
                 this.Close();
@@ -424,7 +431,7 @@ namespace EjemploABM
         {
             try
             {
-                string folderPath = @"C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\pdf_ventas";
+                string folderPath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\pdf_ventas";
 
                 // Verifica si la carpeta existe, créala si no existe
                 if (!Directory.Exists(folderPath))
@@ -435,7 +442,7 @@ namespace EjemploABM
                 string filePath = Path.Combine(folderPath, $"Cliente_{Cliente_Controller.obtenerMaxId()}.pdf");
 
                 // Ruta del archivo del logo
-                string logoPath = @"C:\Users\Alumno\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\logo.png";
+                string logoPath = @"C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\logo.png";
 
                 // Utiliza bloques using para garantizar la liberación adecuada de recursos
                 using (var stream = new FileStream(filePath, FileMode.Create))
@@ -536,8 +543,6 @@ namespace EjemploABM
             }
         }
 
-
-
         private void btn_noeliminar_Click_1(object sender, EventArgs e)
         {
             try
@@ -560,6 +565,7 @@ namespace EjemploABM
                 {
                     // Actualiza los controles de interfaz con la información del cliente encontrado
                     MostrarClienteEncontrado(clienteEncontrado);
+                    clienteExistente = true; // Indica que el cliente ya existe
                 }
                 else
                 {
@@ -567,6 +573,7 @@ namespace EjemploABM
                     MessageBox.Show("No se encontró ningún cliente con el DNI proporcionado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Puedes agregar lógica adicional aquí, como limpiar los controles de interfaz, etc.
+                    clienteExistente = false; // El cliente no existe, se deberá crear
                 }
             }
             catch (Exception ex)
@@ -575,6 +582,9 @@ namespace EjemploABM
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
 
         private void btnCerrarVentana_Click(object sender, EventArgs e)
         {
