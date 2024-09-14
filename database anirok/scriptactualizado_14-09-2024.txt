@@ -1,0 +1,192 @@
+USE anirok2;
+
+-- Crear la tabla `categoria`
+CREATE TABLE dbo.categoria (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(45),
+  esta_activo VARCHAR(45)
+);
+
+-- Crear la tabla `subcategoria`
+CREATE TABLE dbo.subcategoria (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(45),
+  categoria_id INT,
+  esta_activo VARCHAR(45),
+  FOREIGN KEY (categoria_id) REFERENCES dbo.categoria(id)
+);
+
+-- Crear la tabla `producto`
+CREATE TABLE dbo.producto (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(45),
+  descripcion VARCHAR(45),
+  precio FLOAT,
+  codigo VARCHAR(45),    
+  img VARCHAR(45),
+  proveedor VARCHAR(45),
+  subcategoria_id INT,
+  categoria_id INT,
+  FOREIGN KEY (subcategoria_id) REFERENCES dbo.subcategoria(id),
+  FOREIGN KEY (categoria_id) REFERENCES dbo.categoria(id),
+  talle VARCHAR(45),
+  stock INT
+);
+
+-- Crear la tabla `cliente`
+CREATE TABLE dbo.cliente (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(45),
+  apellido VARCHAR(45),
+  mail VARCHAR(45),
+  telefono VARCHAR(45),
+  direccion VARCHAR(45),
+  dni VARCHAR(45)
+);
+
+-- Crear la tabla `usuario`
+CREATE TABLE dbo.usuario (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(45),
+  apellido VARCHAR(45),
+  mail VARCHAR(45),
+  telefono VARCHAR(45),
+  direccion VARCHAR(45),
+  dni VARCHAR(45),
+  contrasena VARCHAR(45),
+  rol INT
+);
+
+-- Crear la tabla `venta`
+CREATE TABLE dbo.venta (
+  id INT PRIMARY KEY,
+  precio_total FLOAT,
+  fecha DATE,
+  metodo_de_pago VARCHAR(45),
+  descuento FLOAT,
+  cliente_id INT,
+  usuario_id INT,
+  FOREIGN KEY (cliente_id) REFERENCES dbo.cliente(id),
+  FOREIGN KEY (usuario_id) REFERENCES dbo.usuario(id)
+);
+
+-- Crear la tabla `detalle_venta`
+CREATE TABLE dbo.detalle_venta (
+  cantidad INT,
+  venta_id INT,
+  producto_id INT,
+  FOREIGN KEY (venta_id) REFERENCES dbo.venta(id),
+  FOREIGN KEY (producto_id) REFERENCES dbo.producto(id)
+);
+
+-- Crear la tabla `usuario_urls`
+CREATE TABLE dbo.usuario_urls (
+  id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+  urlimg NVARCHAR(MAX) NULL,
+  urlpdf NVARCHAR(MAX) NULL,
+  usuario_id INT NOT NULL,
+  CONSTRAINT fk_usuario_urls_usuario
+    FOREIGN KEY (usuario_id)
+    REFERENCES dbo.usuario (id)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION
+);
+
+-- Insertar datos de ejemplo en la tabla `categoria`
+INSERT INTO dbo.categoria (id, nombre, esta_activo) VALUES 
+(1, 'Mochilas', 'Activa'),
+(2, 'Set Materos', 'Activa'),
+(3, 'Bufandas', 'Activa'),
+(4, 'Cartucheras', 'Activa'),
+(5, 'Comics', 'Activa'),
+(6, 'Figuras', 'Activa'),
+(7, 'Peluches', 'Activa');
+
+-- Insertar datos de ejemplo en la tabla `subcategoria`
+INSERT INTO dbo.subcategoria (id, nombre, categoria_id, esta_activo) VALUES 
+(1, 'Chiquitos', 1, 'Activa'),
+(2, 'Grandes', 1, 'Activa'),
+(3, 'No tiene', 1, 'Activa'),
+(4, 'Con Mate', 2, 'Activa'),
+(5, 'Sin Mate', 2, 'Activa'),
+(6, 'No tiene', 2, 'Activa'),
+(7, 'Largas', 3, 'Activa'),
+(8, 'Cortas', 3, 'Activa'),
+(9, 'No tiene', 3, 'Activa'),
+(10, 'Estuches', 4, 'Activa'),
+(11, 'No tiene', 4, 'Activa'),
+(12, 'No tiene', 4, 'Activa'),
+(13, 'Marvel', 5, 'Activa'),
+(14, 'DC', 5, 'Activa'),
+(15, 'No tiene', 5, 'Activa'),
+(16, 'Personajes', 6, 'Activa'),
+(17, 'Animales', 6, 'Activa'),
+(18, 'No tiene', 6, 'Activa'),
+(19, 'Chiquitos', 7, 'Activa'),
+(20, 'Grandes', 7, 'Activa'),
+(21, 'No tiene', 7, 'Activa');
+
+-- Insertar datos de ejemplo en la tabla `producto`
+INSERT INTO dbo.producto (id, nombre, descripcion, precio, codigo, img, proveedor, subcategoria_id, categoria_id, talle, stock) VALUES 
+(1, 'Mochila Stitch', 'es un muñeco generico', 10000, '2345234567', '1.jpg', 'Bandai', 1, 1, 'No tiene', 10),
+(2, 'Mochila Pikachu', 'es un muñeco generico', 12000, '2345234568', '2.jpg', 'Bandai', 1, 1, 'No tiene', 15),
+(3, 'Mochila Bob esponja', 'es un muñeco generico', 8000, '2345234569', '3.jpg', 'Bandai', 1, 1, 'No tiene', 20),
+(4, 'Mochila Batman', 'es un muñeco generico', 15000, '2345234570', '4.jpg', 'Bandai', 1, 1, 'No tiene', 12),
+(5, 'Mochila Marvel', 'es un muñeco generico', 9000, '2345234571', '5.jpg', 'Bandai', 1, 1, 'No tiene', 8),
+(6, 'Mochila Star wars', 'es un muñeco generico', 11000, '2345234572', '6.jpg', 'Bandai', 1, 1, 'No tiene', 25),
+(7, 'Mochila HP', 'es un muñeco generico', 13000, '2345234573', '7.jpg', 'Bandai', 1, 1, 'No tiene', 18),
+(8, 'Mochila Marvel', 'es un muñeco generico', 10000, '2345234574', '8.jpg', 'Bandai', 1, 1, 'No tiene', 10),
+(9, 'Mochila Akatsuki', 'es un muñeco generico', 12000, '2345234575', '9.jpg', 'Bandai', 1, 1, 'No tiene', 15),
+(10, 'Set matero Mandalorian', 'es un muñeco generico', 8000, '2345234576', '10.jpg', 'Set Mania', 4, 2, 'No tiene', 20),
+(11, 'Set matero Breaking Bad', 'es un muñeco generico', 15000, '2345234577', '11.jpg', 'Set Mania', 4, 2, 'No tiene', 12),
+(12, 'Set matero Penniwiese', 'es un muñeco generico', 9000, '2345234578', '12.jpg', 'Set Mania', 4, 2, 'No tiene', 8),
+(13, 'Set matero Akatsuki', 'es un muñeco generico', 11000, '2345234579', '13.jpg', 'Set Mania', 4, 2, 'No tiene', 25),
+(14, 'Bufanda Huflepuff', 'es un muñeco generico', 13000, '2345234580', '14.jpg', 'Bandai', 7, 3, 'No tiene', 18),
+(15, 'Bufanda Ravenclaw letras', 'es un muñeco generico', 10000, '2345234581', '15.jpg', 'Bandai', 7, 3, 'No tiene', 10),
+(16, 'Bufanda Ravenclaw linea', 'es un muñeco generico', 12000, '2345234582', '16.jpg', 'Bandai', 7, 3, 'No tiene', 15),
+(17, 'Cartuchera Banana fish', 'es un muñeco generico', 13000, '2345234587', '21.jpg', 'Bandai', 10, 4, 'No tiene', 18),
+(18, 'Cartuchera Batman', 'es un muñeco generico', 10000, '2345234588', '22.jpg', 'Bandai', 10, 4, 'No tiene', 10),
+(19, 'Cartuchera Chainsaw', 'es un muñeco generico', 12000, '2345234589', '23.jpg', 'Bandai', 10, 4, 'No tiene', 15),
+(20, 'Cartuchera Goku', 'es un muñeco generico', 8000, '2345234590', '24.jpg', 'Bandai', 10, 4, 'No tiene', 20),
+(21, 'Cartuchera Mandalorian', 'es un muñeco generico', 9000, '2345234591', '25.jpg', 'Bandai', 10, 4, 'No tiene', 8),
+(22, 'Comic Manga', 'es un muñeco generico', 15000, '2345234592', '26.jpg', 'Manga Studio', 13, 5, 'No tiene', 12),
+(23, 'Comic Marvel', 'es un muñeco generico', 11000, '2345234593', '27.jpg', 'Marvel Studio', 13, 5, 'No tiene', 25),
+(24, 'Comic DC', 'es un muñeco generico', 13000, '2345234594', '28.jpg', 'DC Studio', 13, 5, 'No tiene', 18),
+(25, 'Comic Shonen', 'es un muñeco generico', 10000, '2345234595', '29.jpg', 'Shonen Studio', 13, 5, 'No tiene', 10),
+(26, 'Comic Manga', 'es un muñeco generico', 12000, '2345234596', '30.jpg', 'Manga Studio', 13, 5, 'No tiene', 15),
+(27, 'Figura Star wars', 'es un muñeco generico', 8000, '2345234597', '31.jpg', 'Bandai', 16, 6, 'No tiene', 20),
+(28, 'Figura Batman', 'es un muñeco generico', 12000, '2345234598', '32.jpg', 'Bandai', 16, 6, 'No tiene', 15),
+(29, 'Figura Akatsuki', 'es un muñeco generico', 10000, '2345234599', '33.jpg', 'Bandai', 16, 6, 'No tiene', 10),
+(30, 'Figura Goku', 'es un muñeco generico', 15000, '2345234600', '34.jpg', 'Bandai', 16, 6, 'No tiene', 12),
+(31, 'Figura Chainsaw', 'es un muñeco generico', 13000, '2345234601', '35.jpg', 'Bandai', 16, 6, 'No tiene', 25),
+(32, 'Peluche Pikachu', 'es un muñeco generico', 8000, '2345234602', '36.jpg', 'Bandai', 19, 7, 'No tiene', 10),
+(33, 'Peluche Stitch', 'es un muñeco generico', 12000, '2345234603', '37.jpg', 'Bandai', 19, 7, 'No tiene', 15),
+(34, 'Peluche Star wars', 'es un muñeco generico', 10000, '2345234604', '38.jpg', 'Bandai', 19, 7, 'No tiene', 20),
+(35, 'Peluche Goku', 'es un muñeco generico', 13000, '2345234605', '39.jpg', 'Bandai', 19, 7, 'No tiene', 18),
+(36, 'Peluche Chainsaw', 'es un muñeco generico', 9000, '2345234606', '40.jpg', 'Bandai', 19, 7, 'No tiene', 8);
+
+-- Insertar datos de ejemplo en la tabla `cliente`
+INSERT INTO dbo.cliente (id, nombre, apellido, mail, telefono, direccion, dni) VALUES 
+(1, 'Juan', 'Pérez', 'juan.perez@example.com', '123456789', 'Calle Falsa 123', '12345678'),
+(2, 'Ana', 'Gómez', 'ana.gomez@example.com', '987654321', 'Avenida Siempre Viva 456', '87654321');
+
+-- Insertar datos de ejemplo en la tabla `usuario`
+INSERT INTO dbo.usuario (id, nombre, apellido, mail, telefono, direccion, dni, contrasena, rol) VALUES 
+(1, 'Carlos', 'López', 'carlos.lopez@example.com', '111223344', 'Calle Principal 789', '23456789', 'password123', 1),
+(2, 'María', 'Rodríguez', 'maria.rodriguez@example.com', '556677889', 'Avenida Libertador 101', '98765432', 'password456', 2);
+
+-- Insertar datos de ejemplo en la tabla `venta`
+INSERT INTO dbo.venta (id, precio_total, fecha, metodo_de_pago, descuento, cliente_id, usuario_id) VALUES 
+(1, 50000, '2024-09-10', 'Tarjeta', 10, 1, 1),
+(2, 30000, '2024-09-11', 'Efectivo', 5, 2, 2);
+
+-- Insertar datos de ejemplo en la tabla `detalle_venta`
+INSERT INTO dbo.detalle_venta (cantidad, venta_id, producto_id) VALUES 
+(2, 1, 1),
+(1, 1, 2),
+(3, 2, 10),
+(1, 2, 11);
+
+-- Insertar URLs en la tabla `usuario_urls` para el usuario con 
+INSERT INTO dbo.usuario_urls (id,urlimg, urlpdf, usuario_id) VALUES 
+(1,'C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\img','C:\Users\Usuario\Documents\GitHub\Plataformas_de_desarrollo_2023\Anirok\EjemploABM\Recursos\pdf_ventas', 1);
