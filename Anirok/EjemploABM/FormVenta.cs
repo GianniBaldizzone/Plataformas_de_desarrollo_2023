@@ -45,6 +45,14 @@ namespace EjemploABM
             txt_descuento.Text = $"{descuento:N2}";
         }
 
+        private void CargarMetodosDePago()
+        {
+            combobox_metododepago.Items.Add("Efectivo");
+            combobox_metododepago.Items.Add("Tarjeta");
+            combobox_metododepago.Items.Add("Transferencia");
+            combobox_metododepago.SelectedIndex = 0; // Selecciona la primera opción por defecto
+        }
+
         private void TxtBusqueda_TextChanged(object sender, EventArgs e)
         {
             FiltrarProductosPorNombre(txtBusqueda.Text);
@@ -389,37 +397,53 @@ namespace EjemploABM
                     return; // Sale del método si hay campos vacíos
                 }
 
+                int clienteId;
+
                 // Si el cliente no existe, lo creamos
                 if (!clienteExistente)
                 {
-                    // Validar que el DNI no exista previamente (no es necesario en este caso porque ya lo validamos antes)
                     if (Cliente_Controller.ExisteClienteConDNI(dni))
                     {
                         MessageBox.Show("Ya existe un cliente con el mismo DNI.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return; // Sale del método si ya existe un cliente con el mismo DNI
                     }
 
-                    // Crea el cliente
                     Cliente nuevoCliente = new Cliente(0, nombre, apellido, mail, telefono, direccion, dni);
-
-                    // Guarda el nuevo cliente en la base de datos
                     Cliente_Controller.crearCliente(nuevoCliente);
+                    clienteId = Cliente_Controller.buscarPorDni(dni).Id;
 
                     MessageBox.Show("Cliente creado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else
+                {
+                    clienteId = Cliente_Controller.buscarPorDni(dni).Id;
+                }
 
-                // Genera el PDF
+                // Datos de la venta
+                float precioTotal = float.Parse(txt_total.Text.Replace("Total: $", "").Trim()); // Convertir a decimal
+                DateTime fecha = DateTime.Now; // Fecha actual
+                string metodoDePago = combobox_metododepago.SelectedItem.ToString(); // Obtener método de pago
+                float descuento = float.Parse(txt_descuento.Text); // Convertir a decimal
+
+                int usuarioId = Program.logueado.Id;
+
+                Venta nuevaVenta = new Venta
+                {
+                    PrecioTotal = precioTotal,
+                    Fecha = fecha,
+                    MetodoDePago = metodoDePago,
+                    Descuento = descuento,
+                    ClienteId = clienteId,
+                    UsuarioId = usuarioId
+                };
+
+                Venta_Controller.CrearVenta(nuevaVenta);
                 GenerarPDFCliente(Cliente_Controller.buscarPorDni(dni), productosEnCarrito);
-
-                // Muestra un mensaje de éxito
                 MessageBox.Show("La venta se ha generado y el PDF se ha creado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Cierra el formulario
                 this.Close();
             }
             catch (Exception ex)
             {
-                // Muestra un mensaje de error si algo sale mal
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -607,6 +631,8 @@ namespace EjemploABM
         {
             this.Close();
         }
+
+       
     }
 }
 
