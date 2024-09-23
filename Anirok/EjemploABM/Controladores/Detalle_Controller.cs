@@ -21,7 +21,7 @@ namespace EjemploABM.Controladores
                            ");";
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
-            cmd.Parameters.AddWithValue("@id", detalleVenta.Id);
+            cmd.Parameters.AddWithValue("@id", obtenerMaxId()+1);
             cmd.Parameters.AddWithValue("@cantidad", detalleVenta.Cantidad);
             cmd.Parameters.AddWithValue("@ventaId", detalleVenta.VentaId);
             cmd.Parameters.AddWithValue("@productoId", detalleVenta.ProductoId);
@@ -75,6 +75,32 @@ namespace EjemploABM.Controladores
             }
 
             return listaDetallesVenta;
+        }
+        public static int obtenerMaxId()
+        {
+            int MaxId = 0;
+            string query = "select max(id) from dbo.detalle_venta;";
+
+            SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
+
+            try
+            {
+                DB_Controller.connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    MaxId = reader.GetInt32(0);
+                }
+
+                reader.Close();
+                DB_Controller.connection.Close();
+                return MaxId;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
         }
 
         public static DetalleVenta ObtenerDetalleVentaPorId(int id)

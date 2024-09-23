@@ -25,7 +25,7 @@ namespace EjemploABM.Controladores
                            ");";
 
             SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
-            cmd.Parameters.AddWithValue("@id", venta.Id);
+            cmd.Parameters.AddWithValue("@id", obtenerMaxId()+1);
             cmd.Parameters.AddWithValue("@precioTotal", venta.PrecioTotal);
             cmd.Parameters.AddWithValue("@fecha", venta.Fecha);
             cmd.Parameters.AddWithValue("@metodoDePago", venta.MetodoDePago);
@@ -39,6 +39,32 @@ namespace EjemploABM.Controladores
                 cmd.ExecuteNonQuery();
                 DB_Controller.connection.Close();
                 return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+        }
+        public static int obtenerMaxId()
+        {
+            int MaxId = 0;
+            string query = "select max(id) from dbo.venta;";
+
+            SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
+
+            try
+            {
+                DB_Controller.connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    MaxId = reader.GetInt32(0);
+                }
+
+                reader.Close();
+                DB_Controller.connection.Close();
+                return MaxId;
             }
             catch (Exception ex)
             {

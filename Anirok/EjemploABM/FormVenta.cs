@@ -11,6 +11,7 @@ using iTextSharp.text;
 using System.IO;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
+using Microsoft.Extensions.Logging;
 
 
 namespace EjemploABM
@@ -438,6 +439,21 @@ namespace EjemploABM
                 };
 
                 Venta_Controller.CrearVenta(nuevaVenta);
+                foreach (Producto producto in productosEnCarrito)
+                {
+                    DetalleVenta detalleVenta = new DetalleVenta
+                    {
+                        Cantidad = producto.CantidadSeleccionada,
+                        VentaId = Venta_Controller.obtenerMaxId(),
+                        ProductoId = producto.Id
+                    };
+
+                    Detalle_Controller.CrearDetalleVenta(detalleVenta);
+
+                    // Actualizar el stock del producto
+                    Producto_Controller.ActualizarStock(producto.Id, producto.CantidadSeleccionada);
+                }
+
                 GenerarPDFCliente(Cliente_Controller.buscarPorDni(dni), productosEnCarrito);
                 MessageBox.Show("La venta se ha generado y el PDF se ha creado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

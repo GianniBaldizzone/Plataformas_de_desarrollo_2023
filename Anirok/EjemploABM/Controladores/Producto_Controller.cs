@@ -260,7 +260,26 @@ namespace EjemploABM.Controladores
             }
         }
 
+        public static bool ActualizarStock(int productoId, int cantidadVendida)
+        {
+            string query = "UPDATE dbo.producto SET stock = stock - @cantidadVendida WHERE id = @productoId;";
 
+            SqlCommand cmd = new SqlCommand(query, DB_Controller.connection);
+            cmd.Parameters.AddWithValue("@productoId", productoId);
+            cmd.Parameters.AddWithValue("@cantidadVendida", cantidadVendida);
+
+            try
+            {
+                DB_Controller.connection.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                DB_Controller.connection.Close();
+                return rowsAffected > 0; // Retorna true si se actualizó al menos una fila
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el stock: " + ex.Message);
+            }
+        }
 
 
     }
