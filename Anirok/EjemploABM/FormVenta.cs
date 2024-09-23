@@ -453,6 +453,7 @@ namespace EjemploABM
                     // Actualizar el stock del producto
                     Producto_Controller.ActualizarStock(producto.Id, producto.CantidadSeleccionada);
                 }
+                //falla porque falta el campo ID en la BD
 
                 GenerarPDFCliente(Cliente_Controller.buscarPorDni(dni), productosEnCarrito);
                 MessageBox.Show("La venta se ha generado y el PDF se ha creado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
